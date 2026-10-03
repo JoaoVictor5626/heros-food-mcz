@@ -53,6 +53,15 @@ a {
   color: inherit;
 }
 
+#tirar-underline {
+  text-decoration: none;
+}
+#tirar-underline-footer {
+  text-decoration: none;
+  color:inherit;
+  font-size: 1.2rem;
+}
+
 button, a {
   -webkit-tap-highlight-color: transparent;
 }
@@ -183,7 +192,7 @@ p {
 
 .button-whatsapp {
   color: #fff;
-  background: var(--green);
+  background: #25D366;
 }
 
 .text-link, .card-link {
@@ -260,11 +269,27 @@ p {
   color: #fff;
   font-weight: 700;
   text-decoration: none;
+  
+  /* Cria uma linha usando gradiente de fundo */
+  background-image: linear-gradient(var(--yellow), var(--yellow));
+  background-repeat: no-repeat;
+  
+  /* Define a espessura da linha (2px) e a posição (colada embaixo) */
+  background-size: 0% 2px;
+  background-position: left bottom;
+  
+  /* Adiciona a animação do background-size junto com as suas outras transições */
+  transition: background-size 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.main-nav a:hover, .main-nav a:focus-visible {
-  color: var(--red-900);
-  background: var(--yellow);
+.main-nav a:hover, 
+.main-nav a:focus-visible {
+  color: var(--yellow);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+  
+  /* Faz o background (linha) expandir da esquerda para a direita até 100% */
+  background-size: 100% 2px;
 }
 
 .header-cta {
@@ -384,14 +409,26 @@ p {
   font-size: 1.8rem;
   cursor: pointer;
   transform: translateY(-50%);
+  
+  /* Adicione estas 3 linhas para a centralização perfeita */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Ajuste fino opcional para alinhar a altura da linha da fonte */
+  line-height: 1; 
 }
 
 .carousel-prev {
   left: -.6rem;
+  /* Se a seta esquerda ainda parecer um pouco para o lado por conta da fonte, descomente abaixo: */
+  /* padding-right: 2px; */
 }
 
 .carousel-next {
   right: -.6rem;
+  /* Se a seta direita ainda parecer um pouco para o lado por conta da fonte, descomente abaixo: */
+  /* padding-left: 2px; */
 }
 
 .carousel-dots {
@@ -618,12 +655,25 @@ blockquote {
   gap: .65rem;
 }
 
-.delivery-disabled {
+.delivery {
   padding: .65rem 1rem;
   border-radius: .6rem;
-  color: #4c3f00;
-  background: #fff3a7;
   font-weight: 900;
+}
+
+.delivery-ifood{
+  color: #fff;
+  background: #EA1D2C;
+}
+
+.delivery-99food{
+  color: #000;
+  background: #FFDD00;
+}
+
+.delivery-rappi{
+  color: #fff;
+  background: #FF4940;
 }
 
 .events-grid {
@@ -892,6 +942,7 @@ blockquote {
   display: flex;
   align-items: flex-start;
   gap: .9rem;
+  transform: translateY(-10px);
 }
 
 .footer-brand img {
@@ -899,6 +950,52 @@ blockquote {
   height: 3.5rem;
   object-fit: cover;
   border-radius: 50%;
+}
+
+.links-rapidos a{
+  text-decoration: none;
+
+  /* Cria uma linha usando gradiente de fundo */
+  background-image: linear-gradient(var(--yellow), var(--yellow));
+  background-repeat: no-repeat;
+  
+  /* Define a espessura da linha (2px) e a posição (colada embaixo) */
+  background-size: 0% 2px;
+  background-position: left bottom;
+  
+  /* Adiciona a animação do background-size junto com as suas outras transições */
+  transition: background-size 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.links-rapidos a:hover{
+  /* color: var(--yellow);
+  text-decoration: underline;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease, box-shadow 0.3s ease; */
+
+  color: var(--yellow);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+  
+  /* Faz o background (linha) expandir da esquerda para a direita até 100% */
+  background-size: 100% 2px;
+}
+
+.siga-nos-icones{
+  display: flex;
+  gap: 1rem;
+  margin-top: .5rem;
+}
+
+.siga-nos-icone-instagram, .siga-nos-icone-whatsapp {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.siga-nos-icone-instagram:hover, .siga-nos-icone-whatsapp:hover { 
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .footer-bottom {
@@ -919,19 +1016,66 @@ blockquote {
 .floating-whatsapp {
   position: fixed;
   z-index: 900;
-  right: 1rem;
-  bottom: 1rem;
-  width: 3.4rem;
-  height: 3.4rem;
+  right: 2rem;
+  bottom: 2rem;
+  width: 3.8rem;
+  height: 3.8rem;
   display: grid;
   place-items: center;
-  border: 3px solid #fff;
+  /* border: 3px solid #fff; */
   border-radius: 50%;
   color: #fff;
-  background: var(--green);
+  background: #25D366;
   box-shadow: var(--shadow-lg);
   font-size: 1.1rem;
   text-decoration: none;
+
+  transform: scale(1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 2. Cria o elemento que vai pulsar (fica escondido atrás do botão) */
+.floating-whatsapp::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%; /* Garante que o pulso seja redondo como o botão */
+  background-color: #25D366; /* Verde padrão do WhatsApp (ajuste se usar variável) */
+  z-index: -1; /* Joga o pulso para trás do botão principal */
+  
+  /* Ativa a animação: nome, duração total, tipo, e loop infinito */
+  animation: pulsoVerde 2s ease-out infinite;
+}
+
+/* 3. Seus estados de hover existentes (ajustado para manter a compatibilidade) */
+.floating-whatsapp:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: var(--shadow-md);
+}
+
+/* 4. A regra que cria a mágica da animação */
+@keyframes pulsoVerde {
+  0% {
+    transform: scale(1);
+    opacity: 0.8; /* Começa visível e do mesmo tamanho do botão */
+  }
+  70% {
+    transform: scale(1.6); /* Se expande até 150% do tamanho */
+    opacity: 0; /* Vai sumindo suavemente até aqui */
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0; /* Fica invisível e parado no final para dar a pausa de ~2 segundos */
+  }
+}
+
+.floating-whatsapp:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease, box-shadow 0.5s ease;
 }
 
 .toast {
