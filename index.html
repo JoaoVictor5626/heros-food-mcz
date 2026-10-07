@@ -8,6 +8,10 @@
     <meta property="og:description" content="Conheça os destaques, o cardápio e as experiências da Heros Food Mcz.">
     <meta property="og:type" content="website">
     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://gstatic.com" crossorigin>
+<link href="https://googleapis.com" rel="stylesheet">
+
     <!-- TODO: adicionar og:url e og:image quando domínio e imagem oficial forem aprovados. -->
     <link rel="icon" type="image/svg+xml" href="assets/images/02_Brand_and_Venue/logomarca-heros-food-mcz-fundo-transparente.svg" sizes="32x32">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -31,8 +35,8 @@
         </button>
         <nav class="main-nav" id="menu-principal" aria-label="Navegação principal">
           <a href="#destaques">Destaques</a>
-          <a href="#cardapio">Cardápio</a>
           <a href="#historia">Nossa História</a>
+          <a href="#cardapio">Cardápio</a>
           <a href="#eventos">Eventos</a>
           <a href="#contato">Contato</a>
         </nav>
@@ -49,8 +53,8 @@
       <section class="hero" aria-labelledby="hero-title">
         <div class="container hero-grid">
           <div class="hero-copy">
-            <p class="eyebrow">Lanchonete temática em Maceió</p>
-            <h1 id="hero-title">Bem-vindo à<br><span>Heros Food Mcz!</span></h1>
+            <!-- <p class="eyebrow">Lanchonete temática em Maceió</p> -->
+            <h1 id="hero-title">Bem-vindo à<br><span>Heros Food Mcz</span></h1>
             <!-- TODO: validar o texto de apresentação com o cliente. -->
             <p>Sabores preparados para transformar a sua fome em uma experiência especial. Conheça nossos sanduíches artesanais, shawarmas, salgados, combos, bebidas especiais e muito mais.</p>
             <div class="hero-actions">
@@ -83,10 +87,10 @@
       <section class="section section-red" id="destaques" aria-labelledby="destaques-title">
         <div class="container">
           <div class="section-heading section-heading-light">
-            <p class="eyebrow">Favoritos da casa</p>
+            <!-- <p class="eyebrow">Favoritos da casa</p> -->
             <h2 id="destaques-title">Os Mais Pedidos</h2>
             <!-- TODO: validar subtítulo e produtos mais pedidos com o cliente. -->
-            <p>Sua fome encontrou um novo herói!</p>
+            <p id="sections-subtitles">Sua fome encontrou um novo herói!</p>
           </div>
           <div class="product-grid product-grid-featured">
             <article class="product-card">
@@ -133,22 +137,24 @@
             <!-- <span>Desde 2020, com sabor e criatividade</span> -->
           </div>
           <div class="story-copy">
-            <p class="eyebrow">Conheça nossa trajetória</p>
+            <!-- <p class="eyebrow">Conheça nossa trajetória</p> -->
             <h2 id="historia-title">A história por trás <span>dos nossos sabores</span></h2>
             <!-- TODO: validar toda a história com o cliente antes da publicação. -->
             <p>A <strong>Heros Food Mcz</strong> nasceu em Maceió com o propósito de oferecer alimentos saborosos, acessíveis e preparados com rapidez, unindo gastronomia e cultura geek em uma experiência diferente.</p>
             <p>O negócio começou durante o período da pandemia e foi construído com dedicação, criatividade e vontade de crescer. Desde então, a lanchonete vem ampliando suas opções e buscando proporcionar momentos especiais para seus clientes.</p>
             <p>Na Heros Food Mcz, unimos sabor e o melhor do universo geek. Criamos um espaço onde você saboreia lanches incríveis enquanto joga videogame, lê mangás e curte campeonatos. Mais do que uma refeição, cada detalhe aqui é feito para conectar comida boa, diversão e experiências inesquecíveis!</p>
           </div>
-          <blockquote>“Trabalhamos com rapidez e muito carinho na qualidade, buscando sempre o nosso espaço no seu coração.” <cite>— Texto provisório para validação</cite></blockquote>
+          <blockquote>“Trabalhamos com rapidez e muito carinho na qualidade, buscando sempre o nosso espaço no seu coração.” 
+            <cite>— Michel, dono da lanchonete</cite>
+          </blockquote>
         </div>
       </section>
       <section class="section section-red menu-section" id="cardapio" aria-labelledby="cardapio-title">
         <div class="container">
           <div class="section-heading section-heading-light">
-            <p class="eyebrow">Escolha sua próxima experiência</p>
+            <!-- <p class="eyebrow">Escolha sua próxima experiência</p> -->
             <h2 id="cardapio-title">Conheça nosso cardápio</h2>
-            <p>Os valores e a disponibilidade são consultados pelo WhatsApp.</p>
+            <p id="sections-subtitles">Os valores e a disponibilidade são consultados pelo WhatsApp.</p>
           </div>
           <div class="filters" role="group" aria-label="Filtrar produtos por categoria">
             <button class="filter-button is-active" type="button" data-filter="todos" aria-pressed="true">Todos</button>
@@ -260,7 +266,7 @@
             <div>
               <span class="eyebrow">Outros canais</span>
               <h3>Estamos também no delivery</h3>
-              <p>Os links oficiais ainda serão adicionados.</p>
+              <p>Faça seus pedidos também por essas plataformas.</p>
             </div>
             <div class="delivery-links" aria-label="Plataformas de delivery">
               <!-- TODO: substituir # pelos links oficiais confirmados. -->
@@ -280,7 +286,7 @@
       <section class="section events" id="eventos" aria-labelledby="eventos-title">
         <div class="container events-grid">
           <div>
-            <p class="eyebrow">Além do cardápio</p>
+            <!-- <p class="eyebrow">Além do cardápio</p> -->
             <h2 id="eventos-title">Também participamos <span>de eventos</span></h2>
             <!-- TODO: validar os serviços e a disponibilidade atual. -->
             <p>A Heros Food Mcz participa de eventos e desenvolve experiências que unem alimentação, entretenimento e cultura geek.</p>
@@ -362,7 +368,7 @@
           </figure>
           <div>
             <!-- <span class="status-badge">Ação sujeita a confirmação</span> -->
-            <p class="eyebrow" id="campaign-content">Responsabilidade social</p>
+            <!-- <p class="eyebrow" id="campaign-content">Responsabilidade social</p> -->
             <h2 id="campaign-title">Pequenas ações também <span>fazem a diferença!</span></h2>
             <!-- TODO: validar funcionamento, período, valor destinado e instituições beneficiadas. -->
             <p id="campaign-content">A Heros Food Mcz acredita que um negócio deve contribuir positivamente com a comunidade. Por isso, apoia iniciativas que promovem solidariedade e ajudam pessoas em situação de vulnerabilidade.</p>
@@ -377,9 +383,9 @@
       <section class="section testimonials" aria-labelledby="feedbacks-title">
         <div class="container">
           <div class="section-heading">
-            <p class="eyebrow">Prova social</p>
+            <!-- <p class="eyebrow">Prova social</p> -->
             <h2 id="feedbacks-title">Feedbacks</h2>
-            <p>O que nossos clientes dizem</p>
+            <p id="sections-subtitles">O que nossos clientes dizem</p>
           </div>
           <div class="testimonial-grid">
             <!-- TODO: substituir por avaliações reais e autorizadas, ocultando dados pessoais desnecessários. -->
@@ -422,7 +428,7 @@
       <section class="section contact" id="contato" aria-labelledby="contato-title">
         <div class="container contact-grid">
           <div>
-            <p class="eyebrow">Venha nos conhecer</p>
+            <!-- <p class="eyebrow">Venha nos conhecer</p> -->
             <h2 id="contato-title">Contato e localização</h2>
             <p>Encontre informações rápidas para falar conosco ou visitar a loja.</p>
           </div>
@@ -487,9 +493,9 @@
       </section>
       <section class="final-cta" aria-labelledby="pedido-title">
         <div class="container">
-          <p class="eyebrow">Seu próximo pedido começa aqui</p>
+          <!-- <p class="eyebrow">Seu próximo pedido começa aqui</p> -->
           <h2 id="pedido-title">Faça seu pedido pelo WhatsApp</h2>
-          <p>Estamos prontos para responder às suas dúvidas e ajudar você a escolher seu próximo pedido.</p>
+          <p id="sections-subtitles">Estamos prontos para responder às suas dúvidas e ajudar você a escolher seu próximo pedido.</p>
           <a class="button button-whatsapp whatsapp-link" href="#" data-message="Olá! Vim pelo site da Heros Food Mcz e gostaria de consultar o cardápio.">Fale conosco</a>
         </div>
       </section>
@@ -508,15 +514,15 @@
           </div>
         </div>
         <div class="links-rapidos">
-          <h2>Links rápidos</h2>
+          <h2 id="footer-h2">Links rápidos</h2>
           <a href="#destaques">Destaques</a>
-          <a href="#cardapio">Cardápio</a>
           <a href="#historia">Nossa História</a>
+          <a href="#cardapio">Cardápio</a>
           <a href="#eventos">Eventos</a>
           <a href="#contato">Contato</a>
         </div>
         <div>
-          <h2>Contato</h2>
+          <h2 id="footer-h2">Contato</h2>
           <p>
             <svg xmlns="http://w3.org" viewBox="0 0 448 512" style="width: 1em; height: 1em; fill: currentColor; vertical-align: middle;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
               +55 82 8120-4962
@@ -531,7 +537,7 @@
           </p>
         </div>
         <div>
-          <h2>Siga-nos</h2>
+          <h2 id="footer-h2">Siga-nos</h2>
           <div class="siga-nos-icones">
             <div class="siga-nos-icone-instagram">
               <a href="https://instagram.com/herosfoodmcz" target="_blank" rel="noopener noreferrer" title="Clique para acessar o Instagram da lanchonete">

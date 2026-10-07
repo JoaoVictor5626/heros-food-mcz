@@ -144,6 +144,51 @@ h1 {
   letter-spacing: -.04em;
 }
 
+#hero-title {
+  padding-bottom: 25px;
+  margin-top: -70px;
+  font-size: clamp(2.65rem, 4.5vw, 5.4rem);
+  /* white-space: nowrap; */
+}
+
+#destaques-title {
+  color: #fff;
+  padding-bottom: 10px;
+}
+
+#historia-title {
+  padding-bottom: 25px;
+}
+
+#cardapio-title {
+  padding-bottom: 15px;
+}
+
+#eventos-title {
+  padding-bottom: 25px;
+}
+
+#campaign-title {
+  padding-bottom: 25px;
+}
+
+#feedbacks-title {
+  padding-bottom: 5px;
+}
+
+#contato-title {
+  padding-bottom: 15px;
+}
+
+#pedido-title {
+  padding-bottom: 15px;
+}
+
+#footer-h2 {
+  color: #fff;
+  text-shadow: none;
+} 
+
 h2 {
   margin-bottom: 1rem;
   font-size: clamp(2.15rem, 5vw, 3.75rem);
@@ -156,6 +201,21 @@ h3 {
 
 p {
   max-width: 68ch;
+  /* Alvo principal: Puxa o estilo arredondado nativo do sistema (Apple, Windows, Android) */
+  font-family: ui-rounded, 'Arial Rounded MT Bold', 'Segoe UI', sans-serif;
+  /* font-family: "Bradley Hand", "Comic Sans MS", cursive; */
+
+  /* Garante um aspecto sério através da formatação */
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #2d3748; 
+}
+
+#sections-subtitles {
+  font-family: "Segoe Print", "Bradley Hand", cursive;
+  font-size: 1.2rem; /* Deixa o texto maior e mais imponente */
+  
 }
 
 .button {
@@ -561,7 +621,7 @@ p {
 
 
 .section-heading {
-  margin: 0 auto 2.4rem;
+  margin: 0 auto 4rem;
   text-align: center;
 }
 
@@ -662,7 +722,7 @@ p {
   max-height: 35rem;
   object-fit: cover;
   border-radius: 2rem;
-  box-shadow: 0 0 35px 0px rgba(105, 0, 0, .80);
+  box-shadow: 0 0 25px 0px rgba(105, 0, 0, .70);
 }
 
 /* .story-visual span {
@@ -827,6 +887,7 @@ blockquote {
   border-radius: var(--radius-md);
   color: #fff;
   background: var(--red-800);
+  width: min(100% - 2rem, 600px); /* Largura máxima reduzida (exemplo: 600px) */
 }
 
 .event-cta p {
@@ -980,7 +1041,7 @@ blockquote {
   background: linear-gradient(rgba(233, 168, 2, 0.9), rgba(233, 167, 2, 0.9));
   font: italic 700 clamp(1.1rem, 3vw, 1.45rem)/1.55 var(--font-display);
 
-  box-shadow: 0 0 100px 5px #ffffff60;
+  box-shadow: 0 0 100px 5px #ffffff50;
 }
 
 .testimonials {
@@ -1120,6 +1181,7 @@ blockquote {
 
 .final-cta p {
   margin-inline: auto;
+  color: #fff2c2;
 }
 
 .final-cta .button {
@@ -1217,6 +1279,25 @@ blockquote {
   box-shadow: var(--shadow-sm);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+/* Efeito Hover para o Instagram */
+.siga-nos-icone-instagram a {
+    transition: color 0.3s ease; /* Deixa a mudança de cor suave */
+}
+
+.siga-nos-icone-instagram a:hover {
+    color: var(--yellow); /* Cor oficial do Instagram ao passar o mouse */
+}
+
+/* Efeito Hover para o WhatsApp */
+.siga-nos-icone-whatsapp a {
+    transition: color 0.3s ease; /* Deixa a mudança de cor suave */
+}
+
+.siga-nos-icone-whatsapp a:hover {
+    color: var(--yellow); /* Cor oficial do WhatsApp ao passar o mouse */
+}
+
 
 .footer-bottom {
   display: flex;
