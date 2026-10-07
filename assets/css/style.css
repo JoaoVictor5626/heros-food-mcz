@@ -251,6 +251,7 @@ p {
 .button-outline {
   color: var(--yellow);
   border-color: var(--yellow);
+  transition: 0.3s ease;
 }
 
 .button-outline:hover {
@@ -270,7 +271,7 @@ p {
   color: var(--red-800);
   font-weight: 800;
   text-underline-offset: .25em;
-  transition: background-size 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  transition: background-size 0.4s ease, 0.2s ease, box-shadow 0.3s ease;
 }
 .text-link:hover{
   color: var(--yellow);
@@ -326,6 +327,7 @@ p {
   padding: 1rem;
   background: var(--red-900);
   box-shadow: var(--shadow-lg);
+  transition: 0.3s ease;
 }
 
 .main-nav.is-open {
@@ -405,6 +407,33 @@ p {
   font-size: 1.08rem;
 }
 
+/* 📱 1. CONFIGURAÇÃO EXCLUSIVA PARA CELULARES (Telas bem pequenas até 480px) */
+@media (max-width: 480px) {
+  .hero-copy {
+    padding-top: 100px; /* Espaço menor para o título não sumir no celular */
+  }
+  
+  .hero {
+    padding: 3rem 0;
+    /* Ajusta o círculo amarelo para o formato vertical do celular */
+    background: radial-gradient(circle at 50% 75%, #ffd55770, rgba(255,244,210,0) 55%), #fff;
+  }
+}
+
+/* 慶 2. CONFIGURAÇÃO EXCLUSIVA PARA TABLETS (Telas entre 481px e 768px, como iPads) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .hero-copy {
+    padding-top: 100px; /* O valor de 100px que você gostou para o tablet */
+  }
+  
+  .hero {
+    padding: clamp(4rem, 9vw, 7rem) 0;
+    /* Mantém o degradê na posição que funcionou no tablet */
+    background: radial-gradient(circle at 50% 50%, #ffd55770, rgba(255,244,210,0) 41%), #fff;
+  }
+}
+
+
 .hero-copy h1 span {
   color: var(--red-800);
 }
@@ -415,6 +444,17 @@ p {
   align-items: center;
   gap: 1.1rem;
   margin-top: 2rem;
+}
+
+/* Seleciona o span normal dentro do link do WhatsApp */
+.hero-actions .whatsapp-link span {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+/* Quando passa o mouse no LINK, a SETA se move para a direita */
+.hero-actions .whatsapp-link:hover span {
+  transform: translateX(3px); /* Move para a direita */
 }
 
 .hero-carousel {
@@ -651,7 +691,7 @@ p {
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
-  transition: transform var(--transition), box-shadow var(--transition);
+  transition: transform var(--transition), box-shadow var(--transition), transform 0.6s ease;
 }
 
 .product-card:hover, .product-card:focus-within {
@@ -666,6 +706,19 @@ p {
   aspect-ratio: 4/3;
   object-fit: cover;
   background: #eee8e3;
+  transition: transform 0.3s ease; /* Deixa o movimento suave */
+}
+.product-card img:hover, .image-placeholder:hover {
+  transform: scale(1.02);
+}
+
+.product-card a {
+  display: inline-block; /* Necessário para o movimento funcionar corretamente */
+  transition: transform 0.3s ease; /* Deixa o movimento suave */
+}
+
+.product-card a:hover{
+  transform: translateX(5px); /* Move o link 15 pixels para a direita */
 }
 
 .image-placeholder {
@@ -703,7 +756,24 @@ p {
 
 .story {
   /* background: radial-gradient(circle at 30% 30%, rgba(105, 0, 0, 0.71) 0, rgba(255,244,210,0) 31%), #fff; */
-  background: radial-gradient(circle at 30% 30%, rgba(188, 28, 28, 0.300) 0, rgba(255,244,210,0) 41%), #fff;
+  background: radial-gradient(circle at 30% 40%, rgba(188, 28, 28, 0.300) 0, rgba(255,244,210,0) 41%), #fff;
+}
+
+/* 📱 1. CONFIGURAÇÃO EXCLUSIVA PARA CELULARES (Telas bem pequenas até 480px) */
+@media (max-width: 480px) {
+  .story {
+    /* Ajusta o círculo amarelo para o formato vertical do celular */
+    background: radial-gradient(circle at 30% 20%, rgba(188, 28, 28, 0.300) 0, rgba(255,244,210,0) 41%), #fff;
+  }
+}
+
+/* 慶 2. CONFIGURAÇÃO EXCLUSIVA PARA TABLETS (Telas entre 481px e 768px, como iPads) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .story {
+    
+    /* Mantém o degradê na posição que funcionou no tablet */
+    background: radial-gradient(circle at 30% 40%, rgba(188, 28, 28, 0.300) 0, rgba(255,244,210,0) 41%), #fff;
+  }
 }
 
 .story-grid {
@@ -725,6 +795,12 @@ p {
   box-shadow: 0 0 25px 0px rgba(105, 0, 0, .70);
 }
 
+@media (max-width: 480px) {
+  .story-visual img {
+    /* Ajusta o círculo amarelo para o formato vertical do celular */
+    margin-bottom: 50px;
+  }
+}
 /* .story-visual span {
   position: absolute;
   right: 1rem;
@@ -774,17 +850,19 @@ blockquote {
 }
 
 .filter-button {
+  margin-top: 10px;
+  margin-left: 7px;
   flex: 0 0 auto;
   min-height: 2.75rem;
   padding: .55rem 1rem;
   border: 2px solid rgba(255,255,255,.62);
   border-radius: var(--radius-pill);
   color: #fff;
-  background: transparent;
+  /* background: transparent; */
+  background: var(--red-800);
   font-weight: 800;
   cursor: pointer;
-
-  background: var(--red-800);
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 .filter-button:hover, .filter-button.is-active {
@@ -834,36 +912,39 @@ blockquote {
 .delivery-ifood{
   color: #fff;
   background: #EA1D2C;
+  transition: transform 0.5s ease;
 }
 
 .delivery-ifood:hover {
   background: #ff3b4a;
-  transition: all 0.3s ease;
-  transform: translateY(-2px);
+  transition: all 0.5s ease;
+  transform: translateY(-3px);
   box-shadow: var(--shadow-md);
 }
 
 .delivery-99food{
   color: #000;
   background: #FFDD00;
+  transition: transform 0.5s ease;
 }
 
 .delivery-99food:hover {
   background: #ffeb3b;
-  transition: all 0.3s ease;
-  transform: translateY(-2px);
+  transition: all 0.5s ease;
+  transform: translateY(-3px);
   box-shadow: var(--shadow-md);
 }
 
 .delivery-rappi{
   color: #fff;
   background: #FF4940;
+  transition: transform 0.5s ease;
 }
 
 .delivery-rappi:hover {
   background: #ff6b5c;
-  transition: all 0.3s ease;
-  transform: translateY(-2px);
+  transition: all 0.5s ease;
+  transform: translateY(-3px);
   box-shadow: var(--shadow-md);
 }
 
@@ -1246,7 +1327,7 @@ blockquote {
   background-position: left bottom;
   
   /* Adiciona a animação do background-size junto com as suas outras transições */
-  transition: background-size 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  transition: background-size 0.4s ease, 0.3s ease, box-shadow 0.3s ease;
 }
 
 .links-rapidos a:hover{
