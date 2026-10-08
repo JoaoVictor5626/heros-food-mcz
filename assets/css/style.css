@@ -191,7 +191,7 @@ h1 {
 
 h2 {
   margin-bottom: 1rem;
-  font-size: clamp(2.15rem, 5vw, 3.75rem);
+  font-size: clamp(2.15rem, 5vw, 3.65rem);
   letter-spacing: -.025em;
 }
 
@@ -215,7 +215,7 @@ p {
 #sections-subtitles {
   font-family: "Segoe Print", "Bradley Hand", cursive;
   font-size: 1.2rem; /* Deixa o texto maior e mais imponente */
-  
+  margin-bottom: 2.5rem;
 }
 
 .button {
@@ -1052,20 +1052,23 @@ blockquote {
 }
 
 .campaign {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-                url('/assets/images/02_Brand_and_Venue/fundo-do-doa-faz-parte.png') center / cover no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                url('/assets/images/02_Brand_and_Venue/fundo-do-doa-faz-parte-redimensionado.jpg') center / cover no-repeat;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
+
 #campaign-title, #campaign-content{
   color: #fff;
 }
+
 #campaign-title span{
   color: var(--yellow);
 }
+
 .campaign-grid {
-  display: grid;
+  display: flex;
   align-items: center;
   gap: 3rem;
 }
@@ -1119,7 +1122,7 @@ blockquote {
   padding: 1.6rem;
   border-radius: var(--radius-md);
   color: #fff;
-  background: linear-gradient(rgba(233, 168, 2, 0.9), rgba(233, 167, 2, 0.9));
+  background: linear-gradient(rgba(238, 179, 28, 0.9), rgba(233, 167, 2, 0.9));
   font: italic 700 clamp(1.1rem, 3vw, 1.45rem)/1.55 var(--font-display);
 
   box-shadow: 0 0 100px 5px #ffffff50;
@@ -1154,7 +1157,7 @@ blockquote {
 }
 
 .testimonial-card p{
-  font-size: 18px;
+  font-size: 17px;
 }
 .review-head {
   display: flex;
