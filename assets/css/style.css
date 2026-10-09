@@ -185,6 +185,7 @@ h1 {
 }
 
 #footer-h2 {
+  font-family: ui-rounded, 'Arial Rounded MT Bold', 'Segoe UI', sans-serif;
   color: #fff;
   text-shadow: none;
 } 
@@ -279,6 +280,7 @@ p {
 
 .card-link {
   color: var(--red-700);
+  margin-top: 10px;
 }
 
 .site-header {
@@ -335,6 +337,7 @@ p {
 }
 
 .main-nav a {
+  font-family: ui-rounded, 'Arial Rounded MT Bold', 'Segoe UI', sans-serif;
   min-height: 3rem;
   display: flex;
   align-items: center;
@@ -1052,7 +1055,7 @@ blockquote {
 }
 
 .campaign {
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
                 url('/assets/images/02_Brand_and_Venue/fundo-do-doa-faz-parte-redimensionado.jpg') center / cover no-repeat;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1297,6 +1300,7 @@ blockquote {
 }
 
 .footer-grid p {
+  font-family: ui-rounded, 'Arial Rounded MT Bold', 'Segoe UI', sans-serif;
   margin-bottom: .5rem;
   color: #e4c9c9;
   font-size: .9rem;
@@ -1319,6 +1323,7 @@ blockquote {
 }
 
 .links-rapidos a{
+  font-family: ui-rounded, 'Arial Rounded MT Bold', 'Segoe UI', sans-serif;
   text-decoration: none;
 
   /* Cria uma linha usando gradiente de fundo */
