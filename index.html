@@ -11,7 +11,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com" rel="stylesheet">
-
     <!-- TODO: adicionar og:url e og:image quando domínio e imagem oficial forem aprovados. -->
     <link rel="icon" type="image/svg+xml" href="assets/images/02_Brand_and_Venue/logomarca-heros-food-mcz-fundo-transparente.svg" sizes="32x32">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -35,7 +34,7 @@
         </button>
         <nav class="main-nav" id="menu-principal" aria-label="Navegação principal">
           <a href="#destaques">Destaques</a>
-          <a href="#historia">Quem somos</a>
+          <a href="#historia">Nossa história</a>
           <a href="#cardapio">Cardápio</a>
           <a href="#eventos">Eventos</a>
           <a href="#contato">Contato</a>
@@ -94,12 +93,12 @@
             <!-- TODO: validar subtítulo e produtos mais pedidos com o cliente. -->
             <p id="sections-subtitles">Sua fome encontrou um novo herói!</p>
           </div>
-          <div class="product-grid product-grid-featured">
+          <div class="product-grid product-grid-featured" id="mais-pedidos">
             <article class="product-card">
               <img src="assets/images/01_Food_and_Drinks/x-bacon.png" alt="X-Bacon com alface, tomate, queijo e bacon" width="522" height="606" loading="lazy">
               <div class="card-body">
                 <h3>X-Bacon</h3>
-                <p>Hambúrguer, bacon, presunto, queijo, milho, batata palha, alface e tomate. Finalizado com molho smash.</p>
+                <p>Hambúrguer, bacon, presunto, queijo, milho, batata palha, alface e tomate no pão de hambúrguer. Finalizado com molho smash.</p>
                 <a class="card-link whatsapp-link" href="#" data-message="Olá! Gostaria de consultar o X-Bacon." id="tirar-underline">
                   Consultar produto
                   <svg xmlns="http://w3.org" viewBox="0 0 448 512" style="width: 1em; height: 1em; fill: currentColor; vertical-align: middle;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
@@ -110,7 +109,7 @@
               <img src="assets/images/01_Food_and_Drinks/x-calabresa.png" alt="X-Calabresa com carne, queijo e calabresa" width="534" height="606" loading="lazy">
               <div class="card-body">
                 <h3>X-Calabresa</h3>
-                <p>Hambúrguer, calabresa, presunto, queijo, azeitona verde fatiada, alface e tomate. Finalizado com molho americano.</p>
+                <p>Hambúrguer, calabresa, presunto, queijo, azeitona verde fatiada, alface e tomate no pão de hambúrguer. Finalizado com molho americano.</p>
                 <a class="card-link whatsapp-link" href="#" data-message="Olá! Gostaria de consultar o X-Calabresa." id="tirar-underline">
                   Consultar produto
                   <svg xmlns="http://w3.org" viewBox="0 0 448 512" style="width: 1em; height: 1em; fill: currentColor; vertical-align: middle;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
@@ -160,19 +159,85 @@
           </div>
           <div class="filters" role="group" aria-label="Filtrar produtos por categoria">
             <button class="filter-button is-active" type="button" data-filter="todos" aria-pressed="true">Todos</button>
+            <button class="filter-button" type="button" data-filter="combos" aria-pressed="false">Combos</button>
             <button class="filter-button" type="button" data-filter="sanduiches" aria-pressed="false">Sanduíches</button>
-            <button class="filter-button" type="button" data-filter="bebidas" aria-pressed="false">Bebidas especiais</button>
-            <button class="filter-button" type="button" data-filter="acai" aria-pressed="false">Açaí</button>
+            <button class="filter-button" type="button" data-filter="wraps" aria-pressed="false">Wraps</button>
+            <button class="filter-button" type="button" data-filter="frappuccinos" aria-pressed="false">Frappuccinos</button>
+            <button class="filter-button" type="button" data-filter="sobremesas" aria-pressed="false">Sobremesas</button>
+            <button class="filter-button" type="button" data-filter="sodas" aria-pressed="false">Sodas Italianas</button>
             <button class="filter-button" type="button" data-filter="outros" aria-pressed="false">Outros</button>
           </div>
-          <!-- TODO: conferir nomes, categorias, ingredientes e fotografias no cardápio atualizado. -->
           <div class="product-grid menu-grid" aria-live="polite">
+            <!-- TODO: MUDAR OS "alt" E OS "data-message" DOS LINKS QUE ESTIVEREM COM AS MENSAGENS ERRADAS EM RELAÇÃO AO CARD.-->
+            <!-- Combos -->
+            <article class="product-card menu-item" data-category="combos">
+              <img src="assets/images/01_Food_and_Drinks/01_Combos_mais_pedidos!/combo-heros-chicken-especial.jpg" alt="Combo Heros chicken especial" width="522" height="606" loading="lazy">
+              <div class="card-body">
+                <span class="card-kicker">Combos mais pedidos!</span>
+                <h3>Heros chicken especial</h3>
+                <p>2 Sanduíches na tortilha (frango em cubos, bacon, presunto, queijo, milho, batata palha, alface, tomate e maionese de gorgonzola) + 1 Refrigerante em lata.</p>
+                <a class="card-link whatsapp-link" href="#" data-message="Olá! Gostaria de consultar o X-Bacon." id="tirar-underline">
+                  Consultar
+                  <svg xmlns="http://w3.org" viewBox="0 0 448 512" style="width: 1em; height: 1em; fill: currentColor; vertical-align: middle;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                </a>
+              </div>
+            </article>
+            <article class="product-card menu-item" data-category="combos">
+              <img src="assets/images/01_Food_and_Drinks/01_Combos_mais_pedidos!/combo-liga-da-justiça-(1-sanduíche-salgado+1-sanduíche-doce-e-1-shake-de-choco).jpg" alt="Combo Liga da Justiça" width="522" height="606" loading="lazy">
+              <div class="card-body">
+                <span class="card-kicker">Combos mais pedidos!</span>
+                <h3>Liga da Justiça</h3>
+                <p>1 Tortilha de Frango (frango, bacon, presunto, queijo, milho, batata palha, alface, tomate, gergelim e molho smash) + 1 Sanduíche Doce (banana, creme de avelã e Ovomaltine) + 1 Frapuccino de Chocolate (330ml).</p>
+                <a class="card-link whatsapp-link" href="#" data-message="Olá! Gostaria de consultar o X-Bacon." id="tirar-underline">
+                  Consultar
+                  <svg xmlns="http://w3.org" viewBox="0 0 448 512" style="width: 1em; height: 1em; fill: currentColor; vertical-align: middle;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                </a>
+              </div>
+            </article>
+            <article class="product-card menu-item" data-category="combos">
+              <img src="assets/images/01_Food_and_Drinks/01_Combos_mais_pedidos!/combo-salada-(salada-ceasar+coca-cola-zero-lata).jpg" alt="Combo Salada" width="522" height="606" loading="lazy">
+              <div class="card-body">
+                <span class="card-kicker">Combos mais pedidos!</span>
+                <h3>Salada</h3>
+                <p>Salada Caesar (frango desfiado, bacon, queijo mozarela, queijo parmesão, batata palha e molho de queijo) + 1 Coca-Cola Zero em lata.</p>
+                <a class="card-link whatsapp-link" href="#" data-message="Olá! Gostaria de consultar o X-Bacon." id="tirar-underline">
+                  Consultar
+                  <svg xmlns="http://w3.org" viewBox="0 0 448 512" style="width: 1em; height: 1em; fill: currentColor; vertical-align: middle;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                </a>
+              </div>
+            </article>
+            <article class="product-card menu-item" data-category="combos">
+              <img src="assets/images/01_Food_and_Drinks/01_Combos_mais_pedidos!/combo-trio-burger-especial.jpg" alt="Combo Trio Burger Especial" width="522" height="606" loading="lazy">
+              <div class="card-body">
+                <span class="card-kicker">Combos mais pedidos!</span>
+                <h3>Trio Burger Especial</h3>
+                <p>2 Sanduíches na tortilha (1 de hambúrguer com calabresa e bacon / 1 de calabresa com azeitona verde. Ambos com presunto, queijo, alface, tomate e molho smash) + 1 Guaraná em lata (340ml).</p>
+                <a class="card-link whatsapp-link" href="#" data-message="Olá! Gostaria de consultar o X-Bacon." id="tirar-underline">
+                  Consultar
+                  <svg xmlns="http://w3.org" viewBox="0 0 448 512" style="width: 1em; height: 1em; fill: currentColor; vertical-align: middle;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                </a>
+              </div>
+            </article>
+            <article class="product-card menu-item" data-category="combos">
+              <img src="assets/images/01_Food_and_Drinks/01_Combos_mais_pedidos!/combo-vingadores-(x-tudo+coca-lata).jpg" alt="Combo Vingadores" width="522" height="606" loading="lazy">
+              <div class="card-body">
+                <span class="card-kicker">Combos mais pedidos!</span>
+                <h3>Vingadores</h3>
+                <p>1 X-Tudo (hambúrguer, calabresa, frango, bacon, presunto, queijo mozarela, milho, batata palha, alface, tomate e molho smash) + 1 Coca-Cola em lata.</p>
+                <a class="card-link whatsapp-link" href="#" data-message="Olá! Gostaria de consultar o X-Bacon." id="tirar-underline">
+                  Consultar
+                  <svg xmlns="http://w3.org" viewBox="0 0 448 512" style="width: 1em; height: 1em; fill: currentColor; vertical-align: middle;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                </a>
+              </div>
+            </article>
+
+            <!-- Sanduíches -->
             <article class="product-card menu-item" data-category="sanduiches">
               <img src="assets/images/01_Food_and_Drinks/x-bacon.png" alt="X-Bacon" width="522" height="606" loading="lazy">
               <div class="card-body">
                 <span class="card-kicker">Sanduíches</span>
                 <h3>X-Bacon</h3>
-                <p>Hambúrguer, bacon, presunto, queijo, milho, batata palha, alface e tomate. Finalizado com molho smash.</p>
+                <p>Hambúrguer, bacon, presunto, queijo, milho, batata palha, alface e tomate no pão de hambúrguer. Finalizado com molho smash.</p>
                 <a class="card-link whatsapp-link" href="#" data-message="Olá! Gostaria de consultar o X-Bacon." id="tirar-underline">
                   Consultar
                   <svg xmlns="http://w3.org" viewBox="0 0 448 512" style="width: 1em; height: 1em; fill: currentColor; vertical-align: middle;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
@@ -184,7 +249,7 @@
               <div class="card-body">
                 <span class="card-kicker">Sanduíches</span>
                 <h3>X-Calabresa</h3>
-                <p>Hambúrguer, calabresa, presunto, queijo, azeitona verde fatiada, alface e tomate. Finalizado com molho americano.</p>
+                <p>Hambúrguer, calabresa, presunto, queijo, azeitona verde fatiada, alface e tomate no pão de hambúrguer. Finalizado com molho americano.</p>
                 <a class="card-link whatsapp-link" href="#" data-message="Olá! Gostaria de consultar o X-Calabresa." id="tirar-underline">
                   Consultar
                   <svg xmlns="http://w3.org" viewBox="0 0 448 512" style="width: 1em; height: 1em; fill: currentColor; vertical-align: middle;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
@@ -204,74 +269,301 @@
               </div>
             </article>
             <article class="product-card menu-item" data-category="sanduiches">
-              <img src="assets/images/sanduiche-de-pernil-atualizado.png" alt="Sanduíche de pernil" width="1254" height="1254" loading="lazy">
+              <img src="assets/images/01_Food_and_Drinks/03_Sanduíches_tradicionais/x-churrasco.jpg" alt="Sanduíche de pernil" width="1254" height="1254" loading="lazy">
               <div class="card-body">
                 <span class="card-kicker">Sanduíches</span>
-                <h3>Sanduíche de Pernil</h3>
-                <p>Pernil desfiado, queijo, alface, tomate, cebola e molho no pão de hambúrguer.</p>
+                <h3>X-Churrasco</h3>
+                <p>Linguinça toscana, bacon, queijo parmesão, presunto, queijo mussarela, batata palha, alface e tomate no pão de hambúrguer. Finalizado com molho smash.</p>
                 <a class="card-link whatsapp-link" href="#" data-message="Olá! Gostaria de consultar o sanduíche de pernil." id="tirar-underline">
                   Consultar
                   <svg xmlns="http://w3.org" viewBox="0 0 448 512" style="width: 1em; height: 1em; fill: currentColor; vertical-align: middle;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
                 </a>
               </div>
             </article>
-            <article class="product-card menu-item" data-category="bebidas">
-              <img src="assets/images/frap-hero-atualizado.png" alt="Frap Heros" width="1254" height="1254" loading="lazy">
+            <article class="product-card menu-item" data-category="sanduiches">
+              <img src="assets/images/01_Food_and_Drinks/03_Sanduíches_tradicionais/sanduiche-de-pernil.jpg" alt="Sanduíche de pernil" width="1254" height="1254" loading="lazy">
               <div class="card-body">
-                <span class="card-kicker">Bebidas especiais</span>
-                <h3>Frap Heros</h3>
-                <p>Uma deliciosa bebida gelada, nos sabores de Morango, Churros com um toque suave de café ou Morango finalizado com chantilly e coberturas variadas.</p>
-                <a class="card-link whatsapp-link" href="#" data-message="Olá! Gostaria de consultar os sabores de Frap Heros." id="tirar-underline">
+                <span class="card-kicker">Sanduíches</span>
+                <h3>Sanduíche de Pernil</h3>
+                <p>Pernil, calabresa, bacon, frango, queijo, presunto, alface, tomate e molho temperado no pão bola.</p>
+                <a class="card-link whatsapp-link" href="#" data-message="Olá! Gostaria de consultar o sanduíche de pernil." id="tirar-underline">
                   Consultar
                   <svg xmlns="http://w3.org" viewBox="0 0 448 512" style="width: 1em; height: 1em; fill: currentColor; vertical-align: middle;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
                 </a>
               </div>
             </article>
-            <article class="product-card menu-item" data-category="bebidas">
-              <img src="assets/images/pop-soda-italiana-atualizado.png" alt="Pop Soda Italiana" width="1254" height="1254" loading="lazy">
+
+            <!-- Wraps -->
+            <article class="product-card menu-item" data-category="wraps">
+              <img src="assets/images/01_Food_and_Drinks/04_Sanduíche_Wrap_especial_(massa_tortilha)/wrap-chicken-bacon.jpg" alt="X-Bacon" width="522" height="606" loading="lazy">
               <div class="card-body">
-                <span class="card-kicker">Bebidas especiais</span>
-                <h3>Pop Soda Italiana</h3>
-                <p>Uma deliciosa bebida gelada levemente gasificada com um toque limão com sabor de Tangerina/Maçã Verde/Morango no tamanho de 500ml.</p>
+                <span class="card-kicker">Wraps</span>
+                <h3>Wrap Chicken Bacon</h3>
+                <p>Massa tortilha recheada com frango desfiado, bacon, presunto, queijo, milho, batata palha, alface, tomate e gergelim. Finalizado com molho smash.</p>
+                <a class="card-link whatsapp-link" href="#" data-message="Olá! Gostaria de consultar o X-Bacon." id="tirar-underline">
+                  Consultar
+                  <svg xmlns="http://w3.org" viewBox="0 0 448 512" style="width: 1em; height: 1em; fill: currentColor; vertical-align: middle;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                </a>
+              </div>
+            </article>
+            <article class="product-card menu-item" data-category="wraps">
+              <img src="assets/images/01_Food_and_Drinks/04_Sanduíche_Wrap_especial_(massa_tortilha)/wrap-churrasco-especial.jpg" alt="X-Bacon" width="522" height="606" loading="lazy">
+              <div class="card-body">
+                <span class="card-kicker">Wraps</span>
+                <h3>Wrap Churrasco</h3>
+                <p>Massa tortilha recheada com linguiça toscana, calabresa, presunto, queijo, azeitona verde, batata palha, alface e tomate. Finalizado com molho smash.</p>
+                <a class="card-link whatsapp-link" href="#" data-message="Olá! Gostaria de consultar o X-Bacon." id="tirar-underline">
+                  Consultar
+                  <svg xmlns="http://w3.org" viewBox="0 0 448 512" style="width: 1em; height: 1em; fill: currentColor; vertical-align: middle;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                </a>
+              </div>
+            </article>
+            <article class="product-card menu-item" data-category="wraps">
+              <img src="assets/images/01_Food_and_Drinks/04_Sanduíche_Wrap_especial_(massa_tortilha)/wrap-hamburguer-especial.jpg" alt="X-Bacon" width="522" height="606" loading="lazy">
+              <div class="card-body">
+                <span class="card-kicker">Wraps</span>
+                <h3>Wrap Hambúrguer</h3>
+                <p>Massa tortilha recheada com hambúrguer tradicional, calabresa, bacon, presunto, queijo, batata palha, alface e tomate. Finalizado com molho smash.</p>
+                <a class="card-link whatsapp-link" href="#" data-message="Olá! Gostaria de consultar o X-Bacon." id="tirar-underline">
+                  Consultar
+                  <svg xmlns="http://w3.org" viewBox="0 0 448 512" style="width: 1em; height: 1em; fill: currentColor; vertical-align: middle;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                </a>
+              </div>
+            </article>
+            <article class="product-card menu-item" data-category="wraps">
+              <img src="assets/images/01_Food_and_Drinks/04_Sanduíche_Wrap_especial_(massa_tortilha)/wrap-vegetariano.jpg" alt="X-Bacon" width="522" height="606" loading="lazy">
+              <div class="card-body">
+                <span class="card-kicker">Wraps</span>
+                <h3>Wrap Vegetariano</h3>
+                <p>Massa tortilha recheada com queijo mozarela, queijo parmesão, milho, batata palha, azeitona verde, alface, tomate, gergelim e orégano.</p>
+                <a class="card-link whatsapp-link" href="#" data-message="Olá! Gostaria de consultar o X-Bacon." id="tirar-underline">
+                  Consultar
+                  <svg xmlns="http://w3.org" viewBox="0 0 448 512" style="width: 1em; height: 1em; fill: currentColor; vertical-align: middle;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                </a>
+              </div>
+            </article>
+
+            <!-- Frappuccinos -->
+             <article class="product-card menu-item" data-category="frappuccinos">
+              <img src="assets/images/01_Food_and_Drinks/05_Shake_Frapuccinos/frap-heros-ovomaltine com-nutella.jpg" alt="Pop Soda Italiana" width="1254" height="1254" loading="lazy">
+              <div class="card-body">
+                <span class="card-kicker">Frappuccinos</span>
+                <h3>Ovomaltine com Nutella</h3>
+                <p>Bebida gelada com café, leite, chocolate e cookies. Copo decorado com Nutella e Ovomaltine, finalizado com chantilly e mais Ovomaltine no topo (330ml).</p>
                 <a class="card-link whatsapp-link" href="#" data-message="Olá! Gostaria de consultar os sabores de Pop Soda Italiana." id="tirar-underline">
                   Consultar
                   <svg xmlns="http://w3.org" viewBox="0 0 448 512" style="width: 1em; height: 1em; fill: currentColor; vertical-align: middle;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
                 </a>
               </div>
             </article>
-            <article class="product-card menu-item placeholder-card" data-category="acai">
+            <article class="product-card menu-item" data-category="frappuccinos">
+              <img src="assets/images/01_Food_and_Drinks/05_Shake_Frapuccinos/frap-heros-coffee.jpg" alt="Frap Heros" width="1254" height="1254" loading="lazy">
+              <div class="card-body">
+                <span class="card-kicker">Frappuccinos</span>
+                <h3>Frap Heros de Café</h3>
+                <p>Bebida gelada clássica com café e leite fresco. Finalizada com uma generosa camada de chantilly e polvilhada com Ovomaltine (330ml).</p>
+                <a class="card-link whatsapp-link" href="#" data-message="Olá! Gostaria de consultar os sabores de Frap Heros." id="tirar-underline">
+                  Consultar
+                  <svg xmlns="http://w3.org" viewBox="0 0 448 512" style="width: 1em; height: 1em; fill: currentColor; vertical-align: middle;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                </a>
+              </div>
+            </article>
+            <article class="product-card menu-item" data-category="frappuccinos">
+              <img src="assets/images/01_Food_and_Drinks/05_Shake_Frapuccinos/frap-heros-de-churros.jpg" alt="Pop Soda Italiana" width="1254" height="1254" loading="lazy">
+              <div class="card-body">
+                <span class="card-kicker">Frappuccinos</span>
+                <h3>Frap Heros de Churros</h3>
+                <p>Bebida gelada com leite, sabor marcante de churros e um toque suave de café. Finalizado com chantilly e calda de caramelo (330ml) – Tempo Limitado!.</p>
+                <a class="card-link whatsapp-link" href="#" data-message="Olá! Gostaria de consultar os sabores de Pop Soda Italiana." id="tirar-underline">
+                  Consultar
+                  <svg xmlns="http://w3.org" viewBox="0 0 448 512" style="width: 1em; height: 1em; fill: currentColor; vertical-align: middle;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                </a>
+              </div>
+            </article>
+            <article class="product-card menu-item" data-category="frappuccinos">
+              <img src="assets/images/01_Food_and_Drinks/05_Shake_Frapuccinos/frap-heros-de-morango.jpg" alt="Pop Soda Italiana" width="1254" height="1254" loading="lazy">
+              <div class="card-body">
+                <span class="card-kicker">Frappuccinos</span>
+                <h3>Frap Heros de Morango</h3>
+                <p>Bebida gelada super cremosa no sabor de morango. Finalizada com calda artesanal de morango e cobertura de chantilly (350ml).</p>
+                <a class="card-link whatsapp-link" href="#" data-message="Olá! Gostaria de consultar os sabores de Pop Soda Italiana." id="tirar-underline">
+                  Consultar
+                  <svg xmlns="http://w3.org" viewBox="0 0 448 512" style="width: 1em; height: 1em; fill: currentColor; vertical-align: middle;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                </a>
+              </div>
+            </article>
+
+            <!-- Sobremesas -->
+            <article class="product-card menu-item placeholder-card" data-category="sobremesas">
+              <img src="assets/images/01_Food_and_Drinks/02_Sobremesas/sanduiche-doce-bananoffe.jpg" alt="Açaí" width="552" height="606" loading="lazy">
+              <!-- <div class="image-placeholder" role="img" aria-label="Fotografia pendente do açaí">Foto em atualização</div> -->
+              <div class="card-body">
+                <span class="card-kicker">Sobremesas</span>
+                <h3>Doce Bananoffe</h3>
+                <p>Uma deliciosa massa tortilha com recheio de banana, doce de leite e amendoim</p>
+                <a class="card-link whatsapp-link" href="#" data-message="Olá! Gostaria de consultar as opções de açaí." id="tirar-underline">
+                  Consultar
+                  <svg xmlns="http://w3.org" viewBox="0 0 448 512" style="width: 1em; height: 1em; fill: currentColor; vertical-align: middle;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                </a>
+              </div>
+            </article>
+            <article class="product-card menu-item placeholder-card" data-category="sobremesas">
+              <img src="assets/images/01_Food_and_Drinks/02_Sobremesas/sanduiche-doce-choconana.jpg" alt="Açaí" width="552" height="606" loading="lazy">
+              <!-- <div class="image-placeholder" role="img" aria-label="Fotografia pendente do açaí">Foto em atualização</div> -->
+              <div class="card-body">
+                <span class="card-kicker">Sobremesas</span>
+                <h3>Doce Choconana</h3>
+                <p>Um massa tortulho com creme de avelã com cacau e banana assada e levemente polvilhado com ovolmaltine.</p>
+                <a class="card-link whatsapp-link" href="#" data-message="Olá! Gostaria de consultar as opções de açaí." id="tirar-underline">
+                  Consultar
+                  <svg xmlns="http://w3.org" viewBox="0 0 448 512" style="width: 1em; height: 1em; fill: currentColor; vertical-align: middle;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                </a>
+              </div>
+            </article>
+            <article class="product-card menu-item placeholder-card" data-category="sobremesas">
+              <img src="assets/images/01_Food_and_Drinks/02_Sobremesas/sanduiche-doce-queijonana.jpg" alt="Açaí" width="552" height="606" loading="lazy">
+              <!-- <div class="image-placeholder" role="img" aria-label="Fotografia pendente do açaí">Foto em atualização</div> -->
+              <div class="card-body">
+                <span class="card-kicker">Sobremesas</span>
+                <h3>Doce Queijonana</h3>
+                <p>Uma deliciosas massa tortilha com banana, canela e um toque de açúcar coberto com queijo.</p>
+                <a class="card-link whatsapp-link" href="#" data-message="Olá! Gostaria de consultar as opções de açaí." id="tirar-underline">
+                  Consultar
+                  <svg xmlns="http://w3.org" viewBox="0 0 448 512" style="width: 1em; height: 1em; fill: currentColor; vertical-align: middle;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                </a>
+              </div>
+            </article>
+            <article class="product-card menu-item placeholder-card" data-category="sobremesas">
               <img src="assets/images/01_Food_and_Drinks/sobremesas.png" alt="Açaí" width="552" height="606" loading="lazy">
               <!-- <div class="image-placeholder" role="img" aria-label="Fotografia pendente do açaí">Foto em atualização</div> -->
               <div class="card-body">
-                <span class="card-kicker">Açaí</span>
-                <h3>Açaí</h3>
-                <p>Açaí personalizado com diversos ingredientes.</p>
+                <span class="card-kicker">Sobremesas</span>
+                <h3>Açaí Mix Doce</h3>
+                <p>Monte seu açaí completo e caprichado. Misture a refrescância das frutas com seus doces e caldas favoritos para aquela explosão de sabor.</p>
                 <a class="card-link whatsapp-link" href="#" data-message="Olá! Gostaria de consultar as opções de açaí." id="tirar-underline">
                   Consultar
                   <svg xmlns="http://w3.org" viewBox="0 0 448 512" style="width: 1em; height: 1em; fill: currentColor; vertical-align: middle;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
                 </a>
               </div>
             </article>
-            <!--
-            <article class="product-card menu-item placeholder-card" data-category="acai">
+            <article class="product-card menu-item placeholder-card" data-category="sobremesas">
               <img src="assets/images/01_Food_and_Drinks/sobremesas2.png" alt="Açaí" width="552" height="606" loading="lazy">
               <div class="card-body">
-                <span class="card-kicker">Açaí</span>
-                <h3>Açaí</h3>
-                <p>Açaí personalizado com diversos ingredientes.</p>
+                <span class="card-kicker">Sobremesas</span>
+                <h3>Açaí Natural</h3>
+                <p>Monte seu açaí saudável e refrescante. Escolha a sua combinação favorita de frutas frescas para um copo leve e cheio de energia.</p>
                 <a class="card-link whatsapp-link" href="#" data-message="Olá! Gostaria de consultar as opções de açaí." id="tirar-underline">
                   Consultar
                   <svg xmlns="http://w3.org" viewBox="0 0 448 512" style="width: 1em; height: 1em; fill: currentColor; vertical-align: middle;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
                 </a>
               </div>
             </article>
-            -->
-            <article class="product-card menu-item" data-category="outros">
-              <img src="assets/images/saladas-atualizado.png" alt="Opções de saladas" width="1254" height="1254" loading="lazy">
+
+            <!-- Sodas Italianas -->
+            <article class="product-card menu-item" data-category="sodas">
+              <img src="assets/images/01_Food_and_Drinks/06_Bebidas_Soda_Italianas/soda-iltaliana-de-tangerina.jpg" alt="Frap Heros" width="1254" height="1254" loading="lazy">
               <div class="card-body">
-                <span class="card-kicker">Saladas e outros</span>
-                <h3>Outras opções</h3>
-                <p>Shawarmas, saladas, combos, vitaminas e salgados a confirmar.</p>
+                <span class="card-kicker">Sodas italianas</span>
+                <h3>Tangerina</h3>
+                <p>Bebida gelada levemente gaseificada com o sabor cítrico da tangerina e um toque especial de limão. Refrescante e leve (500ml).</p>
+                <a class="card-link whatsapp-link" href="#" data-message="Olá! Gostaria de consultar os sabores de Frap Heros." id="tirar-underline">
+                  Consultar
+                  <svg xmlns="http://w3.org" viewBox="0 0 448 512" style="width: 1em; height: 1em; fill: currentColor; vertical-align: middle;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                </a>
+              </div>
+            </article>
+            <article class="product-card menu-item" data-category="sodas">
+              <img src="assets/images/01_Food_and_Drinks/06_Bebidas_Soda_Italianas/soda-italiana-de-maca-verde.jpg" alt="Pop Soda Italiana" width="1254" height="1254" loading="lazy">
+              <div class="card-body">
+                <span class="card-kicker">Sodas italianas</span>
+                <h3>Maçã Verde</h3>
+                <p>Bebida gelada levemente gaseificada com o sabor marcante da maçã verde e um toque de limão. O equilíbrio perfeito entre o doce e o cítrico (500ml).</p>
+                <a class="card-link whatsapp-link" href="#" data-message="Olá! Gostaria de consultar os sabores de Pop Soda Italiana." id="tirar-underline">
+                  Consultar
+                  <svg xmlns="http://w3.org" viewBox="0 0 448 512" style="width: 1em; height: 1em; fill: currentColor; vertical-align: middle;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                </a>
+              </div>
+            </article>
+            <article class="product-card menu-item" data-category="sodas">
+              <img src="assets/images/01_Food_and_Drinks/06_Bebidas_Soda_Italianas/soda-italiana-de-morango.jpg" alt="Pop Soda Italiana" width="1254" height="1254" loading="lazy">
+              <div class="card-body">
+                <span class="card-kicker">Sodas italianas</span>
+                <h3>Morango</h3>
+                <p>Bebida gelada levemente gaseificada com o sabor irresistível do morango e um toque de limão. Uma opção clássica e super refrescante (500ml).</p>
+                <a class="card-link whatsapp-link" href="#" data-message="Olá! Gostaria de consultar os sabores de Pop Soda Italiana." id="tirar-underline">
+                  Consultar
+                  <svg xmlns="http://w3.org" viewBox="0 0 448 512" style="width: 1em; height: 1em; fill: currentColor; vertical-align: middle;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                </a>
+              </div>
+            </article>
+
+            <!-- Outros -->
+            <article class="product-card menu-item" data-category="outros">
+              <img src="assets/images/01_Food_and_Drinks/07_Outros/salada.png" alt="Opções de saladas" width="1254" height="1254" loading="lazy">
+              <div class="card-body">
+                <span class="card-kicker">Saladas</span>
+                <h3>Salada Caesar</h3>
+                <p>Alface-romana, croutons, frango, parmesão e molho Caesar.</p>
+                <a class="card-link whatsapp-link" href="#" data-message="Olá! Gostaria de conhecer as outras opções do cardápio." id="tirar-underline">
+                  Consultar
+                  <svg xmlns="http://w3.org" viewBox="0 0 448 512" style="width: 1em; height: 1em; fill: currentColor; vertical-align: middle;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                </a>
+              </div>
+            </article>
+            <article class="product-card menu-item" data-category="outros">
+              <img src="assets/images/01_Food_and_Drinks/07_Outros/suco-de-polpa-de-acerola-com-laranja.jpg" alt="Opções de saladas" width="1254" height="1254" loading="lazy">
+              <div class="card-body">
+                <span class="card-kicker">Sucos</span>
+                <h3>Acerola com Laranja</h3>
+                <p>Mix de frutas gelado preparado com água filtrada e um toque de açúcar. Feito na proporção perfeita de 70% acerola e 30% laranja.</p>
+                <a class="card-link whatsapp-link" href="#" data-message="Olá! Gostaria de conhecer as outras opções do cardápio." id="tirar-underline">
+                  Consultar
+                  <svg xmlns="http://w3.org" viewBox="0 0 448 512" style="width: 1em; height: 1em; fill: currentColor; vertical-align: middle;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                </a>
+              </div>
+            </article>
+            <article class="product-card menu-item" data-category="outros">
+              <img src="assets/images/01_Food_and_Drinks/07_Outros/guarana-lata.jpg" alt="Opções de saladas" width="1254" height="1254" loading="lazy">
+              <div class="card-body">
+                <span class="card-kicker">Refrigerantes</span>
+                <h3>Guaraná lata</h3>
+                <p>Refrigerante guaraná em lata (350ml).</p>
+                <a class="card-link whatsapp-link" href="#" data-message="Olá! Gostaria de conhecer as outras opções do cardápio." id="tirar-underline">
+                  Consultar
+                  <svg xmlns="http://w3.org" viewBox="0 0 448 512" style="width: 1em; height: 1em; fill: currentColor; vertical-align: middle;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                </a>
+              </div>
+            </article>
+            <article class="product-card menu-item" data-category="outros">
+              <img src="assets/images/01_Food_and_Drinks/07_Outros/coca-cola-lata-350ml.jpg" alt="Opções de saladas" width="1254" height="1254" loading="lazy">
+              <div class="card-body">
+                <span class="card-kicker">Refrigerantes</span>
+                <h3>Coca-cola lata</h3>
+                <p>Refrigerante coca-cola em lata (350ml).</p>
+                <a class="card-link whatsapp-link" href="#" data-message="Olá! Gostaria de conhecer as outras opções do cardápio." id="tirar-underline">
+                  Consultar
+                  <svg xmlns="http://w3.org" viewBox="0 0 448 512" style="width: 1em; height: 1em; fill: currentColor; vertical-align: middle;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                </a>
+              </div>
+            </article>
+            <article class="product-card menu-item" data-category="outros">
+              <img src="assets/images/01_Food_and_Drinks/07_Outros/agua-com-gas.jpg" alt="Opções de saladas" width="1254" height="1254" loading="lazy">
+              <div class="card-body">
+                <span class="card-kicker">Águas</span>
+                <h3>Água com gás</h3>
+                <p>Água mineral com gás (500ml).</p>
+                <a class="card-link whatsapp-link" href="#" data-message="Olá! Gostaria de conhecer as outras opções do cardápio." id="tirar-underline">
+                  Consultar
+                  <svg xmlns="http://w3.org" viewBox="0 0 448 512" style="width: 1em; height: 1em; fill: currentColor; vertical-align: middle;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                </a>
+              </div>
+            </article>
+            <article class="product-card menu-item" data-category="outros">
+              <img src="assets/images/01_Food_and_Drinks/07_Outros/agua-sem-gas.jpg" alt="Opções de saladas" width="1254" height="1254" loading="lazy">
+              <div class="card-body">
+                <span class="card-kicker">Águas</span>
+                <h3>Água sem gás</h3>
+                <p>Água mineral sem gás (500ml).</p>
                 <a class="card-link whatsapp-link" href="#" data-message="Olá! Gostaria de conhecer as outras opções do cardápio." id="tirar-underline">
                   Consultar
                   <svg xmlns="http://w3.org" viewBox="0 0 448 512" style="width: 1em; height: 1em; fill: currentColor; vertical-align: middle;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
@@ -293,7 +585,7 @@
                 </a>
               </span>
               <span class="delivery delivery-99food" aria-label="99Food, link em atualização"> 
-                <a href="" aria-label="99Food" target="_blank" id="tirar-underline">
+                <a href="https://oia.99app.com/dlp9/0NSv61?share_media=WHATSAPP" aria-label="99Food" target="_blank" id="tirar-underline">
                   99Food
                 </a>
               </span>
@@ -546,7 +838,7 @@
         <div class="links-rapidos">
           <h2 id="footer-h2">Links rápidos</h2>
           <a href="#destaques">Destaques</a>
-          <a href="#historia">Quem somos</a>
+          <a href="#historia">Nossa história</a>
           <a href="#cardapio">Cardápio</a>
           <a href="#eventos">Eventos</a>
           <a href="#contato">Contato</a>

@@ -93,7 +93,7 @@ button, input {
   top: .75rem;
   left: .75rem;
   transform: translateY(-160%);
-  padding: .75rem 1rem;
+  padding: .75rem .30rem;
   color: #fff;
   background: var(--ink);
   border-radius: .5rem;
@@ -170,6 +170,11 @@ h1 {
 
 #campaign-title {
   padding-bottom: 25px;
+}
+@media (max-width: 480px) {
+  #campaign-title {
+    padding-top: 40px;
+  }
 }
 
 #feedbacks-title {
@@ -284,12 +289,23 @@ p {
 }
 
 .site-header {
+  font-family: ui-rounded, 'Arial Rounded MT Bold', 'Segoe UI', sans-serif;
   position: sticky;
   z-index: 1000;
   top: 0;
   color: #fff;
-  background: rgba(105, 0, 0, .97);
-  box-shadow: 0 2px 15px rgba(0,0,0,.12);
+  /* background: rgba(105, 0, 0, .97);
+  box-shadow: 0 2px 15px rgba(0,0,0,.12); */
+  
+  /* --- EFEITO GLASSMORPHISM --- */
+  background: rgba(105, 0, 0, 0.90);          /* Fundo vermelho translúcido */
+  backdrop-filter: blur(12px);                /* Desfoque do fundo */
+  -webkit-backdrop-filter: blur(12px);        /* Suporte para Safari/iOS */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15); /* Borda fina iluminada na base */
+  border-top: 1px solid rgba(255, 255, 255, 0.1);    /* Borda superior sutil */
+  
+  /* --- SOMBRA DE PROFUNDIDADE Ajustada --- */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
 }
 
 .nav-wrap {
@@ -412,6 +428,10 @@ p {
 
 /* 📱 1. CONFIGURAÇÃO EXCLUSIVA PARA CELULARES (Telas bem pequenas até 480px) */
 @media (max-width: 480px) {
+  .main-nav a {
+    justify-content: center;
+    align-items: center;
+  }
   .hero-copy {
     padding-top: 100px; /* Espaço menor para o título não sumir no celular */
   }
@@ -425,6 +445,10 @@ p {
 
 /* 慶 2. CONFIGURAÇÃO EXCLUSIVA PARA TABLETS (Telas entre 481px e 768px, como iPads) */
 @media (min-width: 481px) and (max-width: 768px) {
+  .main-nav a {
+    justify-content: center;
+    align-items: center;
+  }
   .hero-copy {
     padding-top: 100px; /* O valor de 100px que você gostou para o tablet */
   }
@@ -433,6 +457,21 @@ p {
     padding: clamp(4rem, 9vw, 7rem) 0;
     /* Mantém o degradê na posição que funcionou no tablet */
     background: radial-gradient(circle at 50% 50%, #ffd55770, rgba(255,244,210,0) 41%), #fff;
+  }
+}
+/* 慶 3. CONFIGURAÇÃO EXCLUSIVA PARA IPADS */
+@media (max-width: 820px) {
+  .main-nav a {
+    justify-content: center;
+    align-items: center;
+
+    /* Cria uma linha usando gradiente de fundo */
+    background-image: none;
+ 
+  }
+  .main-nav a:hover {
+    justify-content: center;
+    align-items: center;
   }
 }
 
@@ -713,6 +752,36 @@ p {
 }
 .product-card img:hover, .image-placeholder:hover {
   transform: scale(1.02);
+}
+
+.product-card p {
+  flex-grow: 1;         /* Ocupa o espaço empurrando o botão para baixo */
+  height: 72px;        /* Altura fixa ou max-height para a área de texto */
+  overflow-y: auto;     /* Adiciona o scroll vertical apenas se o texto passar do limite */
+  margin-bottom: 15px;  /* Espaço entre o texto e o botão */ 
+
+  /* Scroll fino para Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: #bbbbbb #f1f1f1;
+
+  /* Scroll fino e bonito para Chrome, Edge e Safari */
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+  }
 }
 
 .product-card a {
@@ -1055,11 +1124,21 @@ blockquote {
 }
 
 .campaign {
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-                url('/assets/images/02_Brand_and_Venue/fundo-do-doa-faz-parte-redimensionado.jpg') center / cover no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/assets/images/02_Brand_and_Venue/fundo-do-doa-faz-parte-redimensionado.jpg') center / cover no-repeat;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+/* Ajuste para Celular (Telas até 768px) */
+@media (max-width: 768px) {
+  .campaign {
+    /* Mantém o degradê e centraliza o foco da imagem verticalmente */
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/assets/images/02_Brand_and_Venue/fundo-do-doa-faz-parte-para-celular.jpg') center center / cover no-repeat;
+    
+    /* Garante que a altura do container seja adequada para mobile se necessário */
+    padding: 40px 20px; 
+  }
 }
 
 #campaign-title, #campaign-content{
