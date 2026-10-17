@@ -33,12 +33,16 @@
           <span aria-hidden="true"></span>
         </button>
         <nav class="main-nav" id="menu-principal" aria-label="Navegação principal">
-          <a href="#destaques">Destaques</a>
-          <a href="#historia">Nossa história</a>
-          <a href="#cardapio">Cardápio</a>
-          <a href="#eventos">Eventos</a>
-          <a href="#contato">Contato</a>
+          <a href="#destaques" class="menu-toggle-nav">Destaques</a>          
+          <a href="#historia" class="menu-toggle-nav">Nossa história</a>
+          <a href="#cardapio" class="menu-toggle-nav">Cardápio</a>
+          <a href="#eventos" class="menu-toggle-nav">Eventos</a>
+          <a href="#contato" class="menu-toggle-nav">Contato</a>
         </nav>
+
+        <!-- NOVA DIV ADICIONADA AQUI -->
+        <div class="menu-overlay" id="overlay-principal"></div>
+        
         <!-- TODO: confirmar o número completo e a URL oficial do WhatsApp. -->
         <a class="button button-outline whatsapp-link header-cta" href="#" data-message="Olá! Vim pelo site da Heros Food Mcz e gostaria de consultar o cardápio.">
           Pedir agora 
@@ -53,7 +57,7 @@
         <div class="container hero-grid">
           <div class="hero-copy">
             <!-- <p class="eyebrow">Lanchonete temática em Maceió</p> -->
-            <h1 id="hero-title">Bem-vindo à<br><span>Heros Food Mcz</span></h1>
+            <h1 class="h1-hero-title" id="hero-title">Bem-vindo à<br><span>Heros Food Mcz</span></h1>
             <!-- TODO: validar o texto de apresentação com o cliente. -->
             <p>Sabores preparados para transformar a sua fome em uma experiência especial. Conheça nossos sanduíches artesanais, shawarmas, salgados, combos, bebidas especiais e muito mais.</p>
             <div class="hero-actions">

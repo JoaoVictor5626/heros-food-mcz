@@ -337,20 +337,69 @@ p {
 }
 
 .main-nav {
-  position: fixed;
-  inset: 4.7rem 0 auto;
-  display: none;
-  flex-direction: column;
-  gap: .25rem;
-  padding: 1rem;
-  background: var(--red-900);
-  box-shadow: var(--shadow-lg);
-  transition: 0.3s ease;
+  display: flex;
+  flex-direction: row; 
+  gap: 1.5rem;         
+  position: static;    
+  opacity: 1;          
+  visibility: visible; 
+  transform: none;     
+  background: transparent; 
+  box-shadow: none;
 }
 
-.main-nav.is-open {
-  display: flex;
+@media (max-width: 992px) {
+  .main-nav {
+    position: fixed;
+    inset: 4.7rem 0 auto; 
+    flex-direction: column;
+    gap: .8rem;
+    padding: 1rem;
+    background: var(--red-900);
+    box-shadow: var(--shadow-lg);
+
+    /* --- ESTADO INICIAL ESCONDIDO --- */
+    opacity: 0;
+    visibility: hidden; 
+    
+    /* Move o menu para cima em -50px e o deixa levemente "achatado" (escala 0.95 no eixo Y) */
+    transform: translateY(-0.95px) scaleY(0.95); 
+    /* Define que a animação de escala começará de cima para baixo */
+    transform-origin: top; 
+    
+    /* --- TRANSIÇÃO DE ALTA PERFORMANCE --- */
+    transition: 
+      transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+      opacity 0.25s ease, 
+      visibility 0.35s ease;
+  }
+  
+  /* --- ESTADO ATIVO ABERTO --- */
+  .main-nav.is-open {
+    opacity: 1;
+    visibility: visible;
+    
+    /* Retorna o menu para a posição original (abaixo do header) e tamanho normal (1) */
+    transform: translateY(0) scaleY(1); 
+  }
+  .menu-toggle-nav {
+    opacity: 1;
+    visibility: visible;
+    
+    /* Retorna o menu para a posição original (abaixo do header) e tamanho normal (1) */
+    transform: translateY(0) scaleY(1); 
+
+    width: 100%;
+    height: 60px;
+    display: grid;
+    place-content: center;
+    border: 1px solid rgba(255,255,255,.4);
+    border-radius: .65rem;
+    color: #fff;
+    background-color: rgba(105, 0, 0);
+  }
 }
+
 
 .main-nav a {
   font-family: ui-rounded, 'Arial Rounded MT Bold', 'Segoe UI', sans-serif;
@@ -400,14 +449,63 @@ p {
   color: #fff;
   background: transparent;
   cursor: pointer;
+  position: relative; 
 }
 
+/* Seleciona APENAS as 3 barrinhas visuais, ignorando o texto de acessibilidade */
 .menu-toggle span:not(.sr-only) {
   width: 1.35rem;
   height: 2px;
   background: currentColor;
-  transition: var(--transition);
+  transition: var(--transition); 
+  grid-area: 1 / 1;             
 }
+
+/* --- ESPAÇAMENTO ORIGINAL (Usando :nth-child para mapear as linhas visuais corretas) --- */
+.menu-toggle span:nth-child(2) { transform: translateY(-6px); } /* Linha Superior */
+.menu-toggle span:nth-child(3) { transform: translateY(0); }    /* Linha do Meio */
+.menu-toggle span:nth-child(4) { transform: translateY(6px); }  /* Linha Inferior */
+
+
+/* ==========================================================================
+   ANIMAÇÃO PARA O "X" PERFEITO
+   ========================================================================== */
+
+/* 1. Linha Superior (2º filho do botão): vai para o centro e gira 45 graus */
+body.menu-open .menu-toggle span:nth-child(2) {
+  transform: translateY(0) rotate(45deg);
+}
+
+/* 2. Linha do Meio (3º filho do botão): desaparece suavemente */
+body.menu-open .menu-toggle span:nth-child(3) {
+  opacity: 0;
+}
+
+/* 3. Linha Inferior (4º filho do botão): vai para o centro e gira -45 graus */
+body.menu-open .menu-toggle span:nth-child(4) {
+  transform: translateY(0) rotate(-45deg);
+}
+
+
+/* --- OVERLAY DO MENU MOBILE (MANTIDO IGUAL) --- */
+.menu-overlay {
+  position: fixed;
+  inset: 4.7rem 0 0 0; 
+  background-color: rgba(0, 0, 0, 0.5); 
+  backdrop-filter: blur(4px); 
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 999; 
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+body.menu-open .menu-overlay {
+  opacity: 1;
+  pointer-events: auto; 
+}
+
+
 
 .hero {
   padding: clamp(4rem, 9vw, 7rem) 0;
@@ -474,11 +572,39 @@ p {
     align-items: center;
   }
 }
+/* 慶 3. CONFIGURAÇÃO EXCLUSIVA PARA IPADS */
+@media (max-width: 920px) {
+  .main-nav a {
+    justify-content: center;
+    align-items: center;
+
+    /* Cria uma linha usando gradiente de fundo */
+    background-image: none;
+ 
+  }
+  .main-nav a:hover {
+    justify-content: center;
+    align-items: center;
+  }
+}
 
 
 .hero-copy h1 span {
   color: var(--red-800);
+  /* position: relative;
+  display: inline-block; */
 }
+
+/* .hero-copy h1 span:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 100%;
+  height: 4px;
+  background: var(--gold, #ffd900); 
+  transform: rotate(-2deg);
+} */
 
 .hero-actions {
   display: flex;

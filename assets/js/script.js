@@ -6,6 +6,7 @@
 
   const menuButton = document.querySelector('.menu-toggle');
   const navigation = document.querySelector('.main-nav');
+  const menuOverlay = document.querySelector('.menu-overlay'); // Adicionado
   const menuLabel = menuButton?.querySelector('.sr-only');
 
   function closeMenu() {
@@ -36,6 +37,21 @@
     link.addEventListener('click', closeMenu);
   });
 
+  // LÓGICA PRINCIPAL: Fechar ao clicar fora do menu ou no overlay
+  document.addEventListener('click', (event) => {
+    const isMenuOpen = navigation?.classList.contains('is-open');
+    
+    if (isMenuOpen) {
+      // Verifica se o clique ocorreu FORA do menu E FORA do botão de abrir
+      const clickedOutsideMenu = !navigation.contains(event.target);
+      const clickedOutsideButton = !menuButton.contains(event.target);
+
+      if (clickedOutsideMenu && clickedOutsideButton) {
+        closeMenu();
+      }
+    }
+  });
+
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
       closeMenu();
@@ -61,6 +77,7 @@
       window.open(urlCorreta, '_blank', 'noopener,noreferrer');
     });
   });
+
 
   const filterButtons = document.querySelectorAll('.filter-button');
   const menuItems = document.querySelectorAll('.menu-item');
