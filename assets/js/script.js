@@ -6,7 +6,8 @@
 
   const menuButton = document.querySelector('.menu-toggle');
   const navigation = document.querySelector('.main-nav');
-  const menuOverlay = document.querySelector('.menu-overlay'); // Adicionado
+  // Alterado para buscar estritamente pelo ID na raiz da página
+  const menuOverlay = document.getElementById('overlay-principal'); 
   const menuLabel = menuButton?.querySelector('.sr-only');
 
   function closeMenu() {
@@ -20,6 +21,9 @@
       menuLabel.textContent = 'Abrir menu';
     }
   }
+  
+  // O resto do seu código (escutadores de clique, carrossel, whatsapp) continua exatamente igual...
+
 
   menuButton?.addEventListener('click', () => {
     const willOpen = menuButton.getAttribute('aria-expanded') !== 'true';
