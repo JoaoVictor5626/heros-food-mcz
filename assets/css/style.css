@@ -135,6 +135,7 @@ h1, h2, h3, p {
 
 h1, h2 {
   font-family: var(--font-display);
+  font-weight: 500;
   line-height: 1.08;
 }
 
@@ -147,7 +148,7 @@ h1 {
 #hero-title {
   padding-bottom: 25px;
   margin-top: -70px;
-  font-size: clamp(2.65rem, 4.5vw, 5.4rem);
+  font-size: clamp(3rem, 5vw, 6rem);
   /* white-space: nowrap; */
 }
 
