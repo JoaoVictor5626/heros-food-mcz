@@ -1692,6 +1692,92 @@ blockquote {
   box-shadow: var(--shadow-lg);
 }
 
+/* ==========================================================================
+   1. ANIMAÇÕES BASE
+   ========================================================================== */
+
+@keyframes subirSuave {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes leveZoom {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ==========================================================================
+   2. ISOLAMENTO ABSOLUTO (Elementos Imunes)
+   ========================================================================== */
+/* Isolamos cirurgicamente as classes do seu menu e tags estruturais de topo/fim */
+header, nav, footer, .navbar, .footer, .delivery-strip, .delivery-strip *,
+.main-nav, .menu-toggle, .menu-toggle-nav, .menu-overlay {
+  animation: none !important;
+  animation-timeline: none !important;
+}
+
+/* ==========================================================================
+   3. APLICAÇÃO SEGURA NAS SEÇÕES DE CONTEÚDO (Não afeta a estrutura global)
+   ========================================================================== */
+
+/* Títulos e Blocos de Texto (Subir Suavemente) */
+section h2, 
+section h3, 
+section p, 
+section blockquote {
+  animation: subirSuave linear both;
+  animation-timeline: view();
+  animation-range: entry 5% cover 30%;
+}
+
+/* Containers de Cards e Feedbacks (Leve Zoom Simultâneo) */
+section ul, 
+section .grid, 
+section .row, 
+section .flex, 
+section [class*="container"], 
+section [class*="wrapper"] {
+  animation: leveZoom linear both;
+  animation-timeline: view();
+  animation-range: entry 5% cover 35%;
+}
+
+/* Imagens e Carrosséis Soltos */
+section img, 
+.carrossel, 
+.carousel {
+  animation: subirSuave linear both;
+  animation-timeline: view();
+  animation-range: entry 5% cover 35%;
+}
+
+/* ==========================================================================
+   4. PROTEÇÃO INTERNA DOS CARDS
+   ========================================================================== */
+/* Impede que o conteúdo interno dos blocos balance ou quebre individualmente */
+section ul *, 
+section .grid *, 
+section .row *, 
+section .flex *,
+.card *, 
+[class*="card"] * {
+  animation: none !important;
+  animation-timeline: none !important;
+}
+
+
 @media (min-width: 36rem) {
   .product-grid, .testimonial-grid, .contact-cards {
     grid-template-columns: repeat(2, minmax(0, 1fr));
