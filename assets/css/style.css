@@ -1694,88 +1694,24 @@ blockquote {
 
 
 
-/* ==========================================================================
-   1. ANIMAÇÕES BASE (Mais dinâmicas e vivas + Blur Sutil)
-   ========================================================================== */
-
-@keyframes subirSuave {
-  from {
+/* -------------------------------------------------------------------------- */
+/* REVEAL ANIMAÇÃO AO ROLAR A PÁGINA (SCROLL REVEAL COM BLUR SUAVE)          */
+/* -------------------------------------------------------------------------- */
+.reveal-on-scroll {
     opacity: 0;
-    filter: blur(4px); /* Adicionado: Desfoque sutil ao surgir */
-    /* Mantido original: Leve rotação em X (inclinação 3D) e um mini-zoom inicial */
-    transform: translateY(40px) scale(0.96) rotateX(10deg);
-  }
-  to {
+    filter: blur(10px);
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                filter 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, filter, transform;
+}
+
+.reveal-on-scroll.is-visible {
     opacity: 1;
-    filter: blur(0px); /* Remove o desfoque completamente */
-    transform: translateY(0) scale(1) rotateX(0deg);
-  }
+    filter: blur(0);
+    transform: translateY(0);
 }
-
-@keyframes leveZoom {
-  from {
-    opacity: 0;
-    filter: blur(4px); /* Adicionado: Desfoque sutil ao surgir */
-    /* Mantido original: Rotação lateral sutil para os cards balançarem ao entrar */
-    transform: scale(0.93) rotate(1.5deg);
-  }
-  to {
-    opacity: 1;
-    filter: blur(0px); /* Remove o desfoque completamente */
-    transform: scale(1) rotate(0deg);
-  }
-}
-
-/* ==========================================================================
-   2. ISOLAMENTO ABSOLUTO (Elementos Imunes)
-   ========================================================================== */
-header, nav, footer, .navbar, .footer, .delivery-strip, .delivery-strip *,
-.main-nav, .menu-toggle, .menu-toggle-nav, .menu-overlay {
-  animation: none !important;
-  animation-timeline: none !important;
-}
-
-/* ==========================================================================
-   3. APLICAÇÃO DINÂMICA NAS SEÇÕES DE CONTEÚDO
-   ========================================================================== */
-
-/* 
-   Títulos e Blocos de Texto
-   Usando uma curva que dá um leve "impulso" extra no início (back curve)
-*/
-section h2, 
-section h3, 
-section p, 
-section blockquote {
-  animation: subirSuave cubic-bezier(0.34, 1.56, 0.64, 1) both;
-  animation-timeline: view();
-  animation-range: entry 0% cover 40%;
-  transform-origin: bottom center; /* Faz o texto brotar da base */
-}
-
-/* Containers de Cards e Feedbacks */
-section ul, 
-section .grid, 
-section .row, 
-section .flex, 
-section [class*="container"], 
-section [class*="wrapper"] {
-  animation: leveZoom cubic-bezier(0.34, 1.56, 0.64, 1) both;
-  animation-timeline: view();
-  animation-range: entry 0% cover 40%;
-  transform-origin: center center;
-}
-
-/* Imagens e Carrosséis Soltos */
-section img, 
-.carrossel, 
-.carousel {
-  animation: subirSuave cubic-bezier(0.25, 1, 0.5, 1) both;
-  animation-timeline: view();
-  animation-range: entry 0% cover 45%;
-  transform-origin: bottom center;
-}
-
 /* ==========================================================================
    4. PROTEÇÃO INTERNA DOS CARDS
    ========================================================================== */
