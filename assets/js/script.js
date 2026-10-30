@@ -207,56 +207,57 @@
   if (year) {
     year.textContent = new Date().getFullYear();
   }
+  
   /* -------------------------------------------------------------------------- */
-/* SCROLL REVEAL COM COMPATIBILIDADE MOBILE & FALLBACK                        */
-/* -------------------------------------------------------------------------- */
-function setupScrollReveal() {
-    const revealElements = document.querySelectorAll('.reveal-on-scroll');
+  /* SCROLL REVEAL COM COMPATIBILIDADE MOBILE & FALLBACK                        */
+  /* -------------------------------------------------------------------------- */
+  function setupScrollReveal() {
+      const revealElements = document.querySelectorAll('.reveal-on-scroll');
 
-    if (!revealElements.length) return;
+      if (!revealElements.length) return;
 
-    // Se o navegador não suportar IntersectionObserver, exibe tudo imediatamente
-    if (!('IntersectionObserver' in window)) {
-        revealElements.forEach(el => el.classList.add('is-visible'));
-        return;
-    }
+      // Se o navegador não suportar IntersectionObserver, exibe tudo imediatamente
+      if (!('IntersectionObserver' in window)) {
+          revealElements.forEach(el => el.classList.add('is-visible'));
+          return;
+      }
 
-    const observerOptions = {
-        root: null,
-        /* 
-           Usar rootMargin zerado ou levemente positivo no topo/base para garantir 
-           que telas com barras de navegação dinâmicas (iOS Safari/Android Chrome)
-           detectem o elemento sem cortar.
-        */
-        rootMargin: '50px 0px 0px 0px', 
-        threshold: 0.01 // Basta 1% do elemento aparecer para ativar no mobile
-    };
+      const observerOptions = {
+          root: null,
+          /* 
+            Usar rootMargin zerado ou levemente positivo no topo/base para garantir 
+            que telas com barras de navegação dinâmicas (iOS Safari/Android Chrome)
+            detectem o elemento sem cortar.
+          */
+          rootMargin: '50px 0px 0px 0px', 
+          threshold: 0.01 // Basta 1% do elemento aparecer para ativar no mobile
+      };
 
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  entry.target.classList.add('is-visible');
+                  observer.unobserve(entry.target);
+              }
+          });
+      }, observerOptions);
 
-    revealElements.forEach(el => {
-        // Verifica se o elemento já está dentro da tela inicial para não começar invisível
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom >= 0) {
-            el.classList.add('is-visible');
-        } else {
-            revealObserver.observe(el);
-        }
-    });
-}
+      revealElements.forEach(el => {
+          // Verifica se o elemento já está dentro da tela inicial para não começar invisível
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom >= 0) {
+              el.classList.add('is-visible');
+          } else {
+              revealObserver.observe(el);
+          }
+      });
+  }
 
-// Garante a execução assim que a página carregar
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', setupScrollReveal);
-} else {
-    setupScrollReveal();
-}
+  // Garante a execução assim que a página carregar
+  if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setupScrollReveal);
+  } else {
+      setupScrollReveal();
+  }
 })();
 

@@ -268,6 +268,9 @@ p {
 
 .button-whatsapp {
   color: #fff;
+  background: #20ba5a;
+}
+.button-whatsapp:hover {
   background: #25D366;
 }
 
@@ -1692,15 +1695,13 @@ blockquote {
   box-shadow: var(--shadow-lg);
 }
 
-
-
 /* -------------------------------------------------------------------------- */
-/* REVEAL ANIMAÇÃO AO ROLAR A PÁGINA (SCROLL REVEAL COM BLUR SUAVE)          */
+/* REVEAL ANIMAÇÃO AO ROLAR A PÁGINA (SCROLL REVEAL COM BLUR SUAVE)           */
 /* -------------------------------------------------------------------------- */
 .reveal-on-scroll {
     opacity: 0;
     filter: blur(10px);
-    transform: translateY(30px);
+    transform: translateY(80px);
     transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
                 filter 0.8s cubic-bezier(0.16, 1, 0.3, 1),
                 transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
@@ -1736,8 +1737,6 @@ section .flex *,
   animation: none !important;
   animation-timeline: none !important;
 }
-
-
 
 @media (min-width: 36rem) {
   .product-grid, .testimonial-grid, .contact-cards {
