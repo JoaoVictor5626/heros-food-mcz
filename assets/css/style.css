@@ -313,11 +313,21 @@ p {
 }
 
 .nav-wrap {
-  min-height: 4.7rem;
   display: flex;
   align-items: center;
+  min-height: 4.7rem;
   justify-content: space-between;
   gap: 1rem;
+}
+.name-logo{
+  display: grid;
+  margin-top: 0px;
+}
+#frase-logo{
+  font-family: 'Palatino Linotype', 'Palatino', 'URW Palladio L', serif;
+  font-style: italic;
+  font-size: 14px;
+  font-weight: 1;
 }
 
 .brand {
