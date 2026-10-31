@@ -1466,59 +1466,74 @@ blockquote {
   background: #fff;
 }
 
-.testimonial-grid {
-  display: grid;
+/* Container principal (Configuração padrão para CELULARES e TABLETS) */
+.testimonial-grid.slider-container {
+  display: block; 
+  overflow: hidden; /* Corrigido: Mantém ativo no mobile para travar o layout do celular */
+  width: 100%;
+  position: relative;
+  padding: 20px 0; /* Aumentado ligeiramente para a sombra do hover não ser cortada em cima ou embaixo */
+}
+
+/* A esteira que segura os cards e se move infinitamente */
+.testimonial-track {
+  display: flex;
   gap: 1.2rem;
+  width: max-content; /* Garante que a linha ocupe o tamanho real somado de todos os cards duplicados */
+  will-change: transform;
+  /* Aplica a animação contínua: 35 segundos (lento e suave), linear (sem parar), infinita */
+  animation: scrollInfinito 35s linear infinite;
 }
 
+/* Pausa o movimento perfeitamente quando o usuário passa o mouse por cima */
+.testimonial-grid.slider-container:hover .testimonial-track {
+  animation-play-state: paused;
+}
+
+/* Configuração base dos cards (Mobile: largura fixa para ver pedaços dos próximos cards nas pontas) */
 .testimonial-card {
+  flex: 0 0 280px; 
+  box-sizing: border-box;
   padding: 1.4rem;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-  transition: background-size 0.4s ease, transform 0.8s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--border, #ccc);
+  border-radius: var(--radius-md, 8px);
+  box-shadow: var(--shadow-sm, 0 2px 4px rgba(0,0,0,0.1));
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #fff;
 }
 
+/* Efeito de destaque ao passar o mouse ou focar no card */
 .testimonial-card:hover, .testimonial-card:focus-within {
   transform: translateY(-5px);
-  /* box-shadow: var(--shadow-lg); */
-  /* box-shadow: 0 10px 15px 3px rgba(255, 0, 0, 0.09), 0 4px 6px -4px rgba(255, 0, 0, 0.08); */
   box-shadow: 0 3px 15px 5px rgba(255, 0, 0, 0.09);
 }
 
-.testimonial-card small{
-  font-size: 14px;
+/* Responsividade: Cards ligeiramente maiores em telas médias (Tablets) */
+@media (min-width: 36rem) { 
+  .testimonial-card {
+    flex: 0 0 320px; 
+  }
 }
 
-.testimonial-card p{
-  font-size: 17px;
-}
-.review-head {
-  display: flex;
-  align-items: center;
-  gap: .8rem;
-  margin-bottom: 5px;
+/* Responsividade: Cards e comportamento para telas grandes (Desktops) */
+@media (min-width: 48rem) { 
+  .testimonial-grid.slider-container {
+    overflow: visible; /* Mágica aplicada: Libera o efeito visual infinito vazando nas bordas do PC */
+  }
+
+  .testimonial-card {
+    flex: 0 0 360px; 
+  }
 }
 
-.review-head h3 {
-  margin: 0;
+/* Estilos internos dos textos, cabeçalhos e avatares (Mantidos idênticos aos seus originais) */
+.testimonial-card small { 
+  font-size: 14px; 
+  color: #7a7070; 
 }
 
-.review-head div span {
-  color: #e6ad00;
-  letter-spacing: .12em;
-  font-size: 20px;
-}
-
-.avatar {
-  width: 3rem;
-  height: 3rem;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  color: #fff;
-  background: var(--red-800);
-  font-weight: 900;
+.testimonial-card p { 
+  font-size: 17px; 
 }
 
 .testimonial-card > p {
@@ -1526,9 +1541,47 @@ blockquote {
   color: var(--muted);
 }
 
-.testimonial-card small {
-  color: #7a7070;
+.review-head { 
+  display: flex; 
+  align-items: center; 
+  gap: .8rem; 
+  margin-bottom: 5px; 
 }
+
+.review-head h3 { 
+  margin: 0; 
+}
+
+.review-head div span { 
+  color: #e6ad00; 
+  letter-spacing: .12em; 
+  font-size: 20px; 
+}
+
+.avatar { 
+  width: 3rem; 
+  height: 3rem; 
+  display: grid; 
+  place-items: center; 
+  border-radius: 50%; 
+  color: #fff; 
+  background: var(--red-800, #333); 
+  font-weight: 900; 
+}
+
+/* A mágica do looping matemático: move exatamente metade do container (os itens originais). 
+   O navegador detecta o reset de forma invisível dando o efeito eterno */
+@keyframes scrollInfinito {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Desloca metade do tamanho total da track flexível */
+    transform: translateX(-50%); 
+  }
+}
+
+
 
 .contact {
   background: var(--soft);
@@ -1860,11 +1913,11 @@ section .flex *,
 }
 
 @media (min-width: 36rem) {
-  .product-grid, .testimonial-grid, .contact-cards {
+  .product-grid, .contact-cards {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   
-  .product-grid-featured article:last-child, .testimonial-grid article:last-child {
+  .product-grid-featured article:last-child, article:last-child {
     grid-column: 1 / -1;
     max-width: calc(50% - .6rem);
     justify-self: center;
@@ -1899,11 +1952,11 @@ section .flex *,
     justify-self: center;
   }
 
-  .product-grid-featured, .testimonial-grid {
+  .product-grid-featured {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .product-grid-featured article:last-child, .testimonial-grid article:last-child {
+  .product-grid-featured article:last-child, article:last-child {
     grid-column: auto;
     max-width: none;
   }

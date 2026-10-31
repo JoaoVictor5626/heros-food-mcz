@@ -208,6 +208,25 @@
     year.textContent = new Date().getFullYear();
   }
   
+  document.addEventListener("DOMContentLoaded", () => {
+    const track = document.querySelector(".testimonial-track");
+    if (!track) return;
+
+    // Duplica o conteúdo interno exatamente uma vez para criar o espelho infinito
+    const trackContent = track.innerHTML;
+    track.innerHTML = trackContent + trackContent;
+
+    // Suporte para pausa ao tocar em telas Mobile (já que :hover não funciona bem no celular)
+    track.addEventListener("touchstart", () => {
+      track.style.animationPlayState = "paused";
+    }, { passive: true });
+
+    track.addEventListener("touchend", () => {
+      track.style.animationPlayState = "running";
+    });
+  });
+
+  
   /* -------------------------------------------------------------------------- */
   /* SCROLL REVEAL COM COMPATIBILIDADE MOBILE & FALLBACK                        */
   /* -------------------------------------------------------------------------- */
