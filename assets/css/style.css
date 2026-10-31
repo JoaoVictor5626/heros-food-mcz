@@ -192,6 +192,7 @@ h1 {
 
 #footer-h2 {
   font-family: ui-rounded, 'Arial Rounded MT Bold', 'Segoe UI', sans-serif;
+  font-size: 18px;
   color: #fff;
   text-shadow: none;
 } 
@@ -1004,18 +1005,32 @@ body.menu-open .menu-overlay {
   margin-inline: auto;
 }
 
-.story-visual img {
-  width: 100%;
-  max-height: 35rem;
-  object-fit: cover;
-  border-radius: 2rem;
-  box-shadow: 0 0 25px 0px rgba(105, 0, 0, .70);
+.story-visual img { 
+  width: 100%; 
+  max-height: 31rem; 
+  object-fit: cover; 
+  border-radius: 25%; 
+  box-shadow: 0 0 25px 0px rgba(105, 0, 0, .70); 
+  
+  /* Adiciona a animação: nome, duração, repetição infinita e transição suave */
+  animation: pulsarImagem 4s infinite ease-in-out;
+}
+
+@keyframes pulsarImagem {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 25px 0px rgba(105, 0, 0, .70);
+  }
+  50% {
+    transform: scale(1.02); /* Cresce levemente */
+    box-shadow: 0 0 40px 10px rgba(157, 58, 58, 0.9); /* Sombra expande e brilha mais */
+  }
 }
 
 @media (max-width: 480px) {
   .story-visual img {
-    /* Ajusta o círculo amarelo para o formato vertical do celular */
     margin-bottom: 50px;
+    max-height: 20rem; 
   }
 }
 
@@ -1030,14 +1045,35 @@ body.menu-open .menu-overlay {
 
 blockquote {
   margin: 50px 0 0;
+  box-shadow: 5px 5px 25px 5px rgba(105, 0, 0, .70);
 }
 
 .story blockquote {
+  position: relative; /* Torna o blockquote a âncora para o ícone */
   padding: 1.6rem;
-  border-radius: var(--radius-md);
+  padding-top: 2.2rem; /* Aumenta um pouco o topo se precisar de espaço */
+  border-radius: 30px;
   color: #fff;
   background: var(--red-800);
   font: italic 700 clamp(1.1rem, 3vw, 1.45rem)/1.55 var(--font-display);
+  border-left: 4px solid var(--yellow);
+}
+
+.story-icon {
+  position: absolute;
+  top: -1.5rem; /* Metade da altura (2.3rem / 2) para ficar "meio para fora" na borda, ou use top: 0; se quiser em cima da linha */
+  left: 2.5rem;   /* Ajuste a distância da esquerda conforme desejar */
+  width: 4rem;
+  height: 4rem;
+  display: grid;
+  place-items: center;
+  padding: 0px 10px 0px 0px;
+  border-radius: 50%;
+  color: var(--yellow);
+  font-size: 70px;
+  background: var(--red-800);
+  font-weight: 900;
+  z-index: 1;    /* Garante que fique acima do fundo */
 }
 
 .story blockquote cite {
@@ -1170,10 +1206,18 @@ blockquote {
   gap: 1rem;
   margin-top: 2rem;
   padding: 1.5rem;
-  border-radius: var(--radius-md);
+  border-radius: 30px;
   color: #fff;
   background: var(--red-800);
-  width: min(100% - 2rem, 600px); /* Largura máxima reduzida (exemplo: 600px) */
+  width: min(100% - 2rem, 600px);
+  border-left: 4px solid var(--yellow);
+  box-shadow: 5px 5px 25px 5px rgba(105, 0, 0, .70);
+}
+/* Ajuste para Celular (Telas até 768px) */
+@media (max-width: 768px) {
+  .event-cta {
+    width: 100%;
+  }
 }
 
 .event-cta p {
@@ -1573,12 +1617,16 @@ blockquote {
 
 .siga-nos-icone-instagram, .siga-nos-icone-whatsapp {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #ffffff22;
+  padding: 7px;
+  border-radius: 50%;
 }
 
 .siga-nos-icone-instagram:hover, .siga-nos-icone-whatsapp:hover { 
   transform: translateY(-3px);
   box-shadow: var(--shadow-sm);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #ffffff44;
 }
 
 /* Efeito Hover para o Instagram */
