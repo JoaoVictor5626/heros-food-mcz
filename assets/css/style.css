@@ -256,10 +256,20 @@ p {
   background: #fff36b;
 }
 
+/* ==========================================================================
+   BOTÕES E COMPONENTES GLOBAIS
+   ========================================================================== */
+
 .button-outline {
   color: var(--yellow);
   border-color: var(--yellow);
   transition: 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .5rem 1rem;
+  font-weight: 700;
+  text-decoration: none;
 }
 
 .button-outline:hover {
@@ -293,14 +303,16 @@ p {
   margin-top: 10px;
 }
 
+/* ==========================================================================
+   ESTRUTURA DO CABEÇALHO (SITE HEADER)
+   ========================================================================== */
+
 .site-header {
   font-family: ui-rounded, 'Arial Rounded MT Bold', 'Segoe UI', sans-serif;
   position: sticky;
   z-index: 1000;
   top: 0;
   color: #fff;
-  /* background: rgba(105, 0, 0, .97);
-  box-shadow: 0 2px 15px rgba(0,0,0,.12); */
   
   /* --- EFEITO GLASSMORPHISM --- */
   background: rgba(105, 0, 0, 0.90);          /* Fundo vermelho translúcido */
@@ -309,7 +321,7 @@ p {
   border-bottom: 1px solid rgba(255, 255, 255, 0.15); /* Borda fina iluminada na base */
   border-top: 1px solid rgba(255, 255, 255, 0.1);    /* Borda superior sutil */
   
-  /* --- SOMBRA DE PROFUNDIDADE Ajustada --- */
+  /* --- SOMBRA DE PROFUNDIDADE --- */
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
 }
 
@@ -320,10 +332,12 @@ p {
   justify-content: space-between;
   gap: 1rem;
 }
+
 .name-logo{
   display: grid;
   margin-top: 0px;
 }
+
 #frase-logo{
   font-family: 'Palatino Linotype', 'Palatino', 'URW Palladio L', serif;
   font-style: italic;
@@ -344,12 +358,15 @@ p {
   width: 3.5rem;
   height: 3.5rem;
   object-fit: cover;
-  /* border-radius: 50%; */
 }
 
 .brand span {
   display: none;
 }
+
+/* ==========================================================================
+   NAVEGAÇÃO PRINCIPAL (DESKTOP)
+   ========================================================================== */
 
 .main-nav {
   display: flex;
@@ -362,55 +379,6 @@ p {
   background: transparent; 
   box-shadow: none;
 }
-
-@media (max-width: 992px) {
-  .main-nav {
-    position: fixed;
-    inset: 4.7rem 0 auto; 
-    flex-direction: column;
-    gap: .8rem;
-    padding: 1rem;
-    background: var(--red-900);
-    box-shadow: var(--shadow-lg);
-
-    /* --- ESTADO INICIAL ESCONDIDO --- */
-    opacity: 0;
-    visibility: hidden; 
-    
-    /* Move o menu para cima em -50px e o deixa levemente "achatado" (escala 0.95 no eixo Y) */
-    transform: translateY(-0.95px) scaleY(0); 
-    /* Define que a animação de escala começará de cima para baixo */
-    transform-origin: top; 
-    
-    /* --- TRANSIÇÃO DE ALTA PERFORMANCE --- */
-    transition: 
-      transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
-      opacity 0.25s ease, 
-      visibility 0.35s ease;
-  }
-  
-  /* --- ESTADO ATIVO ABERTO --- */
-  .main-nav.is-open {
-    opacity: 1;
-    visibility: visible;
-    
-    /* Retorna o menu para a posição original (abaixo do header) e tamanho normal (1) */
-    transform: translateY(0) scaleY(1); 
-  }
-  .menu-toggle-nav {
-    opacity: 1;
-    visibility: visible;
-    width: 100%;
-    height: 60px;
-    display: grid;
-    place-content: center;
-    border: 1px solid rgba(255,255,255,.4);
-    border-radius: .65rem;
-    color: #fff;
-    background-color: rgba(105, 0, 0);
-  }
-}
-
 
 .main-nav a {
   font-family: ui-rounded, 'Arial Rounded MT Bold', 'Segoe UI', sans-serif;
@@ -445,9 +413,19 @@ p {
   background-size: 100% 2px;
 }
 
-.header-cta {
+/* Esconde a versão mobile do botão quando estiver no computador */
+.main-nav a.mobile-cta {
   display: none;
 }
+
+/* Garante a exibição do botão desktop padrão */
+.header-cta {
+  display: inline-flex;
+}
+
+/* ==========================================================================
+   BOTÃO DO MENU HAMBÚRGUER (TOGGLE)
+   ========================================================================== */
 
 .menu-toggle {
   width: 3rem;
@@ -468,37 +446,139 @@ p {
   width: 1.35rem;
   height: 2px;
   background: currentColor;
-  transition: var(--transition); 
+  transition: 0.3s ease; /* Substituído var por valor fixo para segurança */
   grid-area: 1 / 1;             
 }
 
-/* --- ESPAÇAMENTO ORIGINAL (Usando :nth-child para mapear as linhas visuais corretas) --- */
-.menu-toggle span:nth-child(2) { transform: translateY(-6px); } /* Linha Superior */
-.menu-toggle span:nth-child(3) { transform: translateY(0); }    /* Linha do Meio */
-.menu-toggle span:nth-child(4) { transform: translateY(6px); }  /* Linha Inferior */
+/* ESPAÇAMENTO ORIGINAL (Mapeamento das linhas visuais) */
+.menu-toggle span:nth-child(2) { transform: translateY(-6px); } 
+.menu-toggle span:nth-child(3) { transform: translateY(0); }    
+.menu-toggle span:nth-child(4) { transform: translateY(6px); }  
 
-
-/* ==========================================================================
-   ANIMAÇÃO PARA O "X" PERFEITO
-   ========================================================================== */
-
-/* 1. Linha Superior (2º filho do botão): vai para o centro e gira 45 graus */
+/* ANIMAÇÃO PARA O "X" PERFEITO DO MENU OPEN */
 body.menu-open .menu-toggle span:nth-child(2) {
   transform: translateY(0) rotate(45deg);
 }
-
-/* 2. Linha do Meio (3º filho do botão): desaparece suavemente */
 body.menu-open .menu-toggle span:nth-child(3) {
   opacity: 0;
 }
-
-/* 3. Linha Inferior (4º filho do botão): vai para o centro e gira -45 graus */
 body.menu-open .menu-toggle span:nth-child(4) {
   transform: translateY(0) rotate(-45deg);
 }
 
+/* ==========================================================================
+   MEDIA QUERY (RESPONSIVIDADE PARA CELULARES E TABLETS)
+   ========================================================================== */
 
-/* --- OVERLAY DO MENU MOBILE (CORRIGIDO FORA DO HEADER) --- */ 
+@media (max-width: 992px) {
+  /* Esconde o botão do cabeçalho externo para não espremer o topo */
+  .header-cta {
+    display: none !important;
+  }
+
+  .main-nav {
+    position: fixed;
+    inset: 4.7rem 0 auto; 
+    flex-direction: column;
+    gap: .8rem;
+    padding: 1rem;
+    background: var(--red-900);
+    box-shadow: var(--shadow-lg);
+
+    /* --- ESTADO INICIAL ESCONDIDO --- */
+    opacity: 0;
+    visibility: hidden; 
+    
+    /* Move o menu e mantém efeito sutil */
+    transform: translateY(-0.95px) scaleY(0); 
+    transform-origin: top; 
+    
+    /* --- TRANSIÇÃO DE ALTA PERFORMANCE --- */
+    transition: 
+      transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+      opacity 0.25s ease, 
+      visibility 0.35s ease;
+  }
+  
+  /* --- ESTADO ATIVO ABERTO --- */
+  .main-nav.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scaleY(1); 
+  }
+
+  /* --- CONFIGURAÇÃO DO BOTÃO OUTLINE DENTRO DO MENU MOBILE (IDÊNTICO AO DESKTOP) --- */
+  .main-nav a.mobile-cta {
+    color: var(--yellow);
+    border: 1px solid var(--yellow);
+    border-color: var(--yellow);
+    transition: 0.3s ease;
+    display: inline-flex;       
+    align-items: center;
+    justify-content: center;    
+    padding: 1.3rem 1rem;
+    font-weight: 700;
+    font-size: 20px;
+    text-decoration: none;
+    
+    width: 100%;                
+    background-image: none;     
+    border-radius: 30px;
+    position: relative;         /* Necessário para ancorar o divisor acima */
+    
+    /* Espaço total entre o link Contato e o botão Pedir Agora */
+    margin-top: 2.2rem;           
+  }
+
+  /* --- O DIVISOR INDEPENDENTE CENTRALIZADO --- */
+  .main-nav a.mobile-cta::before {
+    content: "";
+    position: absolute;
+    
+    /* Centralizado exatamente no meio do vão (2.2rem / 2) */
+    top: -1.5rem;                
+    
+    left: 0;
+    width: 100%;               /* Faz a linha atravessar de ponta a ponta */
+    height: 3px;               /* Espessura fina idêntica a um <hr> */
+    background-color: rgba(255, 255, 255, 0.2); /* Linha sutil */
+  }
+
+  /* Efeito de Hover mantendo o botão idêntico e sem mover o divisor */
+  .main-nav a.mobile-cta:hover,
+  .main-nav a.mobile-cta:focus-visible {
+    color: var(--red-900);
+    background: var(--yellow);
+    background-image: none;     
+    background-size: auto;
+    border-color: var(--yellow);
+    transform: none; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  .menu-toggle-nav {
+    opacity: 1;
+    visibility: visible;
+    width: 100%;
+    height: 60px;
+    display: grid;
+    place-content: center;
+    border: 1px solid rgba(255,255,255,.4);
+    border-radius: .65rem;
+    color: #fff;
+    background-color: rgba(105, 0, 0);
+    font-size: 20px;
+  }
+  .menu-toggle-nav:hover {
+    border: 2px solid var(--yellow);
+  }
+}
+
+
+/* ==========================================================================
+   OVERLAY DO MENU MOBILE
+   ========================================================================== */
+
 .menu-overlay { 
   position: fixed; 
   inset: 0; 
@@ -508,20 +588,15 @@ body.menu-open .menu-toggle span:nth-child(4) {
   z-index: 999; 
   opacity: 0; 
   pointer-events: none; 
-  
-  /* AO FECHAR: Some suavemente em 0.3s (sem nenhum atraso) */
   transition: opacity 0.3s ease-in-out; 
 } 
 
-/* Quando o menu abrir, exibe o fundo escuro */ 
 body.menu-open .menu-overlay { 
   opacity: 1; 
   pointer-events: auto; 
-  
-  /* AO ABRIR: Espera o menu descer (0.2s) e depois escurece o fundo em 0.15s */
-  transition: opacity 0.15s ease-in-out;
-  /* transition-delay: 0.2s;  */
+  transition: opacity 0.15s ease-in-out; 
 }
+
 
 
 
@@ -1216,7 +1291,7 @@ blockquote {
 /* Ajuste para Celular (Telas até 768px) */
 @media (max-width: 768px) {
   .event-cta {
-    width: 100%;
+     width: 100%;
   }
 }
 
