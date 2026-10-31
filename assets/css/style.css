@@ -1466,37 +1466,40 @@ blockquote {
   background: #fff;
 }
 
-/* Container principal (Configuração padrão para CELULARES e TABLETS) */
+/* Container principal (Configuração padrão para CELULARES) */
 .testimonial-grid.slider-container {
   display: block; 
-  overflow: hidden; /* Corrigido: Mantém ativo no mobile para travar o layout do celular */
+  overflow: hidden; /* Mantém estritamente travado no mobile e tablet */
   width: 100%;
   position: relative;
-  padding: 20px 0; /* Aumentado ligeiramente para a sombra do hover não ser cortada em cima ou embaixo */
+  padding: 24px 0; /* Aumentado um pouco mais para acomodar perfeitamente o efeito translateY(-5px) + sombras */
 }
 
 /* A esteira que segura os cards e se move infinitamente */
 .testimonial-track {
   display: flex;
-  gap: 1.2rem;
-  width: max-content; /* Garante que a linha ocupe o tamanho real somado de todos os cards duplicados */
+  gap: 1rem; /* Gap ligeiramente menor no mobile para melhor encaixe */
+  width: max-content;
   will-change: transform;
-  /* Aplica a animação contínua: 35 segundos (lento e suave), linear (sem parar), infinita */
-  animation: scrollInfinito 35s linear infinite;
+  /* Animação ligeiramente mais lenta no mobile (40s) para não gerar desconforto visual */
+  animation: scrollInfinito 40s linear infinite;
 }
 
-/* Pausa o movimento perfeitamente quando o usuário passa o mouse por cima */
-.testimonial-grid.slider-container:hover .testimonial-track {
+/* Pausa o movimento ao passar o mouse ou tocar (ajuda no mobile) */
+.testimonial-grid.slider-container:hover .testimonial-track,
+.testimonial-grid.slider-container:active .testimonial-track {
   animation-play-state: paused;
 }
 
-/* Configuração base dos cards (Mobile: largura fixa para ver pedaços dos próximos cards nas pontas) */
+/* Configuração base dos cards (Celulares Pequenos / Padrão) */
 .testimonial-card {
-  flex: 0 0 280px; 
+  /* Usa viewport width (vw) combinado com um teto máximo. 
+     Isso garante que em telas de 320px o card ocupe ~240px, deixando espaço nas pontas! */
+  flex: 0 0 clamp(230px, 75vw, 280px); 
   box-sizing: border-box;
-  padding: 1.4rem;
+  padding: 1.2rem; /* Padding reduzido no mobile para o texto renderizar melhor */
   border: 1px solid var(--border, #ccc);
-  border-radius: var(--radius-md, 8px);
+  border-radius: var(--radius-md, 30px);
   box-shadow: var(--shadow-sm, 0 2px 4px rgba(0,0,0,0.1));
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   background: #fff;
@@ -1508,21 +1511,53 @@ blockquote {
   box-shadow: 0 3px 15px 5px rgba(255, 0, 0, 0.09);
 }
 
-/* Responsividade: Cards ligeiramente maiores em telas médias (Tablets) */
-@media (min-width: 36rem) { 
+/* ==============
+   RESPONSIVIDADE
+   ============== */
+
+/* 1. CELULARES GRANDES / TELAS INTERMEDIÁRIAS (A partir de 480px) */
+@media (min-width: 30rem) {
+  .testimonial-track {
+    gap: 1.2rem;
+  }
   .testimonial-card {
-    flex: 0 0 320px; 
+    flex: 0 0 280px;
+    padding: 1.4rem;
   }
 }
 
-/* Responsividade: Cards e comportamento para telas grandes (Desktops) */
+/* 2. TABLETS E IPADS PORTRAIT (A partir de 768px) */
 @media (min-width: 48rem) { 
   .testimonial-grid.slider-container {
-    overflow: visible; /* Mágica aplicada: Libera o efeito visual infinito vazando nas bordas do PC */
+    overflow: hidden; /* Segurança total contra vazamentos em tablets */
   }
-
+  .testimonial-track {
+    animation-duration: 35s;
+  }
   .testimonial-card {
-    flex: 0 0 360px; 
+    flex: 0 0 320px;
+  }
+}
+
+/* 3. IPADS PRO, TABLETS EM PAISAGEM E SMART DISPLAYS (De 1024px até 1299px)
+   ---> ESTA REGRA SALVA O NEST HUB MAX (1280px) E NOTEBOOKS PEQUENOS <--- */
+@media (min-width: 64rem) and (max-width: 81.18rem) {
+  .testimonial-grid.slider-container {
+    overflow: hidden !important; /* Trava o layout para não gerar barra de rolagem horizontal */
+  }
+  .testimonial-card {
+    flex: 0 0 340px; /* Tamanho confortável para telas de laptops e hubs */
+  }
+}
+
+/* 4. TELAS GRANDES E MONITORES DE DESKTOP (A partir de 1300px / 81.25rem)
+   Libera a mágica do efeito infinito vazando nas bordas apenas quando há margem de sobra */
+@media (min-width: 81.25rem) { 
+  .testimonial-grid.slider-container {
+    overflow: visible; 
+  }
+  .testimonial-card {
+    flex: 0 0 360px;
   }
 }
 
