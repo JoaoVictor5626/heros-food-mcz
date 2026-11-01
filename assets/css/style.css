@@ -1079,6 +1079,178 @@ body.menu-open .menu-overlay {
   text-transform: uppercase;
 }
 
+/**/
+/* Indica que as imagens dos produtos são clicáveis */
+.product-card img {
+  cursor: pointer;
+}
+
+/* Container Principal - Fundo escuro imersivo */
+.lightbox-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(23, 19, 19, 0.85); /* Base var(--ink) profunda */
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  backdrop-filter: blur(12px); /* Desfoque de fundo elegante */
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lightbox-modal.is-active {
+  display: flex;
+  opacity: 1;
+}
+
+/* Wrapper com animação suave de crescimento (sem exageros de movimento) */
+.lightbox-content-wrapper {
+  width: 92%;
+  max-width: 540px; /* Aumentado de 460px para 540px */
+  transform: scale(0.97);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lightbox-modal.is-active .lightbox-content-wrapper {
+  transform: scale(1);
+}
+
+/* Card Minimalista - Adaptado com o efeito do feixe amarelo circulando */
+.lightbox-card {
+  position: relative;
+  background: rgba(23, 19, 19, 0.9); /* Base var(--ink) profunda */
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 
+              0 0 60px rgba(255, 230, 0, 0.3); /* Brilho traseiro ampliado */
+  border: 1px solid rgba(255, 230, 0, 0.2); /* Borda base levemente mais visível */
+  z-index: 1;
+}
+
+/* O elemento que cria o feixe de luz giratório com ângulo ampliado para maior visibilidade */
+.lightbox-card::before {
+  content: '';
+  position: absolute;
+  top: -60%;
+  left: -60%;
+  width: 220%;
+  height: 220%;
+  background: conic-gradient(
+    transparent, 
+    var(--yellow) 45%, /* Rastro amarelo ampliado para ficar bem forte e visível */
+    transparent 50%, 
+    transparent
+  );
+  z-index: -2;
+  animation: girarFeixe 3s linear infinite; /* Rotação ligeiramente mais rápida para dar dinamismo */
+}
+
+/* Camada interna escura para criar a espessura da linha (vaza apenas 3px do feixe) */
+.lightbox-card::after {
+  content: '';
+  position: absolute;
+  inset: 3px; /* Aumentado para 3px para destacar o feixe nas bordas */
+  background: rgba(23, 19, 19, 0.95);
+  border-radius: calc(var(--radius-md) - 1px);
+  z-index: -1;
+}
+
+/* Garante que a imagem e o rodapé fiquem acima das camadas do feixe animado */
+.lightbox-img,
+.lightbox-footer {
+  position: relative;
+  z-index: 2;
+}
+
+/* Exibição limpa da imagem */
+.lightbox-img {
+  width: 100%;
+  height: auto;
+  max-height: 65vh; /* Aumentado de 55vh para 65vh para dar mais ganho vertical */
+  object-fit: cover; /* Mantém o preenchimento impecável e imersivo */
+  display: block;
+}
+
+/* Rodapé fluido com a sua cor personalizada mantida */
+.lightbox-footer {
+  padding: 1.5rem;
+  background: linear-gradient(to top, rgba(76, 0, 0, 0.95), rgba(163, 0, 0, 0.95)); /* Sua cor mantida exatamente aqui */
+  text-align: center;
+}
+
+/* Tipografia sutil e elegante */
+.lightbox-title {
+  color: var(--paper);
+  margin: 0;
+  font-size: 1.5rem;
+  font-family: var(--font-body); /* Mudado para sans-serif para um visual mais clean */
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* Botão Fechar Minimalista Flutuante */
+.lightbox-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: none;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  border-radius: var(--radius-pill);
+  transition: color var(--transition), background var(--transition);
+  user-select: none;
+  z-index: 2010; /* Fica acima do card */
+}
+
+.lightbox-close:hover {
+  color: var(--paper);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Animação que faz o feixe amarelado correr ao redor do card */
+@keyframes girarFeixe {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Ajustes Mobile */
+@media (max-width: 576px) {
+  .lightbox-content-wrapper {
+    width: 88%;
+  }
+  .lightbox-close {
+    top: 16px;
+    right: 16px;
+  }
+  .lightbox-title {
+    font-size: 1.3rem;
+  }
+}
+
+
+
+/**/
+
+
+
 .story {
   /* background: radial-gradient(circle at 30% 30%, rgba(105, 0, 0, 0.71) 0, rgba(255,244,210,0) 31%), #fff; */
   background: radial-gradient(circle at 30% 40%, rgba(188, 28, 28, 0.300) 0, rgba(255,244,210,0) 41%), #fff;

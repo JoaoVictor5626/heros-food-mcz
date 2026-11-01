@@ -278,5 +278,62 @@
   } else {
       setupScrollReveal();
   }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const lightbox = document.getElementById('productLightbox');
+    const lightboxImg = document.getElementById('lightboxTargetImg');
+    const lightboxTitle = document.getElementById('lightboxTargetTitle');
+    const closeBtn = document.querySelector('.lightbox-close');
+    
+    // Seleciona todas as imagens dentro dos cards de produtos
+    const productImages = document.querySelectorAll('.product-card img');
+
+    productImages.forEach(img => {
+      img.addEventListener('click', () => {
+        const card = img.closest('.product-card');
+        const titleText = card.querySelector('h3') ? card.querySelector('h3').innerText : '';
+        
+        // Define a imagem e o título no modal
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightboxTitle.innerText = titleText;
+        
+        // Exibe o modal com a animação de fade
+        lightbox.classList.add('is-active');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden'; // Bloqueia o scroll do fundo
+      });
+    });
+
+    // Função para fechar o Pop-up
+    const closeLightbox = () => {
+      lightbox.classList.remove('is-active');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = ''; // Libera o scroll do fundo
+      
+      // Limpa os atributos após a transição terminar
+      setTimeout(() => {
+        lightboxImg.src = '';
+        lightboxImg.alt = '';
+        lightboxTitle.innerText = '';
+      }, 300);
+    };
+
+    // Eventos de fechamento
+    closeBtn.addEventListener('click', closeLightbox);
+    
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('is-active')) {
+        closeLightbox();
+      }
+    });
+  });
+
 })();
 
