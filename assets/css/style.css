@@ -280,10 +280,42 @@ p {
 .button-whatsapp {
   color: #fff;
   background: #20ba5a;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+/* Efeito de pulso contínuo */
+.button-whatsapp::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit; /* Garante que segue a borda do botão */
+  box-shadow: 0 0 0 0 rgba(32, 186, 90, 0.7);
+  animation: pulse-whatsapp 2s ease-out infinite;
+  pointer-events: none;
+}
+
 .button-whatsapp:hover {
   background: #25D366;
+  transform: translateY(-2px); /* Sutil elevação ao passar o mouse */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
+
+@keyframes pulse-whatsapp {
+  0% {
+    box-shadow: 0 0 0 0 rgba(32, 186, 90, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 18px rgba(32, 186, 90, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(32, 186, 90, 0);
+  }
+}
+
 
 .text-link, .card-link {
   display: inline-flex;
@@ -1675,11 +1707,26 @@ blockquote {
 }
 
 .final-cta {
-  padding: 5rem 0;
-  color: #fff;
-  background: var(--red-900);
+  padding: clamp(3rem, 8vw, 6rem) 1.5rem;
+  color: #ffffff;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+
+  position: relative;
+  overflow: hidden;
+
+  /* --- GRID PONTILHADO COM GRADIENTE MAIS CLARO --- */
+  background-color: var(--red-900);
+  background-image: 
+    radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px), 
+    linear-gradient(135deg, var(--red-900) 0%, #6c0409 100%); /* Transição para um vermelho aberto, evitando o tom escuro do footer */
+  background-size: 24px 24px, 100% 100%; /* Pontos ligeiramente mais espaçados para um look limpo */
 }
+
 
 .final-cta .eyebrow {
   color: var(--yellow);
