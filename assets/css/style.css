@@ -516,6 +516,7 @@ body.menu-open .menu-toggle span:nth-child(4) {
     padding: 1rem;
     background: var(--red-900);
     box-shadow: var(--shadow-lg);
+    border-radius: 0px 0px 20px 20px;
 
     /* --- ESTADO INICIAL ESCONDIDO --- */
     opacity: 0;
@@ -1119,59 +1120,59 @@ body.menu-open .menu-overlay {
   transform: scale(1);
 }
 
-/* Card Minimalista - Adaptado com o efeito do feixe amarelo circulando */
+/* Registra a variável de ângulo para permitir animações fluidas de gradiente */
+@property --angulo {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* Card Minimalista - Com a linha curta amarela correndo infinitamente */
 .lightbox-card {
   position: relative;
-  background: rgba(23, 19, 19, 0.9); /* Base var(--ink) profunda */
   border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 
-              0 0 60px rgba(255, 230, 0, 0.3); /* Brilho traseiro ampliado */
-  border: 1px solid rgba(255, 230, 0, 0.2); /* Borda base levemente mais visível */
+              0 0 30px rgba(255, 230, 0, 0.1); 
   z-index: 1;
-}
 
-/* O elemento que cria o feixe de luz giratório com ângulo ampliado para maior visibilidade */
-.lightbox-card::before {
-  content: '';
-  position: absolute;
-  top: -60%;
-  left: -60%;
-  width: 220%;
-  height: 220%;
-  background: conic-gradient(
-    transparent, 
-    var(--yellow) 45%, /* Rastro amarelo ampliado para ficar bem forte e visível */
-    transparent 50%, 
-    transparent
+  /* Aplica a espessura da linha (3px) através de uma borda transparente */
+  border: 3px solid transparent;
+  
+  /* Background duplo: o primeiro cria a máscara escura interna, o segundo cria o feixe cônico animado */
+  /* Background duplo: Feixes equilibrados no meio-termo (15º de largura sólida) */
+background-image: 
+  linear-gradient(rgba(23, 19, 19, 0.98), rgba(23, 19, 19, 0.98)), 
+  conic-gradient(
+    from var(--angulo), 
+    /* Primeiro Feixe (Médio) */
+    transparent 0deg, 
+    var(--yellow) 10deg,  /* Início do feixe forte */
+    var(--yellow) 25deg,  /* Fim do feixe forte (15º de largura) */
+    transparent 35deg,  /* Suavização da ponta */
+    
+    /* Espaço vazio até o lado oposto (10deg + 180deg = 190deg) */
+    transparent 190deg,
+    
+    /* Segundo Feixe (Médio e Oposto) */
+    var(--yellow) 200deg, /* Início do feixe forte oposto */
+    var(--yellow) 215deg, /* Fim do feixe forte oposto (15º de largura) */
+    transparent 225deg  /* Suavização da ponta */
   );
-  z-index: -2;
-  animation: girarFeixe 3s linear infinite; /* Rotação ligeiramente mais rápida para dar dinamismo */
+
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  
+  animation: girarLinhaBorda 7s linear infinite;
 }
 
-/* Camada interna escura para criar a espessura da linha (vaza apenas 3px do feixe) */
-.lightbox-card::after {
-  content: '';
-  position: absolute;
-  inset: 3px; /* Aumentado para 3px para destacar o feixe nas bordas */
-  background: rgba(23, 19, 19, 0.95);
-  border-radius: calc(var(--radius-md) - 1px);
-  z-index: -1;
-}
-
-/* Garante que a imagem e o rodapé fiquem acima das camadas do feixe animado */
-.lightbox-img,
-.lightbox-footer {
-  position: relative;
-  z-index: 2;
-}
 
 /* Exibição limpa da imagem */
 .lightbox-img {
   width: 100%;
   height: auto;
-  max-height: 65vh; /* Aumentado de 55vh para 65vh para dar mais ganho vertical */
-  object-fit: cover; /* Mantém o preenchimento impecável e imersivo */
+  max-height: 75vh; /* Aumentado de 55vh para 75vh para dar mais ganho vertical */
+  object-fit: cover;
   display: block;
 }
 
@@ -1186,10 +1187,12 @@ body.menu-open .menu-overlay {
 .lightbox-title {
   color: var(--paper);
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-family: var(--font-body); /* Mudado para sans-serif para um visual mais clean */
   font-weight: 600;
   letter-spacing: -0.01em;
+  color: white; /* Cor de preenchimento do texto */
+  -webkit-text-stroke: 1px black; /* Espessura e cor do contorno */
 }
 
 /* Botão Fechar Minimalista Flutuante */
@@ -1197,13 +1200,13 @@ body.menu-open .menu-overlay {
   position: absolute;
   top: 24px;
   right: 24px;
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 1.75rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 2rem;
   line-height: 1;
   cursor: pointer;
   width: 44px;
   height: 44px;
-  background: transparent;
+  background: rgba(23, 19, 19, 0.5);
   border: none;
   
   display: flex;
@@ -1213,7 +1216,7 @@ body.menu-open .menu-overlay {
   border-radius: var(--radius-pill);
   transition: color var(--transition), background var(--transition);
   user-select: none;
-  z-index: 2010; /* Fica acima do card */
+  z-index: 2010; /* Garante que fique clicável acima de tudo */
 }
 
 .lightbox-close:hover {
@@ -1221,13 +1224,13 @@ body.menu-open .menu-overlay {
   background: rgba(255, 255, 255, 0.08);
 }
 
-/* Animação que faz o feixe amarelado correr ao redor do card */
-@keyframes girarFeixe {
+/* Animação que faz o ângulo atualizar progressivamente gerando a rotação */
+@keyframes girarLinhaBorda {
   0% {
-    transform: rotate(0deg);
+    --angulo: 0deg;
   }
   100% {
-    transform: rotate(360deg);
+    --angulo: 360deg;
   }
 }
 
@@ -1239,14 +1242,12 @@ body.menu-open .menu-overlay {
   .lightbox-close {
     top: 16px;
     right: 16px;
+    font-size: 2.5rem;
   }
   .lightbox-title {
-    font-size: 1.3rem;
+    font-size: 2rem;
   }
 }
-
-
-
 /**/
 
 
