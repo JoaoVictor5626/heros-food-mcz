@@ -112,8 +112,21 @@ button, input {
   width: min(100% - 2rem, 600px); /* Largura máxima reduzida (exemplo: 600px) */
   margin-inline: auto;
   text-align: center;
-  margin-top: 2rem; /* Espaçamento superior */
-  padding: 1rem 0; /* Padding vertical reduzido pela metade */
+  margin-top: -2rem; /* Espaçamento superior */
+  padding: 3rem 0; /* Padding vertical reduzido pela metade */
+}
+/* Ajuste para Celular (Telas até 768px) */
+@media (max-width: 768px) {
+  .container-campaign {
+     width: 100%;
+  }
+}
+/* Configuração para Desktops (telas a partir de 990px) */
+@media (min-width: 990px) { 
+  .container-campaign { 
+    margin-top: 2rem; /* Espaçamento superior */
+    padding: 1rem 0; /* Padding vertical reduzido pela metade */
+  } 
 }
 
 .section {
@@ -1986,8 +1999,26 @@ blockquote {
   background-color: var(--red-900);
   background-image: 
     radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px), 
-    linear-gradient(135deg, var(--red-900) 0%, #6c0409 100%); /* Transição para um vermelho aberto, evitando o tom escuro do footer */
-  background-size: 24px 24px, 100% 100%; /* Pontos ligeiramente mais espaçados para um look limpo */
+    linear-gradient(135deg, var(--red-900) 0%, #6c0409 100%);
+  background-size: 24px 24px, 100% 100%;
+  
+  /* Posição inicial: pontos em 0 0, gradiente vermelho estático em 0 0 */
+  background-position: 0px 0px, 0% 0%;
+
+  /*Chama a animação: 8 segundos, velocidade constante (linear) e infinita */
+  animation: moverPontinhos 4s linear infinite;
+}
+
+/* --- KEYFRAMES PARA O LOOP PERFEITO --- */
+@keyframes moverPontinhos {
+  0% {
+    background-position: -40px -20px, 0% 0%;
+  }
+  100% {
+    /* Move os pontos em diagonal exatamente o tamanho do background-size (24px) */
+    /* O gradiente vermelho mapeado em 0% 0% fica totalmente parado ao fundo */
+    background-position: 24px 24px, 0% 0%;
+  }
 }
 
 
@@ -2089,17 +2120,17 @@ blockquote {
 }
 
 .siga-nos-icone-instagram, .siga-nos-icone-whatsapp {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background-color: #ffffff22;
+  /* Adicionado background-color e alterado para ease-out (funde melhor com movimentos) */
+  transition: transform 0.4s ease-out, box-shadow 0.4s ease-out, background-color 0.4s ease-out;
+  background-color: rgba(255, 255, 255, 0.13); /* Hex #ffffff22 convertido para legibilidade */
   padding: 7px;
   border-radius: 50%;
 }
 
 .siga-nos-icone-instagram:hover, .siga-nos-icone-whatsapp:hover { 
-  transform: translateY(-3px);
+  transform: translateY(-2px); /* Reduzido levemente para um salto menos abrupto */
   box-shadow: var(--shadow-sm);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background-color: #ffffff44;
+  background-color: rgba(255, 255, 255, 0.27); /* Transição de cor agora será suave */
 }
 
 /* Efeito Hover para o Instagram */
