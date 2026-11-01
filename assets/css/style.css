@@ -167,6 +167,7 @@ h1 {
 
 #eventos-title {
   padding-bottom: 25px;
+  white-space: nowrap;
 }
 
 #campaign-title {
@@ -1329,9 +1330,24 @@ background-image:
   color: var(--muted);
 }
 
-blockquote {
-  margin: 50px 0 0;
-  box-shadow: 5px 5px 25px 5px rgba(105, 0, 0, .70);
+blockquote { 
+  margin: 20px 15px 0; /* Margem menor em cima e um pouco de espaço nas laterais */
+  box-shadow: 3px 3px 15px 3px rgba(105, 0, 0, .40); /* Sombra mais suave para telas pequenas */
+}
+
+/* Configuração para Tablets (telas a partir de 768px) */
+@media (min-width: 768px) {
+  blockquote {
+    margin: 50px 0 0;
+    box-shadow: 5px 5px 25px 5px rgba(105, 0, 0, .40); /* Sombra original */
+  }
+}
+
+/* Configuração para Desktops (telas a partir de 990px) */
+@media (min-width: 990px) { 
+  blockquote { 
+    margin: 100px 0 0; /* Margem maior para telas grandes */
+  } 
 }
 
 .story blockquote {
@@ -1411,6 +1427,7 @@ blockquote {
   border: 1px solid rgba(255,255,255,.25);
   border-radius: var(--radius-md);
   background: var(--red-900);
+  box-shadow: 5px 5px 25px 5px rgba(105, 0, 0, .40);
 }
 
 .delivery-strip h3 {
@@ -1497,13 +1514,20 @@ blockquote {
   background: var(--red-800);
   width: min(100% - 2rem, 600px);
   border-left: 4px solid var(--yellow);
-  box-shadow: 5px 5px 25px 5px rgba(105, 0, 0, .70);
+  box-shadow: 5px 5px 25px 5px rgba(105, 0, 0, .30);
 }
 /* Ajuste para Celular (Telas até 768px) */
 @media (max-width: 768px) {
   .event-cta {
      width: 100%;
   }
+}
+/* Configuração para Desktops (telas a partir de 990px) */
+@media (min-width: 990px) { 
+  .event-cta { 
+    margin: 30px 0 0;
+    box-shadow: 5px 5px 25px 5px rgba(105, 0, 0, .40);
+  } 
 }
 
 .event-cta p {
@@ -1606,6 +1630,33 @@ blockquote {
 
 #campaign-title, #campaign-content{
   color: #fff;
+}
+#campaign-content strong.campaign-instagram {
+  /* Define a cor padrão do texto antes do hover (Amarelo Base) */
+  color: #fff;
+  
+  /* Gradiente invertido: Tom mais escuro -> Amarelo Base -> Bloco Visível de Amarelo Base */
+  background: linear-gradient(to right, #d4a017 0%, var(--yellow) 50%, #fff 50%);
+  background-size: 200% 100%;
+  
+  /* Começa em 100% para exibir apenas a cor sólida inicialmente */
+  background-position: 100% 0%;
+  
+  /* Prepara o recorte do texto */
+  -webkit-background-clip: text;
+  background-clip: text;
+  
+  /* Transição suave da posição do fundo e da cor */
+  transition: background-position 0.3s ease, color 0.5s ease, -webkit-text-fill-color 0.5s ease;
+}
+
+#campaign-content strong.campaign-instagram:hover {
+  /* Deixa o texto transparente para revelar o gradiente */
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  
+  /* Move para 0%, fazendo o gradiente entrar vindo da esquerda */
+  background-position: 0% 0%;
 }
 
 #campaign-title span{
@@ -1864,6 +1915,39 @@ blockquote {
   margin-bottom: .5rem;
   color: var(--muted);
 }
+
+.link-instagram-gradient {
+  /* Remove o sublinhado padrão do link e garante a animação correta */
+  text-decoration: none; 
+  display: inline-block; 
+
+  /* Define a cor padrão do texto antes do hover (Amarelo Base) */
+  color: var(--muted);
+  
+  /* Gradiente invertido: Tom mais escuro -> Amarelo Base -> Bloco Visível de Amarelo Base */
+  background: linear-gradient(to right, #d4a017 0%, var(--yellow) 50%, #fff 50%);
+  background-size: 200% 100%;
+  
+  /* Começa em 100% para exibir apenas a cor sólida inicialmente */
+  background-position: 100% 0%;
+  
+  /* Prepara o recorte do texto */
+  -webkit-background-clip: text;
+  background-clip: text;
+  
+  /* Transição suave da posição do fundo e da cor */
+  transition: background-position 0.3s ease, color 0.5s ease, -webkit-text-fill-color 0.5s ease;
+}
+
+.link-instagram-gradient:hover {
+  /* Deixa o texto transparente para revelar o gradiente */
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  
+  /* Move para 0%, fazendo o gradiente entrar vindo da esquerda */
+  background-position: 0% 0%;
+}
+
 
 #mapa{
   margin-top: 5rem;
