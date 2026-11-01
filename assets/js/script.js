@@ -279,6 +279,7 @@
       setupScrollReveal();
   }
 
+  // EFEITO LIGHTBOX
   document.addEventListener('DOMContentLoaded', () => {
     const lightbox = document.getElementById('productLightbox');
     const lightboxImg = document.getElementById('lightboxTargetImg');
@@ -330,6 +331,67 @@
 
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && lightbox.classList.contains('is-active')) {
+        closeLightbox();
+      }
+    });
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const lightbox = document.getElementById('productLightbox');
+    const lightboxImg = document.getElementById('lightboxTargetImg');
+    const lightboxTitle = document.getElementById('lightboxTargetTitle');
+    const closeBtn = document.querySelector('.lightbox-close');
+    const productImages = document.querySelectorAll('.product-card img');
+
+    // Função para abrir o Pop-up com transição suave
+    productImages.forEach(img => {
+      img.addEventListener('click', () => {
+        const card = img.closest('.product-card');
+        const titleText = card.querySelector('h3') ? card.querySelector('h3').innerText : '';
+        
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightboxTitle.innerText = titleText;
+        
+        // Torna o elemento renderizável no display antes de aplicar a opacidade
+        lightbox.style.display = 'flex';
+        
+        // Pequeno delay para o navegador processar o display e aplicar o efeito de transição
+        requestAnimationFrame(() => {
+          lightbox.classList.add('is-visible');
+          lightbox.setAttribute('aria-hidden', 'false');
+        });
+        
+        document.body.style.overflow = 'hidden'; // Bloqueia o scroll do fundo
+      });
+    });
+
+    // Função para fechar o Pop-up aguardando a animação terminar
+    const closeLightbox = () => {
+      lightbox.classList.remove('is-visible');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = ''; // Libera o scroll do fundo
+      
+      // Aguarda os 300ms da transição do CSS antes de sumir com o display e limpar os dados
+      setTimeout(() => {
+        lightbox.style.display = 'none';
+        lightboxImg.src = '';
+        lightboxImg.alt = '';
+        lightboxTitle.innerText = '';
+      }, 300);
+    };
+
+    // Eventos de fechamento (no botão X, clicando fora, ou apertando ESC)
+    closeBtn.addEventListener('click', closeLightbox);
+    
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('is-visible')) {
         closeLightbox();
       }
     });
