@@ -109,11 +109,11 @@ button, input {
 }
 
 .container-campaign {
-  width: min(100% - 2rem, 600px); /* Largura máxima reduzida (exemplo: 600px) */
+  width: min(100% - 2rem, 600px);
   margin-inline: auto;
   text-align: center;
-  margin-top: -2rem; /* Espaçamento superior */
-  padding: 3rem 0; /* Padding vertical reduzido pela metade */
+  margin-top: -2rem; 
+  padding: 3rem 0;
 }
 /* Ajuste para Celular (Telas até 768px) */
 @media (max-width: 768px) {
@@ -124,8 +124,8 @@ button, input {
 /* Configuração para Desktops (telas a partir de 990px) */
 @media (min-width: 990px) { 
   .container-campaign { 
-    margin-top: 2rem; /* Espaçamento superior */
-    padding: 1rem 0; /* Padding vertical reduzido pela metade */
+    margin-top: 2rem; 
+    padding: 1rem 0;
   } 
 }
 
@@ -159,9 +159,9 @@ h1 {
 }
 
 #hero-title {
-  padding-bottom: 25px;
+  padding-bottom: 45px;
   margin-top: -70px;
-  font-size: clamp(3rem, 5vw, 6rem);
+  font-size: clamp(2.9rem, 5vw, 6rem);
   /* white-space: nowrap; */
 }
 
@@ -223,11 +223,7 @@ h3 {
 
 p {
   max-width: 68ch;
-  /* Alvo principal: Puxa o estilo arredondado nativo do sistema (Apple, Windows, Android) */
   font-family: ui-rounded, 'Arial Rounded MT Bold', 'Segoe UI', sans-serif;
-  /* font-family: "Bradley Hand", "Comic Sans MS", cursive; */
-
-  /* Garante um aspecto sério através da formatação */
   font-weight: 400;
   font-size: 16px;
   line-height: 1.6;
@@ -236,7 +232,7 @@ p {
 
 #sections-subtitles {
   font-family: "Segoe Print", "Bradley Hand", cursive;
-  font-size: 1.2rem; /* Deixa o texto maior e mais imponente */
+  font-size: 1.2rem;
   margin-bottom: 2.5rem;
 }
 
@@ -273,7 +269,6 @@ p {
 /* ==========================================================================
    BOTÕES E COMPONENTES GLOBAIS
    ========================================================================== */
-
 .button-outline {
   color: var(--yellow);
   border-color: var(--yellow);
@@ -314,7 +309,7 @@ p {
 
 .button-whatsapp:hover {
   background: #25D366;
-  transform: translateY(-2px); /* Sutil elevação ao passar o mouse */
+  transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
@@ -352,7 +347,6 @@ p {
 /* ==========================================================================
    ESTRUTURA DO CABEÇALHO (SITE HEADER)
    ========================================================================== */
-
 .site-header {
   font-family: ui-rounded, 'Arial Rounded MT Bold', 'Segoe UI', sans-serif;
   position: sticky;
@@ -361,10 +355,10 @@ p {
   color: #fff;
   
   /* --- EFEITO GLASSMORPHISM --- */
-  background: rgba(105, 0, 0, 0.90);          /* Fundo vermelho translúcido */
-  backdrop-filter: blur(12px);                /* Desfoque do fundo */
+  background: rgba(105, 0, 0, 0.90);         
+  backdrop-filter: blur(12px);                
   -webkit-backdrop-filter: blur(12px);        /* Suporte para Safari/iOS */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15); /* Borda fina iluminada na base */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15); 
   border-top: 1px solid rgba(255, 255, 255, 0.1);    /* Borda superior sutil */
   
   /* --- SOMBRA DE PROFUNDIDADE --- */
@@ -413,7 +407,6 @@ p {
 /* ==========================================================================
    NAVEGAÇÃO PRINCIPAL (DESKTOP)
    ========================================================================== */
-
 .main-nav {
   display: flex;
   flex-direction: row; 
@@ -472,7 +465,6 @@ p {
 /* ==========================================================================
    BOTÃO DO MENU HAMBÚRGUER (TOGGLE)
    ========================================================================== */
-
 .menu-toggle {
   width: 3rem;
   height: 3rem;
@@ -512,10 +504,9 @@ body.menu-open .menu-toggle span:nth-child(4) {
   transform: translateY(0) rotate(-45deg);
 }
 
-/* ==========================================================================
+/* =====================================================
    MEDIA QUERY (RESPONSIVIDADE PARA CELULARES E TABLETS)
-   ========================================================================== */
-
+   ===================================================== */
 @media (max-width: 992px) {
   /* Esconde o botão do cabeçalho externo para não espremer o topo */
   .header-cta {
@@ -621,11 +612,9 @@ body.menu-open .menu-toggle span:nth-child(4) {
   }
 }
 
-
 /* ==========================================================================
    OVERLAY DO MENU MOBILE
    ========================================================================== */
-
 .menu-overlay { 
   position: fixed; 
   inset: 0; 
@@ -643,10 +632,6 @@ body.menu-open .menu-overlay {
   pointer-events: auto; 
   transition: opacity 0.15s ease-in-out; 
 }
-
-
-
-
 
 
 .hero {
@@ -690,7 +675,7 @@ body.menu-open .menu-overlay {
     align-items: center;
   }
   .hero-copy {
-    padding-top: 100px; /* O valor de 100px que você gostou para o tablet */
+    padding-top: 100px;
   }
   
   .hero {
@@ -731,48 +716,72 @@ body.menu-open .menu-overlay {
 }
 
 
-.hero-copy h1 span {
-  color: var(--red-800);
-  /* position: relative;
-  display: inline-block; */
+.hero-copy h1 span { 
+    color: var(--red-800); 
+    position: relative; 
+    display: inline-block; 
 }
 
-/* .hero-copy h1 span:after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -10px;
-  width: 100%;
-  height: 4px;
-  background: var(--gold, #ffd900); 
-  transform: rotate(-2deg);
-} */
-
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 1.1rem;
-  margin-top: 2rem;
+.hero-copy h1 span:after { 
+    content: ''; 
+    position: absolute; 
+    left: 0; 
+    bottom: -20px; 
+    width: 100%; 
+    height: 4px; 
+    background: var(--gold, #ffd900); 
+    transform: rotate(-2deg); 
+    
+    /* Configuração da Animação */
+    transform-origin: left center; /* Garante que a linha cresça a partir da esquerda */
+    animation: desenharLinha 1s ease-out forwards; /* 'forwards' mantém o estado final de 100% */
 }
 
-/* Seleciona o span normal dentro do link do WhatsApp */
-.hero-actions .whatsapp-link span {
-  display: inline-block;
-  transition: transform 0.3s ease;
+/* Regra da Animação */
+@keyframes desenharLinha {
+    from {
+        transform: rotate(-2deg) scaleX(0); /* Começa invisível/zerada */
+    }
+    to {
+        transform: rotate(-2deg) scaleX(1); /* Termina em 100% */
+    }
 }
 
-/* Quando passa o mouse no LINK, a SETA se move para a direita */
-.hero-actions .whatsapp-link:hover span {
-  transform: translateX(3px); /* Move para a direita */
+.hero-actions { 
+  display: flex; 
+  flex-wrap: wrap; 
+  align-items: center; 
+  gap: 1.1rem; /* Espaçamento padrão em telas maiores */
+  margin-top: 2rem; 
+} 
+
+/* Ajustes aplicados apenas quando a tela for menor que 392px */
+@media (max-width: 391px) {
+  .hero-actions {
+    padding-top: 1rem;
+    justify-content: center;
+    row-gap: 2rem; /* Aumenta o espaçamento vertical apenas após a quebra */
+  }
 }
 
-.hero-carousel {
-  position: relative;
-  max-width: 31rem;
-  width: 100%;
-  margin-inline: auto;
+/* Seleciona o span normal dentro do link do WhatsApp */ 
+.hero-actions .whatsapp-link span { 
+  display: inline-block; 
+  transition: transform 0.3s ease; 
+} 
+
+/* Quando passa o mouse no LINK, a SETA se move para a direita */ 
+.hero-actions .whatsapp-link:hover span { 
+  transform: translateX(3px); /* Move para a direita */ 
+} 
+
+.hero-carousel { 
+  position: relative; 
+  max-width: 31rem; 
+  width: 100%; 
+  margin-inline: auto; 
 }
+
 
 /* ========================================================
    ESTRUTURA COMPARTILHADA (Funciona para ambos)
@@ -1226,23 +1235,34 @@ background-image:
   cursor: pointer;
   width: 44px;
   height: 44px;
-  background: rgba(23, 19, 19, 0.5);
+  background: rgba(140, 134, 134, 0.2);
   border: none;
-  
   display: flex;
   align-items: center;
   justify-content: center;
-  
   border-radius: var(--radius-pill);
-  transition: color var(--transition), background var(--transition);
   user-select: none;
   z-index: 2010; /* Garante que fique clicável acima de tudo */
+  
+  /* O SEGREDO DA SUAVEZA: Transição explícita com ease-in-out */
+  transition: 
+    color 0.3s ease-in-out, 
+    background-color 0.3s ease-in-out, 
+    transform 0.3s ease-in-out;
 }
 
 .lightbox-close:hover {
   color: var(--paper);
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.2);
+  /* Opcional: Um leve aumento suave para enriquecer o feedback */
+  transform: scale(1.05); 
 }
+
+/* Opcional: Efeito suave também ao clicar (active) */
+.lightbox-close:active {
+  transform: scale(0.95);
+}
+
 
 /* Animação que faz o ângulo atualizar progressivamente gerando a rotação */
 @keyframes girarLinhaBorda {
@@ -1294,45 +1314,75 @@ background-image:
   }
 }
 
-.story-grid {
-  display: grid;
-  gap: 2rem;
-}
+.story-grid { 
+  display: grid; 
+  gap: 2rem; 
+} 
 
-.story-visual {
-  position: relative;
-  max-width: 30rem;
-  margin-inline: auto;
-}
+.story-visual { 
+  position: relative; 
+  max-width: 30rem; 
+  margin-inline: auto; 
+} 
 
+/* ==========================================================================
+   Configuração para Desktop (Padrão)
+   ========================================================================== */
 .story-visual img { 
   width: 100%; 
   max-height: 31rem; 
   object-fit: cover; 
   border-radius: 25%; 
   box-shadow: 0 0 25px 0px rgba(105, 0, 0, .70); 
-  
-  /* Adiciona a animação: nome, duração, repetição infinita e transição suave */
-  animation: pulsarImagem 4s infinite ease-in-out;
-}
+  animation: pulsarImagem 4s infinite ease-in-out; 
+} 
 
+/* Em vez de animar a expansão do box-shadow que força o navegador a recalcular o layout: */
 @keyframes pulsarImagem {
-  0%, 100% {
-    transform: scale(1);
-    box-shadow: 0 0 25px 0px rgba(105, 0, 0, .70);
+  0%, 100% { 
+    transform: scale(1); 
+    opacity: 1; 
   }
-  50% {
-    transform: scale(1.02); /* Cresce levemente */
-    box-shadow: 0 0 40px 10px rgba(157, 58, 58, 0.9); /* Sombra expande e brilha mais */
+  50% { 
+    transform: scale(1.02); 
+    opacity: 0.95; 
   }
 }
 
-@media (max-width: 480px) {
+/* ==========================================================================
+   Tablets e Celulares (Telas até 1024px) - Diminui o Box-Shadow
+   ========================================================================== */
+@media (max-width: 1024px) {
   .story-visual img {
-    margin-bottom: 50px;
-    max-height: 20rem; 
+    /* Reduz a sombra estática inicial */
+    box-shadow: 0 0 12px 0px rgba(105, 0, 0, .60); 
+    /* Atribui a nova animação mais suave */
+    animation: pulsarImagemMobile 4s infinite ease-in-out;
+  }
+
+  /* Animação com sombras reduzidas para telas menores */
+  @keyframes pulsarImagemMobile { 
+    0%, 100% { 
+      transform: scale(1); 
+      box-shadow: 0 0 12px 0px rgba(105, 0, 0, .60); 
+    } 
+    50% { 
+      transform: scale(1.02); 
+      box-shadow: 0 0 20px 4px rgba(157, 58, 58, 0.75); /* Metade do tamanho original */
+    } 
   }
 }
+
+/* ==========================================================================
+   Apenas Celulares (Sua regra original mantida)
+   ========================================================================== */
+@media (max-width: 480px) { 
+  .story-visual img { 
+    margin-bottom: 50px; 
+    max-height: 20rem; 
+  } 
+}
+
 
 .story-copy h2 span, .events h2 span, .campaign h2 span {
   display: block;
@@ -1515,6 +1565,11 @@ blockquote {
   color: var(--muted);
 }
 
+.events h3 {
+  font: italic 700 clamp(1.1rem, 3vw, 1.45rem)/1.55 var(--font-display);
+  margin-bottom: 10px;
+}
+
 .event-cta {
   position: relative;
   display: grid;
@@ -1538,7 +1593,7 @@ blockquote {
 /* Configuração para Desktops (telas a partir de 990px) */
 @media (min-width: 990px) { 
   .event-cta { 
-    margin: 30px 0 0;
+    margin: 60px 0 0;
     box-shadow: 5px 5px 25px 5px rgba(105, 0, 0, .40);
   } 
 }
