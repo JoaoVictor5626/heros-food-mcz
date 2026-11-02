@@ -1170,24 +1170,24 @@ body.menu-open .menu-overlay {
   
   /* Background duplo: o primeiro cria a máscara escura interna, o segundo cria o feixe cônico animado */
   /* Background duplo: Feixes equilibrados no meio-termo (15º de largura sólida) */
-background-image: 
-  linear-gradient(rgba(23, 19, 19, 0.98), rgba(23, 19, 19, 0.98)), 
-  conic-gradient(
-    from var(--angulo), 
-    /* Primeiro Feixe (Médio) */
-    transparent 0deg, 
-    var(--yellow) 10deg,  /* Início do feixe forte */
-    var(--yellow) 25deg,  /* Fim do feixe forte (15º de largura) */
-    transparent 35deg,  /* Suavização da ponta */
-    
-    /* Espaço vazio até o lado oposto (10deg + 180deg = 190deg) */
-    transparent 190deg,
-    
-    /* Segundo Feixe (Médio e Oposto) */
-    var(--yellow) 200deg, /* Início do feixe forte oposto */
-    var(--yellow) 215deg, /* Fim do feixe forte oposto (15º de largura) */
-    transparent 225deg  /* Suavização da ponta */
-  );
+  background-image: 
+    linear-gradient(rgba(23, 19, 19, 0.98), rgba(23, 19, 19, 0.98)), 
+    conic-gradient(
+      from var(--angulo), 
+      /* Primeiro Feixe (Médio) */
+      transparent 0deg, 
+      var(--yellow) 10deg,  /* Início do feixe forte */
+      var(--yellow) 25deg,  /* Fim do feixe forte (15º de largura) */
+      transparent 35deg,  /* Suavização da ponta */
+      
+      /* Espaço vazio até o lado oposto (10deg + 180deg = 190deg) */
+      transparent 190deg,
+      
+      /* Segundo Feixe (Médio e Oposto) */
+      var(--yellow) 200deg, /* Início do feixe forte oposto */
+      var(--yellow) 215deg, /* Fim do feixe forte oposto (15º de largura) */
+      transparent 225deg  /* Suavização da ponta */
+    );
 
   background-origin: border-box;
   background-clip: padding-box, border-box;
@@ -1205,23 +1205,45 @@ background-image:
   display: block;
 }
 
-/* Rodapé fluido com a sua cor personalizada mantida */
+/* Rodapé fluido - Estilo Glassmorphism Moderno com gradiente da esquerda para a direita */
 .lightbox-footer {
-  padding: 1.5rem;
-  background: linear-gradient(to top, rgba(76, 0, 0, 0.95), rgba(163, 0, 0, 0.95)); /* Sua cor mantida exatamente aqui */
+  padding: 1rem 1.5rem;
+  /* Transição nítida: Vermelho Escuro/Vinho na esquerda -> Vermelho Vivo na direita */
+  background: linear-gradient(to right, rgba(55, 0, 0, 0.9) 0%, rgba(185, 0, 0, 0.75) 40%, rgba(185, 0, 0, 0.75) 60%, rgba(55, 0, 0, 0.9) 100%); 
   text-align: center;
+  backdrop-filter: blur(8px); /* Mantém o efeito sofisticado de vidro */
+  border-top: 1px solid rgba(255, 255, 255, 0.08); /* Linha sutil no topo para acabamento */
 }
 
-/* Tipografia sutil e elegante */
+/* Tipografia Minimalista e Premium */
 .lightbox-title {
-  color: var(--paper);
+  color: #ffffff;
   margin: 0;
-  font-size: 2rem;
-  font-family: var(--font-body); /* Mudado para sans-serif para um visual mais clean */
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  color: white; /* Cor de preenchimento do texto */
-  -webkit-text-stroke: 1px black; /* Espessura e cor do contorno */
+  font-size: 1.5rem; /* Tamanho compacto e sofisticado */
+  font-family: var(--font-body);
+  font-weight: 500; /* Peso médio para um visual mais leve e limpo */
+  letter-spacing: 0.02em; /* Letras ligeiramente mais espaçadas (estética premium) */
+  text-transform: uppercase; /* Caixa alta para dar presença de forma minimalista */
+  
+  /* REMOVIDO o contorno (-webkit-text-stroke) que deixava o visual datado */
+  /* ADICIONADO um text-shadow sutil que garante contraste sem pesar na tela */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6); 
+}
+
+/* Ajustes Mobile Responsivos e Proporcionais */
+@media (max-width: 576px) {
+  .lightbox-content-wrapper {
+    width: 88%;
+  }
+  .lightbox-close {
+    top: 16px;
+    right: 16px;
+    font-size: 2.2rem;
+  }
+  .lightbox-title {
+    font-size: 1.05rem; /* Ajustado proporcionalmente para celulares */
+    letter-spacing: 0.01em;
+  }
 }
 
 /* Botão Fechar Minimalista Flutuante */
@@ -1274,7 +1296,7 @@ background-image:
   }
 }
 
-/* Ajustes Mobile */
+/* Ajustes Mobile Responsivos e Proporcionais */
 @media (max-width: 576px) {
   .lightbox-content-wrapper {
     width: 88%;
@@ -1285,9 +1307,10 @@ background-image:
     font-size: 2.5rem;
   }
   .lightbox-title {
-    font-size: 2rem;
+    font-size: 1.15rem; /* Ajustado proporcionalmente para celulares */
   }
 }
+
 /**/
 
 
