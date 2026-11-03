@@ -398,10 +398,35 @@ p {
 #frase-logo {
   font-family: 'Palatino Linotype', 'Palatino', 'URW Palladio L', serif;
   font-style: italic;
-  font-size: 14px;
+  font-size: 0.875rem; /* Mantendo rem para acessibilidade */
   font-weight: 400;
-  color: #fff2c2;
+  display: inline-block;
+  
+  /* Gradiente exato com as suas duas cores originais */
+  background: linear-gradient(
+    to right, 
+    var(--yellow, #ffd900) 50%, 
+    var(--text-highlight, #fff2c2) 50%
+  );
+  background-size: 200% 100%;
+  background-position: 100% 0; /* Exibe 100% da cor original creme (#fff2c2) */
+  
+  /* Máscaras para aplicar o gradiente apenas no corpo do texto */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  /* Tempo de transição reduzido para 0.25s para um efeito rápido e responsivo */
+  transition: background-position 0.25s cubic-bezier(0.25, 1, 0.5, 1), transform 0.2s ease;
 }
+
+/* Ativação rápida do preenchimento da esquerda para a direita */
+#frase-logo:hover,
+#frase-logo:focus-visible {
+  background-position: 0 0; /* Puxa o amarelo preenchendo o texto */
+  transform: translateY(-1px); /* Micro-interação de levitação herdada do primeiro processo */
+}
+
 
 .brand {
   display: inline-flex;
@@ -462,16 +487,14 @@ p {
   width: calc(100% - 2.4rem);
   height: 2px;
   background-color: var(--yellow, #ffd900);
-  transform: scaleX(0);
-  /* Começa invisível (tamanho zero) */
+  transform: scaleX(0); /* Começa invisível (tamanho zero) */
   transform-origin: left;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .main-nav a:hover::after,
 .main-nav a:focus-visible::after {
-  transform: scaleX(1);
-  /* Expande usando transform, que roda direto na GPU! */
+  transform: scaleX(1); /* Expande usando transform, que roda direto na GPU! */
 }
 
 .main-nav a:hover,
@@ -549,8 +572,10 @@ body.menu-open .menu-toggle span:nth-child(4) {
 /* =====================================================
    MEDIA QUERY (RESPONSIVIDADE PARA CELULARES E TABLETS)
    ===================================================== */
-@media (max-width: 992px) {
-
+@media (max-width: 1023.5px) {
+  #frase-logo {
+    display: none;
+  }
   /* --- DETECTA OS LINKS DO MENU MOBILE E REMOVE A LINHA INFERIOR --- */
   .main-nav a::after {
     display: none !important; /* Esconde a linha dourada por completo */
@@ -632,7 +657,7 @@ body.menu-open .menu-toggle span:nth-child(4) {
 
   /* --- O DIVISOR INDEPENDENTE CENTRALIZADO --- */
   .main-nav a.mobile-cta::before {
-    content: "";
+    content: ""; 
     position: absolute;
     top: -1.5rem;
     left: 0;
