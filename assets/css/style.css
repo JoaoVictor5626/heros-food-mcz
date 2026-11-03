@@ -313,7 +313,8 @@ p {
   left: 0;
   right: 0;
   bottom: 0;
-  border-radius: inherit; /* Garante que segue a borda do botão */
+  border-radius: inherit;
+  /* Garante que segue a borda do botão */
   box-shadow: 0 0 0 0 rgba(32, 186, 90, 0.7);
   animation: pulse-whatsapp 2s ease-out infinite;
   pointer-events: none;
@@ -367,16 +368,17 @@ p {
   position: sticky;
   z-index: 1000;
   top: 0;
-  color: #fff;
+  color: #ffffff;
+  /* Cor explícita para garantir legibilidade */
 
   /* --- EFEITO GLASSMORPHISM --- */
-  background: rgba(105, 0, 0, 0.90);
+  background: rgba(105, 0, 0, 0.95);
+  /* Aumentado sutilmente para passar com folga no contraste */
   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px); /* Suporte para Safari/iOS */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Borda superior sutil */
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 
-  /* --- SOMBRA DE PROFUNDIDADE --- */
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
 }
 
@@ -397,7 +399,8 @@ p {
   font-family: 'Palatino Linotype', 'Palatino', 'URW Palladio L', serif;
   font-style: italic;
   font-size: 14px;
-  font-weight: 1;
+  font-weight: 400;
+  color: #fff2c2;
 }
 
 .brand {
@@ -436,36 +439,48 @@ p {
 
 .main-nav a {
   font-family: ui-rounded, 'Arial Rounded MT Bold', 'Segoe UI', sans-serif;
-  min-height: 3rem;
+  min-height: 3.5rem;
+  /* Aumentado ligeiramente para atingir a área de clique ideal */
   display: flex;
   align-items: center;
-  padding: .5rem 1rem;
+  padding: .5rem 1.2rem;
   border-radius: .65rem;
-  color: #fff;
+  color: #ffffff;
   font-weight: 700;
   text-decoration: none;
+  position: relative;
+  /* Necessário para posicionar a linha abaixo */
+  transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-  /* Cria uma linha usando gradiente de fundo */
-  background-image: linear-gradient(var(--yellow), var(--yellow));
-  background-repeat: no-repeat;
+/* Criação da linha inferior usando propriedades compostas (Alta Performance) */
+.main-nav a::after {
+  content: '';
+  position: absolute;
+  left: 1.2rem;
+  bottom: 0.3rem;
+  width: calc(100% - 2.4rem);
+  height: 2px;
+  background-color: var(--yellow, #ffd900);
+  transform: scaleX(0);
+  /* Começa invisível (tamanho zero) */
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
 
-  /* Define a espessura da linha (2px) e a posição (colada embaixo) */
-  background-size: 0% 2px;
-  background-position: left bottom;
-
-  /* Adiciona a animação do background-size junto com as suas outras transições */
-  transition: background-size 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
+.main-nav a:hover::after,
+.main-nav a:focus-visible::after {
+  transform: scaleX(1);
+  /* Expande usando transform, que roda direto na GPU! */
 }
 
 .main-nav a:hover,
 .main-nav a:focus-visible {
-  color: var(--yellow);
+  color: var(--yellow, #ffd900);
   transform: translateY(-1px);
   box-shadow: var(--shadow-sm);
-
-  /* Faz o background (linha) expandir da esquerda para a direita até 100% */
-  background-size: 100% 2px;
 }
+
 
 /* Esconde a versão mobile do botão quando estiver no computador */
 .main-nav a.mobile-cta {
@@ -481,14 +496,15 @@ p {
    BOTÃO DO MENU HAMBÚRGUER (TOGGLE)
    ================================= */
 .menu-toggle {
-  width: 3rem;
-  height: 3rem;
+  width: 3.2rem;
+  /* Expandido para 51px, garantindo folga no Touch Target do celular */
+  height: 3.2rem;
   display: grid;
   place-content: center;
   gap: 5px;
   border: 1px solid rgba(255, 255, 255, .4);
   border-radius: .65rem;
-  color: #fff;
+  color: #ffffff;
   background: transparent;
   cursor: pointer;
   position: relative;
@@ -534,6 +550,32 @@ body.menu-open .menu-toggle span:nth-child(4) {
    MEDIA QUERY (RESPONSIVIDADE PARA CELULARES E TABLETS)
    ===================================================== */
 @media (max-width: 992px) {
+
+  /* --- DETECTA OS LINKS DO MENU MOBILE E REMOVE A LINHA INFERIOR --- */
+  .main-nav a::after {
+    display: none !important; /* Esconde a linha dourada por completo */
+  }
+  
+  /* --- AJUSTE CIRÚRGICO DE TOUCH TARGET E CONTRASTE MOBILE --- */
+  .main-nav a {
+    min-height: 3.8rem !important; /* Aumentado para 60px para dar folga total de clique */
+    padding: 0.8rem 1.5rem !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff !important; /* Forçado branco puro para destruir o erro de contraste */
+    margin-bottom: 0.5rem; /* Cria um vão de segurança entre os links */
+    transition: color 0.3s ease, background-color 0.3s ease !important; /* Removido transform das transições no mobile */
+  }
+
+  /* Hover mobile focado estritamente em cor, eliminando animações não compostas de movimento por toque */
+  .main-nav a:hover,
+  .main-nav a:focus-visible {
+    color: var(--yellow, #ffd900) !important; 
+    transform: none !important; /* Sem mover o link no celular para não bugar o touch target */
+    box-shadow: none !important; 
+  }
+
   /* Esconde o botão do cabeçalho externo para não espremer o topo */
   .header-cta {
     display: none !important;
@@ -543,17 +585,15 @@ body.menu-open .menu-toggle span:nth-child(4) {
     position: fixed;
     inset: 4.7rem 0 auto;
     flex-direction: column;
-    gap: .8rem;
-    padding: 1rem;
-    background: var(--red-900);
+    gap: .5rem;
+    padding: 1.5rem 1rem; /* Mais respiro interno */
+    background: #500000; /* Vermelho escuro sólido para contraste perfeito com texto branco */
     box-shadow: var(--shadow-lg);
     border-radius: 0px 0px 20px 20px;
 
     /* --- ESTADO INICIAL ESCONDIDO --- */
     opacity: 0;
     visibility: hidden;
-
-    /* Move o menu e mantém efeito sutil */
     transform: translateY(-0.95px) scaleY(0);
     transform-origin: top;
 
@@ -571,73 +611,73 @@ body.menu-open .menu-toggle span:nth-child(4) {
     transform: translateY(0) scaleY(1);
   }
 
-  /* --- CONFIGURAÇÃO DO BOTÃO OUTLINE DENTRO DO MENU MOBILE (IDÊNTICO AO DESKTOP) --- */
+  /* --- CONFIGURAÇÃO DO BOTÃO OUTLINE DENTRO DO MENU MOBILE --- */
   .main-nav a.mobile-cta {
-    color: var(--yellow);
-    border: 1px solid var(--yellow);
-    border-color: var(--yellow);
-    transition: 0.3s ease;
-    display: inline-flex;
+    color: var(--yellow) !important;
+    border: 2px solid var(--yellow) !important;
+    display: inline-flex !important;
     align-items: center;
     justify-content: center;
-    padding: 1.3rem 1rem;
+    padding: 1.3rem 1rem !important; 
     font-weight: 700;
     font-size: 20px;
     text-decoration: none;
-
     width: 100%;
-    background-image: none;
+    background-image: none !important;
     border-radius: 30px;
-    position: relative; /* Necessário para ancorar o divisor acima */
-
-    /* Espaço total entre o link Contato e o botão Pedir Agora */
-    margin-top: 2.2rem;
+    position: relative;
+    margin-top: 2.5rem;
+    transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease !important;
   }
 
   /* --- O DIVISOR INDEPENDENTE CENTRALIZADO --- */
   .main-nav a.mobile-cta::before {
     content: "";
     position: absolute;
-
-    /* Centralizado exatamente no meio do vão (2.2rem / 2) */
     top: -1.5rem;
-
     left: 0;
-    width: 100%; /* Faz a linha atravessar de ponta a ponta */
-    height: 3px; /* Espessura fina idêntica a um <hr> */
-    background-color: rgba(255, 255, 255, 0.2); /* Linha sutil */
+    width: 100%;
+    height: 3px;
+    background-color: rgba(255, 255, 255, 0.15);
   }
 
-  /* Efeito de Hover mantendo o botão idêntico e sem mover o divisor */
+  /* Hover do botão mobile-cta focando em mudança de cor fluida */
   .main-nav a.mobile-cta:hover,
   .main-nav a.mobile-cta:focus-visible {
-    color: var(--red-900);
-    background: var(--yellow);
-    background-image: none;
-    background-size: auto;
-    border-color: var(--yellow);
-    transform: none;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    color: #500000 !important; 
+    background: var(--yellow) !important;
+    border-color: var(--yellow) !important;
+    transform: none !important;
+    box-shadow: none !important;
   }
 
+  /* --- BOTÕES DO MENU PARA CELULAR OTIMIZADOS --- */
   .menu-toggle-nav {
     opacity: 1;
     visibility: visible;
     width: 100%;
-    height: 60px;
+    height: 64px;
+    margin-bottom: 0.6rem; /* Vão maior de segurança */
     display: grid;
     place-content: center;
-    border: 1px solid rgba(255, 255, 255, .4);
+    border: 1px solid rgba(255, 255, 255, .3);
     border-radius: .65rem;
-    color: #fff;
-    background-color: rgba(105, 0, 0);
+    color: #ffffff !important;
+    background-color: rgba(120, 0, 0, 0.9);
     font-size: 20px;
+    transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
   }
 
   .menu-toggle-nav:hover {
-    border: 2px solid var(--yellow);
+    border-color: var(--yellow) !important;
+    color: var(--yellow) !important;
+    background-color: rgba(90, 0, 0, 1) !important;
+    transform: none !important;
+    box-shadow: none !important;
   }
 }
+
+
 
 /* ======================
    OVERLAY DO MENU MOBILE
@@ -677,8 +717,10 @@ body.menu-open .menu-overlay {
 }
 
 .hero-copy>p:not(.eyebrow) {
-  color: var(--muted);
+  /* Alterado de var(--muted) para um cinza grafite escuro, passando com folga no contraste da W3C */
+  color: #222222; 
   font-size: 1.08rem;
+  line-height: 1.6; /* Melhora adicional de leitura para leitores de tela */
 }
 
 /* 📱 1. CONFIGURAÇÃO EXCLUSIVA PARA CELULARES (Telas bem pequenas até 480px) */
@@ -689,11 +731,13 @@ body.menu-open .menu-overlay {
   }
 
   .hero-copy {
-    padding-top: 100px; /* Espaço menor para o título não sumir no celular */
+    padding-top: 100px;
+    /* Espaço menor para o título não sumir no celular */
   }
 
   .hero {
-    padding: 3rem 0; /* Ajusta o círculo amarelo para o formato vertical do celular */
+    padding: 3rem 0;
+    /* Ajusta o círculo amarelo para o formato vertical do celular */
     background: radial-gradient(circle at 50% 75%, #ffd55770, rgba(255, 244, 210, 0) 55%), #fff;
   }
 }
@@ -706,11 +750,13 @@ body.menu-open .menu-overlay {
   }
 
   .hero-copy {
-    padding-top: 100px; /* Espaço menor para o título não sumir no tablet */
+    padding-top: 100px;
+    /* Espaço menor para o título não sumir no tablet */
   }
 
   .hero {
-    padding: clamp(4rem, 9vw, 7rem) 0; /* Mantém o degradê na posição que funcionou no tablet */
+    padding: clamp(4rem, 9vw, 7rem) 0;
+    /* Mantém o degradê na posição que funcionou no tablet */
     background: radial-gradient(circle at 50% 50%, #ffd55770, rgba(255, 244, 210, 0) 41%), #fff;
   }
 }
@@ -761,23 +807,22 @@ body.menu-open .menu-overlay {
   width: 100%;
   height: 4px;
   background: var(--gold, #ffd900);
-  transform: rotate(-2deg);
-
+  
+  /* Deixe a rotação fixa aqui para não sobrecarregar os cálculos da animação */
+  transform: rotate(-2deg) scaleX(0); 
+  transform-origin: left center;
+  
   /* Configuração da Animação */
-  transform-origin: left center; /* Garante que a linha cresça a partir da esquerda */
-  animation: desenharLinha 1s ease-out forwards; /* 'forwards' mantém o estado final de 100% */
+  animation: desenharLinha 1s cubic-bezier(0.6, 1, 0.6, 1) forwards;
 }
 
-/* Regra da Animação */
+/* Regra da Animação Otimizada (Altera estritamente a escala, limpando a thread principal) */
 @keyframes desenharLinha {
-  from {
-    transform: rotate(-2deg) scaleX(0); /* Começa invisível/zerada */
-  }
-
   to {
-    transform: rotate(-2deg) scaleX(1); /* Termina em 100% */
+    transform: rotate(-2deg) scaleX(1); /* Mantém a rotação e apenas expande a linha */
   }
 }
+
 
 .hero-actions {
   display: flex;
@@ -793,7 +838,8 @@ body.menu-open .menu-overlay {
   .hero-actions {
     padding-top: 1rem;
     justify-content: center;
-    row-gap: 2rem; /* Aumenta o espaçamento vertical apenas após a quebra */
+    row-gap: 2rem;
+    /* Aumenta o espaçamento vertical apenas após a quebra */
   }
 }
 
@@ -805,7 +851,8 @@ body.menu-open .menu-overlay {
 
 /* Quando passa o mouse no LINK, a SETA se move para a direita */
 .hero-actions .whatsapp-link:hover span {
-  transform: translateX(3px); /* Move para a direita */
+  transform: translateX(3px);
+  /* Move para a direita */
 }
 
 .hero-carousel {
@@ -877,8 +924,10 @@ body.menu-open .menu-overlay {
 }
 
 .testemunhos-carousel .carousel-track {
-  height: 100%; /* Força a pista a respeitar a altura do viewport */
-  align-items: stretch; /* Estica todos os slides para terem o mesmo tamanho */
+  height: 100%;
+  /* Força a pista a respeitar a altura do viewport */
+  align-items: stretch;
+  /* Estica todos os slides para terem o mesmo tamanho */
 }
 
 .testemunhos-carousel .carousel-slide {
@@ -959,11 +1008,14 @@ body.menu-open .menu-overlay {
 }
 
 .section-red {
-  position: relative; /* Base para alinhar o fundo */
+  position: relative;
+  /* Base para alinhar o fundo */
   color: #fff;
   background-color: var(--red-800);
-  z-index: 1; /* Mantém textos e botões na frente */
-  overflow: hidden; /* Evita que o padrão vaze da seção */
+  z-index: 1;
+  /* Mantém textos e botões na frente */
+  overflow: hidden;
+  /* Evita que o padrão vaze da seção */
 }
 
 /* Camada isolada para o padrão geométrico retrô */
@@ -974,7 +1026,8 @@ body.menu-open .menu-overlay {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: -1; /* Joga o padrão para trás do conteúdo */
+  z-index: -1;
+  /* Joga o padrão para trás do conteúdo */
 
   /* Seu código de padrão quadriculado */
   background:
@@ -985,7 +1038,8 @@ body.menu-open .menu-overlay {
   background-size: 2em 2em;
 
   /* Faz as partes pretas se misturarem suavemente com o vermelho */
-  opacity: 0.10; /* Define a opacidade do padrão */
+  opacity: 0.10;
+  /* Define a opacidade do padrão */
 }
 
 .section-heading {
@@ -1043,10 +1097,14 @@ body.menu-open .menu-overlay {
 }
 
 .product-card p {
-  flex-grow: 1; /* Ocupa o espaço empurrando o botão para baixo */
-  height: 72px; /* Altura fixa ou max-height para a área de texto */
-  overflow-y: auto; /* Adiciona o scroll vertical apenas se o texto passar do limite */
-  margin-bottom: 15px; /* Espaço entre o texto e o botão */
+  flex-grow: 1;
+  /* Ocupa o espaço empurrando o botão para baixo */
+  height: 72px;
+  /* Altura fixa ou max-height para a área de texto */
+  overflow-y: auto;
+  /* Adiciona o scroll vertical apenas se o texto passar do limite */
+  margin-bottom: 15px;
+  /* Espaço entre o texto e o botão */
 
   /* Scroll fino para Firefox */
   scrollbar-width: thin;
@@ -1123,7 +1181,8 @@ body.menu-open .menu-overlay {
    MODAL LIGHTBOX (EXIBIÇÃO DE IMAGEM AMPLIADA)
    ============================================ */
 .lightbox-modal {
-  display: none; /* Mantido para acessibilidade, controlado via JS */
+  display: none;
+  /* Mantido para acessibilidade, controlado via JS */
   position: fixed;
   top: 0;
   left: 0;
@@ -1182,19 +1241,26 @@ body.menu-open .menu-overlay {
   /* Background duplo: o primeiro cria a máscara escura interna, o segundo cria o feixe cônico animado */
   background-image:
     linear-gradient(rgba(23, 19, 19, 0.98), rgba(23, 19, 19, 0.98)),
-    conic-gradient(from var(--angulo), /* Primeiro Feixe (Médio) */
+    conic-gradient(from var(--angulo),
+      /* Primeiro Feixe (Médio) */
       transparent 0deg,
-      var(--yellow) 10deg, /* Início do feixe forte */
-      var(--yellow) 25deg, /* Fim do feixe forte (15º de largura) */
-      transparent 35deg, /* Suavização da ponta */
+      var(--yellow) 10deg,
+      /* Início do feixe forte */
+      var(--yellow) 25deg,
+      /* Fim do feixe forte (15º de largura) */
+      transparent 35deg,
+      /* Suavização da ponta */
 
       /* Espaço vazio até o lado oposto (10deg + 180deg = 190deg) */
       transparent 190deg,
 
       /* Segundo Feixe (Médio e Oposto) */
-      var(--yellow) 200deg, /* Início do feixe forte oposto */
-      var(--yellow) 215deg, /* Fim do feixe forte oposto (15º de largura) */
-      transparent 225deg /* Suavização da ponta */
+      var(--yellow) 200deg,
+      /* Início do feixe forte oposto */
+      var(--yellow) 215deg,
+      /* Fim do feixe forte oposto (15º de largura) */
+      transparent 225deg
+      /* Suavização da ponta */
     );
 
   background-origin: border-box;
@@ -1207,7 +1273,8 @@ body.menu-open .menu-overlay {
 .lightbox-img {
   width: 100%;
   height: auto;
-  max-height: 75vh; /* Aumentado de 55vh para 75vh para dar mais ganho vertical */
+  max-height: 75vh;
+  /* Aumentado de 55vh para 75vh para dar mais ganho vertical */
   object-fit: cover;
   display: block;
 }
@@ -1215,7 +1282,7 @@ body.menu-open .menu-overlay {
 /* Rodapé fluido - Estilo Glassmorphism Moderno com gradiente da esquerda para a direita */
 .lightbox-footer {
   padding: 1rem 1.5rem;
-  
+
   /* Transição nítida: Vermelho Escuro/Vinho na esquerda -> Vermelho Vivo na direita */
   background: linear-gradient(to right, rgba(55, 0, 0, 0.9) 0%, rgba(185, 0, 0, 0.75) 40%, rgba(185, 0, 0, 0.75) 60%, rgba(55, 0, 0, 0.9) 100%);
   text-align: center;
@@ -1231,7 +1298,8 @@ body.menu-open .menu-overlay {
   font-family: var(--font-body);
   font-weight: 500;
   letter-spacing: 0.02em;
-  text-transform: uppercase; /* Caixa alta para dar presença de forma minimalista */
+  text-transform: uppercase;
+  /* Caixa alta para dar presença de forma minimalista */
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
 }
 
@@ -1271,7 +1339,8 @@ body.menu-open .menu-overlay {
   justify-content: center;
   border-radius: var(--radius-pill);
   user-select: none;
-  z-index: 2010; /* Garante que fique clicável acima de tudo */
+  z-index: 2010;
+  /* Garante que fique clicável acima de tudo */
 
   /* O SEGREDO DA SUAVEZA: Transição explícita com ease-in-out */
   transition:
@@ -1365,19 +1434,19 @@ body.menu-open .menu-overlay {
   animation: pulsarImagem 4s infinite ease-in-out;
 }
 
+/* VERSÃO OTIMIZADA: Substitua sua regra antiga por esta */
 @keyframes pulsarImagem {
-
   0%,
   100% {
     transform: scale(1);
-    opacity: 1;
   }
 
   50% {
     transform: scale(1.02);
-    opacity: 0.95;
+    /* Cresce levemente sem forçar o navegador a redesenhar a tela */
   }
 }
+
 
 /* =============================================================
    Tablets e Celulares (Telas até 1024px) - Diminui o Box-Shadow
@@ -1446,7 +1515,8 @@ blockquote {
 }
 
 .story blockquote {
-  position: relative; /* Torna o blockquote a âncora para o ícone */
+  position: relative;
+  /* Torna o blockquote a âncora para o ícone */
   padding: 1.6rem;
   padding-top: 2.2rem;
   border-radius: 30px;
@@ -1716,7 +1786,7 @@ blockquote {
    SEÇÃO DE CAMPANHA (CAMPAIGN)
    ============================ */
 .campaign {
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/assets/images/02_Brand_and_Venue/fundo-do-doa-faz-parte-redimensionado.jpg') center / cover no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/assets/images/02_Brand_and_Venue/fundo-do-doa-faz-parte-redimensionado.webp') center / cover no-repeat;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -1725,7 +1795,7 @@ blockquote {
 /* Ajuste para Celular (Telas até 768px) */
 @media (max-width: 768px) {
   .campaign {
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/assets/images/02_Brand_and_Venue/fundo-do-doa-faz-parte-para-celular.jpg') center center / cover no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/assets/images/02_Brand_and_Venue/fundo-do-doa-faz-parte-para-celular.webp') center center / cover no-repeat;
     padding: 40px 20px;
   }
 }
@@ -1737,7 +1807,7 @@ blockquote {
 
 #campaign-content strong.campaign-instagram {
   color: #fff;
-  
+
   /* Gradiente invertido: Tom mais escuro -> Amarelo Base -> Bloco Visível de Amarelo Base */
   background: linear-gradient(to right, #d4a017 0%, var(--yellow) 50%, #fff 50%);
   background-size: 200% 100%;
@@ -1895,7 +1965,8 @@ blockquote {
    ---> ESTA REGRA SALVA O NEST HUB MAX (1280px) E NOTEBOOKS PEQUENOS <--- */
 @media (min-width: 64rem) and (max-width: 81.18rem) {
   .testimonial-grid.slider-container {
-    overflow: hidden !important; /* Trava o layout para não gerar barra de rolagem horizontal */
+    overflow: hidden !important;
+    /* Trava o layout para não gerar barra de rolagem horizontal */
   }
 
   .testimonial-card {
@@ -2243,7 +2314,7 @@ blockquote {
 
 .footer-bottom p {
   margin: 0;
-  color: #cfaeae;
+  color: #e9cfcf;
   font-size: .8rem;
 }
 
@@ -2281,7 +2352,8 @@ blockquote {
   height: 100%;
   border-radius: 50%;
   background-color: #25D366;
-  z-index: -1; /* Joga o pulso para trás do botão principal */
+  z-index: -1;
+  /* Joga o pulso para trás do botão principal */
 
   /* Ativa a animação: nome, duração total, tipo, e loop infinito */
   animation: pulsoVerde 2s ease-out infinite;
@@ -2380,6 +2452,7 @@ section .flex *,
    MEDIA QUERIES: REPONSIVIDADE GERAL
    ================================== */
 @media (min-width: 36rem) {
+
   .product-grid,
   .contact-cards {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2532,6 +2605,7 @@ section .flex *,
 }
 
 @media (min-width: 48rem) {
+
   /* No desktop, o mapa já fica ao lado dos cards via .contact-grid */
   .map-container {
     margin-top: 0;
