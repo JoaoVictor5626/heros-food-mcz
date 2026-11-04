@@ -140,6 +140,12 @@ input {
   padding: clamp(4.5rem, 8vw, 7.5rem) 0;
 }
 
+/* Previne transbordamento horizontal nos containers das seções sem desfixar o menu */
+.hero,
+.section {
+  overflow-x: clip;
+}
+
 .eyebrow {
   margin: 0 0 .7rem;
   color: var(--red-700);
@@ -721,75 +727,9 @@ body.menu-open .menu-overlay {
 }
 
 
-/* ==========================================================================
-   ANIMAÇÕES DE ENTRADA INICIAL DA HERO (LOAD DA PÁGINA)
-   ========================================================================== */
-
-/* Estado Inicial: Lado Esquerdo (surgem vindo da esquerda) */
-.hero-reveal-left {
-  opacity: 0;
-  transform: translateX(-25px); /* Reduzido de -40px para -25px (movimento mais sutil) */
-  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
-              transform 1.2s cubic-bezier(0.16, 1, 0.3, 1); /* Curva mais suave e maior duração */
-  will-change: opacity, transform;
-}
-
-/* Estado Inicial: Lado Direito (carrossel surge vindo da direita) */
-.hero-reveal-right {
-  opacity: 0;
-  transform: translateX(25px); /* Reduzido de 40px para 25px */
-  transition: opacity 1.3s cubic-bezier(0.16, 1, 0.3, 1), 
-              transform 1.3s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
-}
-
-/* Estado Final (Ativado ao carregar a página) */
-.hero-reveal-left.is-visible,
-.hero-reveal-right.is-visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* Escalonamento/Cascata (Stagger Effect) dos textos na esquerda */
-h1.hero-reveal-left {
-  transition-delay: 0.15s; /* Ajustado para acompanhar o ritmo mais lento */
-}
-p.hero-reveal-left {
-  transition-delay: 0.35s;
-}
-.hero-actions.hero-reveal-left {
-  transition-delay: 0.55s;
-}
-
-/* Delay para a entrada do Carrossel */
-.hero-reveal-right {
-  transition-delay: 0.4s;
-}
-
-/* 📱 AJUSTES EXCLUSIVOS PARA MOBILE E TABLETS (Evita vazamento lateral) */
-@media (max-width: 768px) {
-  .hero {
-    overflow: hidden;
-  }
-  .hero-reveal-left {
-    transform: translateX(-10px); /* Movimento ainda menor em telas pequenas */
-  }
-  .hero-reveal-right {
-    transform: translateX(10px);
-  }
-}
-
-/* Desativa a animação caso o usuário prefira movimentos reduzidos no sistema */
-@media (prefers-reduced-motion: reduce) {
-  .hero-reveal-left,
-  .hero-reveal-right {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-}
-
-
+/* ======================
+   HERO (SEÇÃO PRINCIPAL)
+   ====================== */
 .hero {
   padding: clamp(4rem, 9vw, 7rem) 0;
   /* background: radial-gradient(circle at 80% 30%, #fff4d2 0, rgba(255,244,210,0) 31%), #fff; */
@@ -2497,33 +2437,84 @@ blockquote {
 
 
 /* -------------------------------------------------------------------------- */
-/* REVEAL ANIMAÇÃO AO ROLAR A PÁGINA (SCROLL REVEAL COM BLUR SUAVE)           */
+/* 1. SURGIMENTO PARA CIMA (UP)                                                */
 /* -------------------------------------------------------------------------- */
 .reveal-on-scroll {
   opacity: 0;
   filter: blur(10px);
   transform: translateY(80px);
   transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-    filter 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+              filter 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, filter, transform;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
+/* -------------------------------------------------------------------------- */
+/* 2. SURGIMENTO DA ESQUERDA (LEFT)                                            */
+/* -------------------------------------------------------------------------- */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-25px);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 3. SURGIMENTO DA DIREITA (RIGHT)                                           */
+/* -------------------------------------------------------------------------- */
+.reveal-right {
+  opacity: 0;
+  transform: translateX(25px);
+  transition: opacity 1.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 1.3s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+/* -------------------------------------------------------------------------- */
+/* ESTADO VISÍVEL (DISPARADO PELO JS)                                         */
+/* -------------------------------------------------------------------------- */
 .reveal-on-scroll.is-visible {
   opacity: 1 !important;
   filter: blur(0) !important;
   transform: translateY(0) !important;
 }
 
-/* Fallback de segurança: se o usuário tiver redução de movimento ativada 
-   ou em telas touch pequenas, facilita a visibilidade imediata */
+.reveal-left.is-visible,
+.reveal-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* -------------------------------------------------------------------------- */
+/* DELAYS INDIVIDUAIS PARA OS TEXTOS DA HERO                                  */
+/* -------------------------------------------------------------------------- */
+h1.reveal-left { transition-delay: 0.15s; }
+p.reveal-left  { transition-delay: 0.35s; }
+.hero-actions.reveal-left { transition-delay: 0.55s; }
+.hero .reveal-right { transition-delay: 0.4s; }
+
+/* 📱 AJUSTES EXCLUSIVOS PARA MOBILE E TABLETS (Evita vazamento e reduz deslocamento) */
+@media (max-width: 1191px) {
+  .reveal-left {
+    transform: translateX(-10px);
+  }
+  .reveal-right {
+    transform: translateX(10px);
+  }
+}
+
+/* Fallback de acessibilidade (Redução de Movimento) */
 @media (prefers-reduced-motion: reduce) {
-  .reveal-on-scroll {
+  .reveal-on-scroll,
+  .reveal-left,
+  .reveal-right {
     opacity: 1 !important;
     filter: none !important;
     transform: none !important;
+    transition: none !important;
   }
 }
 

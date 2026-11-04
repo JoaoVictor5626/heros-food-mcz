@@ -251,87 +251,57 @@
     });
 
   /* -------------------------------------------------------------------------- */
-  /* SCROLL REVEAL COM COMPATIBILIDADE MOBILE & FALLBACK                        */
+  /* SISTEMA DE REVELAÇÃO GERAL (SCROLL REVEAL & HERO LOAD)                     */
   /* -------------------------------------------------------------------------- */
-  
-  /*
-    Configura o efeito de revelação (fade-in/fade-up) de elementos conforme o usuário rola a página.
-   */
   function setupScrollReveal() {
-    // Seleciona todos os elementos que devem ser revelados na rolagem
-    const revealElements = document.querySelectorAll('.reveal-on-scroll');
+    // Seleciona todos os elementos de revelação na página
+    const revealElements = document.querySelectorAll('.reveal-on-scroll, .reveal-left, .reveal-right');
 
     if (!revealElements.length) return;
 
-    // FALLBACK: Se o navegador não suportar IntersectionObserver (ex: navegadores muito antigos),
-    // exibe todos os elementos imediatamente para não quebrar a usabilidade.
+    // FALLBACK: Se o navegador for antigo e não suportar IntersectionObserver
     if (!('IntersectionObserver' in window)) {
       revealElements.forEach(el => el.classList.add('is-visible'));
       return;
     }
 
-    // Configurações de sensibilidade do detector de rolagem
     const observerOptions = {
-      root: null, // Usa a própria janela do navegador (viewport) como referência
-      /* 
-        Usar rootMargin zerado ou levemente positivo no topo/base para garantir 
-        que telas com barras de navegação dinâmicas (iOS Safari/Android Chrome)
-        detectem o elemento sem cortar.
-      */
+      root: null,
       rootMargin: '50px 0px 0px 0px',
-      threshold: 0.01 // Basta 1% do elemento aparecer na tela para disparar o efeito no mobile
+      threshold: 0.01
     };
 
-    // Cria o observador que detecta quando os elementos entram na área visível da tela
     const revealObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
-        // Se o elemento entrou na tela, adiciona a classe que dispara a animação CSS
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target); // Remove do observador para rodar a animação apenas uma vez
+          observer.unobserve(entry.target);
         }
       });
     }, observerOptions);
 
     revealElements.forEach(el => {
-      // Otimização: Verifica se o elemento já está na tela logo no primeiro carregamento
-      // para evitar que itens do topo da página comecem invisíveis.
+      // Se o elemento estiver dentro da Hero, revela imediatamente no carregamento
+      if (el.closest('.hero')) {
+        requestAnimationFrame(() => el.classList.add('is-visible'));
+        return;
+      }
+
+      // Para as demais seções, verifica se já está na tela ou adiciona ao observador de rolagem
       const rect = el.getBoundingClientRect();
       if (rect.top < window.innerHeight && rect.bottom >= 0) {
         el.classList.add('is-visible');
       } else {
-        revealObserver.observe(el); // Se estiver abaixo da dobra, adiciona ao observador de rolagem
+        revealObserver.observe(el);
       }
     });
   }
 
-  // Inicializa o Scroll Reveal assim que o documento estiver pronto
+  // Inicializa o sistema assim que a página estiver pronta
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', setupScrollReveal);
   } else {
     setupScrollReveal();
-  }
-
-  /* -------------------------------------------------------------------------- */
-  /* ANIMAÇÃO DE CARREGAMENTO INICIAL DA HERO (LOAD REVEAL)                      */
-  /* -------------------------------------------------------------------------- */
-  function animateHeroOnLoad() {
-    const heroElements = document.querySelectorAll('.hero-reveal-left, .hero-reveal-right');
-    
-    if (!heroElements.length) return;
-
-    // Utiliza requestAnimationFrame para aplicar a animação em sincronia 
-    // perfeita com o motor de renderização do navegador no mobile/desktop.
-    requestAnimationFrame(() => {
-      heroElements.forEach(el => el.classList.add('is-visible'));
-    });
-  }
-
-  // Executa a animação assim que a estrutura do DOM estiver pronta
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', animateHeroOnLoad);
-  } else {
-    animateHeroOnLoad();
   }
 
   /* -------------------------------------------------------------------------- */
