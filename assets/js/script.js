@@ -250,12 +250,12 @@
       });
     });
 
-    /* -------------------------------------------------------------------------- */
+  /* -------------------------------------------------------------------------- */
   /* SCROLL REVEAL COM COMPATIBILIDADE MOBILE & FALLBACK                        */
   /* -------------------------------------------------------------------------- */
   
-  /**
-   * Configura o efeito de revelação (fade-in/fade-up) de elementos conforme o usuário rola a página.
+  /*
+    Configura o efeito de revelação (fade-in/fade-up) de elementos conforme o usuário rola a página.
    */
   function setupScrollReveal() {
     // Seleciona todos os elementos que devem ser revelados na rolagem
@@ -310,6 +310,28 @@
     document.addEventListener('DOMContentLoaded', setupScrollReveal);
   } else {
     setupScrollReveal();
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /* ANIMAÇÃO DE CARREGAMENTO INICIAL DA HERO (LOAD REVEAL)                      */
+  /* -------------------------------------------------------------------------- */
+  function animateHeroOnLoad() {
+    const heroElements = document.querySelectorAll('.hero-reveal-left, .hero-reveal-right');
+    
+    if (!heroElements.length) return;
+
+    // Utiliza requestAnimationFrame para aplicar a animação em sincronia 
+    // perfeita com o motor de renderização do navegador no mobile/desktop.
+    requestAnimationFrame(() => {
+      heroElements.forEach(el => el.classList.add('is-visible'));
+    });
+  }
+
+  // Executa a animação assim que a estrutura do DOM estiver pronta
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', animateHeroOnLoad);
+  } else {
+    animateHeroOnLoad();
   }
 
   /* -------------------------------------------------------------------------- */
