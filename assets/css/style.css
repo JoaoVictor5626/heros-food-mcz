@@ -958,10 +958,8 @@ body.menu-open .menu-overlay {
 }
 
 .testemunhos-carousel .carousel-track {
-  height: 100%;
-  /* Força a pista a respeitar a altura do viewport */
-  align-items: stretch;
-  /* Estica todos os slides para terem o mesmo tamanho */
+  height: 100%; /* Força a pista a respeitar a altura do viewport */
+  align-items: stretch; /* Estica todos os slides para terem o mesmo tamanho */
 }
 
 .testemunhos-carousel .carousel-slide {
@@ -1936,8 +1934,9 @@ blockquote {
   gap: 1rem;
   width: max-content;
   will-change: transform;
-  /* Animação ligeiramente mais lenta no mobile (40s) para não gerar desconforto visual */
-  animation: scrollInfinito 40s linear infinite;
+  
+  /* RITMO EQUILIBRADO PARA MOBILE */
+  animation: scrollInfinito 50s linear infinite; 
 }
 
 /* Pausa o movimento ao passar o mouse ou tocar (ajuda no mobile) */
@@ -1985,8 +1984,9 @@ blockquote {
     overflow: hidden;
   }
 
+  /* AJUSTADO: Tempo calibrado para 55s para telas médias */
   .testimonial-track {
-    animation-duration: 35s;
+    animation-duration: 55s;
   }
 
   .testimonial-card {
@@ -2002,6 +2002,11 @@ blockquote {
     /* Trava o layout para não gerar barra de rolagem horizontal */
   }
 
+  /* AJUSTADO: Tempo calibrado para 65s para notebooks */
+  .testimonial-track {
+    animation-duration: 65s;
+  }
+
   .testimonial-card {
     flex: 0 0 340px;
   }
@@ -2014,12 +2019,17 @@ blockquote {
     overflow: visible;
   }
 
+  /* AJUSTADO: Tempo calibrado para 75s para telas muito amplas */
+  .testimonial-track {
+    animation-duration: 75s;
+  }
+
   .testimonial-card {
     flex: 0 0 360px;
   }
 }
 
-/* Estilos internos dos textos, cabeçalhos e avatares (Mantidos idênticos aos seus originais) */
+/* Estilos internos dos textos, cabeçalhos e avatares */
 .testimonial-card small {
   font-size: 14px;
   color: #7a7070;
