@@ -155,6 +155,21 @@ input {
   text-transform: uppercase;
 }
 
+.interaction-hint {  
+  display: flex;               
+  justify-content: center;     
+  align-items: center;         
+  text-align: center;          
+  
+  margin: 0 auto 2rem;         /* Código limpo e unificado */
+  color: var(--yellow); 
+  font-size: 0.9rem;           /* Aumentado levemente para compensar o peso 800 */
+  font-weight: 800;            /* Mantido o peso marcante que você escolheu */
+  letter-spacing: .15em;       /* Um pouquinho mais de espaço entre letras para respirar no uppercase */
+  text-transform: uppercase; 
+}
+
+
 h1,
 h2,
 h3,
