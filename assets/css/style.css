@@ -1817,7 +1817,7 @@ blockquote {
    SEÇÃO DE CAMPANHA (CAMPAIGN)
    ============================ */
 .campaign {
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/assets/images/02_Brand_and_Venue/fundo-do-doa-faz-parte-redimensionado.webp') center / cover no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/assets/images/02-brand-and-venue/fundo-do-doa-faz-parte-redimensionado.webp') center / cover no-repeat;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -1826,7 +1826,7 @@ blockquote {
 /* Ajuste para Celular (Telas até 768px) */
 @media (max-width: 768px) {
   .campaign {
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/assets/images/02_Brand_and_Venue/fundo-do-doa-faz-parte-para-celular.webp') center center / cover no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/assets/images/02-brand-and-venue/fundo-do-doa-faz-parte-para-celular.webp') center center / cover no-repeat;
     padding: 40px 20px;
   }
 }
