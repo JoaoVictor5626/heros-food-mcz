@@ -1447,14 +1447,14 @@ body.menu-open .menu-overlay {
 /* 📱 1. CONFIGURAÇÃO EXCLUSIVA PARA CELULARES (Telas bem pequenas até 480px) */
 @media (max-width: 480px) {
   .story {
-    background: radial-gradient(circle at 30% 20%, rgba(188, 28, 28, 0.300) 0, rgba(255, 244, 210, 0) 41%), #fff;
+    background: radial-gradient(circle at 30% 20%, rgba(188, 28, 28, 0.300) 0, rgba(255, 244, 210, 0) 21%), #fff;
   }
 }
 
 /* 慶 2. CONFIGURAÇÃO EXCLUSIVA PARA TABLETS (Telas entre 481px e 768px, como iPads) */
 @media (min-width: 481px) and (max-width: 768px) {
   .story {
-    background: radial-gradient(circle at 30% 40%, rgba(188, 28, 28, 0.300) 0, rgba(255, 244, 210, 0) 41%), #fff;
+    background: radial-gradient(circle at 30% 40%, rgba(188, 28, 28, 0.300) 0, rgba(255, 244, 210, 0) 31%), #fff;
   }
 }
 
