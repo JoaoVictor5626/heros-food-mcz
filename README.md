@@ -29,32 +29,33 @@ O projeto utiliza tecnologias nativas da web, sem necessidade de instalação de
 ## 📁 Estrutura do Projeto
 
 ```text
-heros-food-mcz/
+herosfoodmcz/
 ├── assets/
 │   ├── css/
 │   │   └── style.css
 │   ├── images/
-│   │   ├── 01_Food_and_Drinks/
-│   │   │   ├── 01_Combos_mais_pedidos!/
+│   │   ├── 01-food-and-drinks/
+│   │   │   ├── 01-combos/
 │   │   │   │   └── ...
-│   │   │   ├── 02_Sobremesas/
+│   │   │   ├── 02-sanduiches/
 │   │   │   │   └── ...
-│   │   │   ├── 03_Sanduíches_tradicionais/
+│   │   │   ├── 03-wraps/
 │   │   │   │   └── ...
-│   │   │   ├── 04_Sanduíche_Wrap_especial_(massa_tortilha)/
+│   │   │   ├── 04-frappuccinos/
 │   │   │   │   └── ...
-│   │   │   ├── 05_Shake_Frapuccinos/
+│   │   │   ├── 05-sobremesas/
 │   │   │   │   └── ...
-│   │   │   ├── 06_Bebidas_Soda_Italianas/
+│   │   │   ├── 06-sodas-italianas/
 │   │   │   │   └── ...
-│   │   │   └── 07_Outros/
+│   │   │   └── 07-outros/
 │   │   │       └── ...
-│   │   ├── 02_Brand_and_Venue/
+│   │   ├── 02-brand-and-venue/
 │   │   │   └── ...
-│   │   └── 03_Events/
+│   │   └── 03-events/
 │   │       └── ...
 │   └── js/
 │       └── script.js
+├── .gitignore
 ├── index.html
 └── README.md
 ```
