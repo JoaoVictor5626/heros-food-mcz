@@ -1715,7 +1715,7 @@ blockquote {
   padding: 1.5rem;
   border-radius: 30px;
   color: #fff;
-  background: var(--red-800);
+  background: linear-gradient(to right, rgba(80, 0, 0, 0.9) 0%, var(--red-800) 30%, var(--red-800) 70%, rgba(80, 0, 0, 0.9) 100%);
   width: min(100% - 2rem, 600px);
   border-left: 4px solid var(--yellow);
   box-shadow: 5px 5px 25px 5px rgba(105, 0, 0, .30);
