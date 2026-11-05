@@ -74,7 +74,7 @@ Não é necessário instalar dependências ou iniciar um servidor para visualiza
 ### Opção 1 — Abrir diretamente no navegador
 
 1. Clone o repositório ou baixe os arquivos do projeto.
-2. Abra a pasta `heros-food-mcz`.
+2. Abra a pasta `herosfoodmcz`.
 3. Abra o arquivo `index.html` em seu navegador.
 
 ### Opção 2 — Utilizar o Visual Studio Code
