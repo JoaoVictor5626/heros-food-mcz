@@ -1,5 +1,7 @@
 # 🍔 Landing Page — Heros Food Mcz
 
+> 🌐 **Acesse o site online:** [herosfoodmcz.vercel.app](https://herosfoodmcz.vercel.app/)
+
 Landing page responsiva desenvolvida para a **Heros Food Mcz**, uma lanchonete localizada em Maceió, Alagoas. O projeto faz parte do **Impulso Web**, iniciativa de extensão universitária do curso de Sistemas de Informação do Centro Universitário CESMAC, voltada à criação de landing pages para ampliar a visibilidade digital de pequenos negócios.
 
 ## 🎯 Objetivo do Projeto
@@ -12,19 +14,22 @@ Desenvolver uma página web para apresentar a identidade visual, os produtos e o
 - **Apresentação do negócio:** seção inicial com identidade visual e destaques da lanchonete.
 - **Destaques de produtos:** apresentação visual dos produtos oferecidos.
 - **Cardápio interativo:** organização dos produtos com filtros por categoria.
-- **Carrosséis de imagens:** navegação entre imagens dos produtos e do negócio.
+- **Carrosséis interativos:** navegação dinâmica entre imagens de produtos e conteúdos em destaque.
 - **Menu responsivo:** navegação adaptada para dispositivos móveis.
-- **Integração com WhatsApp:** botões de contato e direcionamento para pedidos.
-- **Navegação por seções:** acesso às principais áreas da página.
+- **Integração com WhatsApp:** botões de contato e direcionamento direto para pedidos.
 - **Ano automático no rodapé:** atualização dinâmica do ano por meio de JavaScript.
+
+## 🎨 Identidade Visual
+
+A interface foi desenvolvida considerando a identidade visual da Heros Food Mcz, utilizando elementos gráficos, cores e recursos visuais alinhados à comunicação da marca.
 
 ## 🛠️ Tecnologias Utilizadas
 
-- **HTML5:** estrutura e organização do conteúdo.
-- **CSS3:** estilização, identidade visual e responsividade.
-- **JavaScript (Vanilla):** funcionalidades interativas, sem utilização de frameworks JavaScript.
+- **HTML5:** estruturação semântica e organização do conteúdo.
+- **CSS3:** estilização, animações e desenvolvimento de layout responsivo.
+- **JavaScript (Vanilla):** implementação de funcionalidades interativas e manipulação dinâmica dos elementos da página.
 
-O projeto utiliza tecnologias nativas da web, sem necessidade de instalação de dependências ou ferramentas de build.
+O projeto utiliza tecnologias nativas, sem frameworks ou dependências externas, priorizando simplicidade, desempenho e facilidade de manutenção.
 
 ## 📁 Estrutura do Projeto
 
@@ -60,46 +65,40 @@ herosfoodmcz/
 └── README.md
 ```
 
-### Principais arquivos e diretórios
+## 🚀 Como Acessar e Executar
 
-- `index.html`: estrutura e conteúdo da landing page.
-- `assets/css/style.css`: estilização, identidade visual e responsividade.
-- `assets/js/script.js`: funcionalidades interativas da página.
-- `assets/images/`: imagens dos produtos, materiais da marca, registros de eventos e demais recursos visuais, organizados em subpastas por categoria.
+### 🌐 Produção (Online)
 
-## 🚀 Como Executar o Projeto
+Acesse a versão publicada do projeto:
 
-Não é necessário instalar dependências ou iniciar um servidor para visualizar a página.
+**[https://herosfoodmcz.vercel.app/](https://herosfoodmcz.vercel.app/)**
 
-### Opção 1 — Abrir diretamente no navegador
+### 💻 Desenvolvimento Local
 
-1. Clone o repositório ou baixe os arquivos do projeto.
-2. Abra a pasta `herosfoodmcz`.
-3. Abra o arquivo `index.html` em seu navegador.
+1. Clone o repositório:
 
-### Opção 2 — Utilizar o Visual Studio Code
+   ```bash
+   git clone https://github.com/seu-usuario/herosfoodmcz.git
+   ```
 
-1. Abra a pasta do projeto no Visual Studio Code.
-2. Instale a extensão **Live Server**, caso ainda não esteja instalada.
-3. Clique com o botão direito no arquivo `index.html`.
-4. Selecione **Open with Live Server** para visualizar a página com atualização automática durante o desenvolvimento.
+2. Abra a pasta do projeto no seu editor de código (ex.: VS Code).
+
+3. Abra o arquivo `index.html` diretamente no navegador ou inicie um servidor local utilizando a extensão **Live Server** do VS Code para visualizar a aplicação durante o desenvolvimento.
 
 ## 📌 Decisões do Projeto
 
-- **Preços não exibidos:** conforme a preferência do cliente, os valores dos produtos não são apresentados na landing page, evitando informações desatualizadas e incentivando o contato direto.
-- **Pedidos pelo WhatsApp:** a página direciona os interessados ao canal de contato do negócio, mas não possui sistema próprio de pedidos ou pagamentos.
-- **Tecnologias nativas:** o desenvolvimento utiliza HTML5, CSS3 e JavaScript puro, sem frameworks ou dependências externas de execução.
+- **Preços não exibidos:** conforme a preferência do cliente, os valores dos produtos não são apresentados na landing page para evitar informações desatualizadas e incentivar o contato direto.
+- **Pedidos pelo WhatsApp:** direcionamento direto para o canal comercial da lanchonete, sem necessidade de um sistema próprio de checkout.
+- **Tecnologias nativas:** desenvolvimento utilizando apenas HTML5, CSS3 e JavaScript Vanilla, priorizando simplicidade, desempenho e facilidade de manutenção.
 
-## 👥 Integrantes
+## 👥 Equipe e Contexto Acadêmico
 
-Projeto desenvolvido em equipe no âmbito das Práticas Extensionistas Curriculares IV, do curso de Sistemas de Informação do Centro Universitário CESMAC.
+Projeto desenvolvido no âmbito das **Práticas Extensionistas Curriculares IV** do curso de Sistemas de Informação do Centro Universitário **CESMAC**.
+
+**Integrantes:**
 
 - João Guilherme Siqueira da Silva Cavalcante
 - João Victor Araújo Coêlho
 - Rogério Carvalho dos Santos
 - Vinícius Brandão Lisboa
 - Ytalo Izidoro Correia
-
-## 🎓 Contexto Acadêmico
-
-Projeto desenvolvido como parte das Práticas Extensionistas Curriculares IV do curso de Sistemas de Informação do Centro Universitário CESMAC, com foco na aplicação prática de tecnologias web para atender às necessidades de um pequeno negócio local.
