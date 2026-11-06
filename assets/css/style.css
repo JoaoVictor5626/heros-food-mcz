@@ -1262,150 +1262,129 @@ body.menu-open .menu-overlay {
 }
 
 /* ============================================
-   MODAL LIGHTBOX (EXIBIÇÃO DE IMAGEM AMPLIADA)
+   MODAL LIGHTBOX (RODAPÉ EXTERNO E MODERNO)
    ============================================ */
+
 .lightbox-modal {
   display: none;
-  /* Mantido para acessibilidade, controlado via JS */
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(23, 19, 19, 0.85);
+  background-color: rgba(23, 19, 19, 0.88);
   z-index: 2000;
   align-items: center;
   justify-content: center;
   backdrop-filter: blur(12px);
 
-  /* Estado inicial escondido para o efeito */
   opacity: 0;
   transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Quando ativo, exibe a opacidade total */
 .lightbox-modal.is-visible {
   opacity: 1;
 }
 
-/* Wrapper do Card - Adiciona um efeito sutil de escala junto com o surgimento */
 .lightbox-content-wrapper {
   width: 92%;
   max-width: 540px;
-
-  /* Começa ligeiramente menor */
   transform: scale(0);
   transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Quando o modal surge, o card ganha o tamanho real de forma fluida */
 .lightbox-modal.is-visible .lightbox-content-wrapper {
   transform: scale(1);
 }
 
-/* Registra a variável de ângulo para permitir animações fluidas de gradiente */
 @property --angulo {
   syntax: '<angle>';
   initial-value: 0deg;
   inherits: false;
 }
 
-/* Card Minimalista - Com a linha curta amarela correndo infinitamente */
+/* Card Principal */
 .lightbox-card {
   position: relative;
   border-radius: var(--radius-md);
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5),
-    0 0 30px rgba(255, 230, 0, 0.1);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6),
+              0 0 25px rgba(255, 217, 0, 0.12);
   z-index: 1;
 
-  /* Aplica a espessura da linha (3px) através de uma borda transparente */
   border: 3px solid transparent;
 
-  /* Background duplo: o primeiro cria a máscara escura interna, o segundo cria o feixe cônico animado */
   background-image:
     linear-gradient(rgba(23, 19, 19, 0.98), rgba(23, 19, 19, 0.98)),
     conic-gradient(from var(--angulo),
-      /* Primeiro Feixe (Médio) */
       transparent 0deg,
       var(--yellow) 10deg,
-      /* Início do feixe forte */
       var(--yellow) 25deg,
-      /* Fim do feixe forte (15º de largura) */
       transparent 35deg,
-      /* Suavização da ponta */
-
-      /* Espaço vazio até o lado oposto (10deg + 180deg = 190deg) */
       transparent 190deg,
-
-      /* Segundo Feixe (Médio e Oposto) */
       var(--yellow) 200deg,
-      /* Início do feixe forte oposto */
       var(--yellow) 215deg,
-      /* Fim do feixe forte oposto (15º de largura) */
       transparent 225deg
-      /* Suavização da ponta */
     );
 
   background-origin: border-box;
   background-clip: padding-box, border-box;
-
   animation: girarLinhaBorda 7s linear infinite;
 }
 
-/* Exibição limpa da imagem */
+/* Imagem limpa dentro do card */
 .lightbox-img {
   width: 100%;
   height: auto;
-  max-height: 75vh;
-  /* Aumentado de 55vh para 75vh para dar mais ganho vertical */
+  max-height: 70vh;
   object-fit: cover;
   display: block;
 }
 
-/* Rodapé fluido - Estilo Glassmorphism Moderno com gradiente da esquerda para a direita */
+/* Rodapé Externo Moderno (Abaixo da Imagem) */
 .lightbox-footer {
-  padding: 1rem 1.5rem;
-
-  /* Transição nítida: Vermelho Escuro/Vinho na esquerda -> Vermelho Vivo na direita */
-  background: linear-gradient(to right, rgba(80, 0, 0, 0.9) 0%, rgba(185, 0, 0, 0.75) 30%, rgba(185, 0, 0, 0.75) 70%, rgba(80, 0, 0, 0.9) 100%);
-  text-align: center;
-  backdrop-filter: blur(8px);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.1rem 1.5rem;
+  
+  background: radial-gradient(
+    ellipse at center, 
+    rgba(145, 0, 0, 0.95) 0%, 
+    rgba(72, 5, 5, 0.98) 100%
+  );
+  
+  border-top: 1px solid rgba(255, 217, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Tipografia Minimalista e Premium */
+/* Título com indicador visual dourado na esquerda */
 .lightbox-title {
   color: #ffffff;
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 1.15rem;
   font-family: var(--font-body);
-  font-weight: 500;
-  letter-spacing: 0.02em;
+  font-weight: 700;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
-  /* Caixa alta para dar presença de forma minimalista */
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
 }
 
-/* Ajustes Mobile Responsivos e Proporcionais */
-@media (max-width: 576px) {
-  .lightbox-content-wrapper {
-    width: 88%;
-  }
-
-  .lightbox-close {
-    top: 16px;
-    right: 16px;
-    font-size: 2.2rem;
-  }
-
-  .lightbox-title {
-    font-size: 1.05rem;
-    letter-spacing: 0.01em;
-  }
+/* Marcador dourado moderno que antecede o título */
+.lightbox-title::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 1.15rem;
+  background-color: var(--gold, #ffd900);
+  border-radius: 2px;
+  flex-shrink: 0;
 }
 
-/* Botão Fechar Minimalista Flutuante */
+/* Botão Fechar Flutuante */
 .lightbox-close {
   position: absolute;
   top: 24px;
@@ -1424,9 +1403,7 @@ body.menu-open .menu-overlay {
   border-radius: var(--radius-pill);
   user-select: none;
   z-index: 2010;
-  /* Garante que fique clicável acima de tudo */
 
-  /* O SEGREDO DA SUAVEZA: Transição explícita com ease-in-out */
   transition:
     color 0.3s ease-in-out,
     background-color 0.3s ease-in-out,
@@ -1443,18 +1420,16 @@ body.menu-open .menu-overlay {
   transform: scale(0.95);
 }
 
-/* Animação que faz o ângulo atualizar progressivamente gerando a rotação */
 @keyframes girarLinhaBorda {
   0% {
     --angulo: 0deg;
   }
-
   100% {
     --angulo: 360deg;
   }
 }
 
-/* Ajustes Mobile Responsivos e Proporcionais */
+/* Ajustes Mobile Responsivos */
 @media (max-width: 576px) {
   .lightbox-content-wrapper {
     width: 88%;
@@ -1463,12 +1438,20 @@ body.menu-open .menu-overlay {
   .lightbox-close {
     top: 16px;
     right: 16px;
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+  }
+
+  .lightbox-footer {
+    padding: 0.9rem 1.1rem;
   }
 
   .lightbox-title {
-    font-size: 1.15rem;
-    /* Ajustado proporcionalmente para celulares */
+    font-size: 0.98rem;
+    letter-spacing: 0.02em;
+  }
+
+  .lightbox-title::before {
+    height: 0.98rem;
   }
 }
 
