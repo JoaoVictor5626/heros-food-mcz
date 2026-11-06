@@ -155,32 +155,33 @@ input {
   text-transform: uppercase;
 }
 
-.interaction-hint { 
-  display: flex;        
-  justify-content: center;     
-  align-items: center;        
+.interaction-hint {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 0.55rem;
-  
+
   /* Centralização e controle de largura */
   width: fit-content;
-  max-width: 90%; /* Evita colar nas bordas do celular caso a tela seja muito pequena */
+  max-width: 90%;
+  /* Evita colar nas bordas do celular caso a tela seja muito pequena */
   margin: 0 auto 2rem;
-  
+
   /* Preenchimento interno */
   padding: 0.45rem 1.1rem;
   border-radius: 50px;
-  
+
   /* Fundo e borda sutis em tom dourado */
   background: var(--red-800);
   /* background: rgba(255, 217, 0, 0.08); */
   border: 1px solid rgba(255, 217, 0, 0.35);
-  
-  color: var(--gold, #ffd900); 
-  font-size: 0.8rem;          
-  font-weight: 800;            
-  letter-spacing: .12em;       
-  text-transform: uppercase; 
-  
+
+  color: var(--gold, #ffd900);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+
   /* Comportamento visual estático (não botão) */
   cursor: default;
   user-select: none;
@@ -198,11 +199,15 @@ input {
 /* 📱 AJUSTE EXCLUSIVO PARA MOBILE (Previne quebra de linha da frase) */
 @media (max-width: 480px) {
   .interaction-hint {
-    font-size: 0.7rem;          /* Fonte um pouco menor para caber na linha */
-    letter-spacing: 0.06em;     /* Espaçamento entre letras reduzido */
-    padding: 0.4rem 0.85rem;    /* Padding mais compacto no celular */
+    font-size: 0.7rem;
+    /* Fonte um pouco menor para caber na linha */
+    letter-spacing: 0.06em;
+    /* Espaçamento entre letras reduzido */
+    padding: 0.4rem 0.85rem;
+    /* Padding mais compacto no celular */
     gap: 0.4rem;
-    white-space: nowrap;        /* Força a frase a permanecer sempre em 1 linha */
+    white-space: nowrap;
+    /* Força a frase a permanecer sempre em 1 linha */
   }
 }
 
@@ -456,24 +461,24 @@ p {
 #frase-logo {
   font-family: 'Palatino Linotype', 'Palatino', 'URW Palladio L', serif;
   font-style: italic;
-  font-size: 0.875rem; /* Mantendo rem para acessibilidade */
+  font-size: 0.875rem;
+  /* Mantendo rem para acessibilidade */
   font-weight: 400;
   display: inline-block;
-  
+
   /* Gradiente exato com as suas duas cores originais */
-  background: linear-gradient(
-    to right, 
-    var(--yellow, #ffd900) 50%, 
-    var(--text-highlight, #fff2c2) 50%
-  );
+  background: linear-gradient(to right,
+      var(--yellow, #ffd900) 50%,
+      var(--text-highlight, #fff2c2) 50%);
   background-size: 200% 100%;
-  background-position: 100% 0; /* Exibe 100% da cor original creme (#fff2c2) */
-  
+  background-position: 100% 0;
+  /* Exibe 100% da cor original creme (#fff2c2) */
+
   /* Máscaras para aplicar o gradiente apenas no corpo do texto */
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  
+
   /* Tempo de transição reduzido para 0.25s para um efeito rápido e responsivo */
   transition: background-position 0.25s cubic-bezier(0.25, 1, 0.5, 1), transform 0.2s ease;
 }
@@ -481,8 +486,10 @@ p {
 /* Ativação rápida do preenchimento da esquerda para a direita */
 #frase-logo:hover,
 #frase-logo:focus-visible {
-  background-position: 0 0; /* Puxa o amarelo preenchendo o texto */
-  transform: translateY(-1px); /* Micro-interação de levitação herdada do primeiro processo */
+  background-position: 0 0;
+  /* Puxa o amarelo preenchendo o texto */
+  transform: translateY(-1px);
+  /* Micro-interação de levitação herdada do primeiro processo */
 }
 
 
@@ -522,7 +529,8 @@ p {
 
 .main-nav a {
   font-family: ui-rounded, 'Arial Rounded MT Bold', 'Segoe UI', sans-serif;
-  min-height: 3.5rem; /* Aumentado ligeiramente para atingir a área de clique ideal */
+  min-height: 3.5rem;
+  /* Aumentado ligeiramente para atingir a área de clique ideal */
   display: flex;
   align-items: center;
   padding: .5rem 1.2rem;
@@ -530,7 +538,8 @@ p {
   color: #ffffff;
   font-weight: 700;
   text-decoration: none;
-  position: relative; /* Necessário para posicionar a linha abaixo */
+  position: relative;
+  /* Necessário para posicionar a linha abaixo */
   transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -543,14 +552,16 @@ p {
   width: calc(100% - 2.4rem);
   height: 2px;
   background-color: var(--yellow, #ffd900);
-  transform: scaleX(0); /* Começa invisível (tamanho zero) */
+  transform: scaleX(0);
+  /* Começa invisível (tamanho zero) */
   transform-origin: left;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .main-nav a:hover::after,
 .main-nav a:focus-visible::after {
-  transform: scaleX(1); /* Expande usando transform, que roda direto na GPU! */
+  transform: scaleX(1);
+  /* Expande usando transform, que roda direto na GPU! */
 }
 
 .main-nav a:hover,
@@ -631,29 +642,36 @@ body.menu-open .menu-toggle span:nth-child(4) {
   #frase-logo {
     display: none;
   }
+
   /* --- DETECTA OS LINKS DO MENU MOBILE E REMOVE A LINHA INFERIOR --- */
   .main-nav a::after {
-    display: none !important; /* Esconde a linha dourada por completo */
+    display: none !important;
+    /* Esconde a linha dourada por completo */
   }
-  
+
   /* --- AJUSTE CIRÚRGICO DE TOUCH TARGET E CONTRASTE MOBILE --- */
   .main-nav a {
-    min-height: 3.8rem !important; /* Aumentado para 60px para dar folga total de clique */
+    min-height: 3.8rem !important;
+    /* Aumentado para 60px para dar folga total de clique */
     padding: 0.8rem 1.5rem !important;
     display: flex !important;
     align-items: center;
     justify-content: center;
-    color: #ffffff !important; /* Forçado branco puro para destruir o erro de contraste */
-    margin-bottom: 0.5rem; /* Cria um vão de segurança entre os links */
-    transition: color 0.3s ease, background-color 0.3s ease !important; /* Removido transform das transições no mobile */
+    color: #ffffff !important;
+    /* Forçado branco puro para destruir o erro de contraste */
+    margin-bottom: 0.5rem;
+    /* Cria um vão de segurança entre os links */
+    transition: color 0.3s ease, background-color 0.3s ease !important;
+    /* Removido transform das transições no mobile */
   }
 
   /* Hover mobile focado estritamente em cor, eliminando animações não compostas de movimento por toque */
   .main-nav a:hover,
   .main-nav a:focus-visible {
-    color: var(--yellow, #ffd900) !important; 
-    transform: none !important; /* Sem mover o link no celular para não bugar o touch target */
-    box-shadow: none !important; 
+    color: var(--yellow, #ffd900) !important;
+    transform: none !important;
+    /* Sem mover o link no celular para não bugar o touch target */
+    box-shadow: none !important;
   }
 
   /* Esconde o botão do cabeçalho externo para não espremer o topo */
@@ -666,8 +684,10 @@ body.menu-open .menu-toggle span:nth-child(4) {
     inset: 4.7rem 0 auto;
     flex-direction: column;
     gap: .5rem;
-    padding: 1.5rem 1rem; /* Mais respiro interno */
-    background: #500000; /* Vermelho escuro sólido para contraste perfeito com texto branco */
+    padding: 1.5rem 1rem;
+    /* Mais respiro interno */
+    background: #500000;
+    /* Vermelho escuro sólido para contraste perfeito com texto branco */
     box-shadow: var(--shadow-lg);
     border-radius: 0px 0px 20px 20px;
 
@@ -698,7 +718,7 @@ body.menu-open .menu-toggle span:nth-child(4) {
     display: inline-flex !important;
     align-items: center;
     justify-content: center;
-    padding: 1.3rem 1rem !important; 
+    padding: 1.3rem 1rem !important;
     font-weight: 700;
     font-size: 20px;
     text-decoration: none;
@@ -712,7 +732,7 @@ body.menu-open .menu-toggle span:nth-child(4) {
 
   /* --- O DIVISOR INDEPENDENTE CENTRALIZADO --- */
   .main-nav a.mobile-cta::before {
-    content: ""; 
+    content: "";
     position: absolute;
     top: -1.5rem;
     left: 0;
@@ -724,7 +744,7 @@ body.menu-open .menu-toggle span:nth-child(4) {
   /* Hover do botão mobile-cta focando em mudança de cor fluida */
   .main-nav a.mobile-cta:hover,
   .main-nav a.mobile-cta:focus-visible {
-    color: #500000 !important; 
+    color: #500000 !important;
     background: var(--yellow) !important;
     border-color: var(--yellow) !important;
     transform: none !important;
@@ -737,7 +757,8 @@ body.menu-open .menu-toggle span:nth-child(4) {
     visibility: visible;
     width: 100%;
     height: 64px;
-    margin-bottom: 0.6rem; /* Vão maior de segurança */
+    margin-bottom: 0.6rem;
+    /* Vão maior de segurança */
     display: grid;
     place-content: center;
     border: 1px solid rgba(255, 255, 255, .3);
@@ -795,7 +816,7 @@ body.menu-open .menu-overlay {
 }
 
 .hero-copy>p:not(.eyebrow) {
-  color: var(--muted); 
+  color: var(--muted);
   font-size: 1.08rem;
 }
 
@@ -883,11 +904,11 @@ body.menu-open .menu-overlay {
   width: 100%;
   height: 4px;
   background: var(--gold, #ffd900);
-  
+
   /* Rotação e escala inicial zerada */
-  transform: rotate(-2deg) scaleX(0); 
+  transform: rotate(-2deg) scaleX(0);
   transform-origin: left center;
-  
+
   /* Mantém o estado inicial (scaleX(0)) até que a animação comece */
   animation-fill-mode: forwards;
 }
@@ -905,6 +926,7 @@ body.menu-open .menu-overlay {
   from {
     transform: rotate(-2deg) scaleX(0);
   }
+
   to {
     transform: rotate(-2deg) scaleX(1);
   }
@@ -1010,8 +1032,10 @@ body.menu-open .menu-overlay {
 }
 
 .testemunhos-carousel .carousel-track {
-  height: 100%; /* Força a pista a respeitar a altura do viewport */
-  align-items: stretch; /* Estica todos os slides para terem o mesmo tamanho */
+  height: 100%;
+  /* Força a pista a respeitar a altura do viewport */
+  align-items: stretch;
+  /* Estica todos os slides para terem o mesmo tamanho */
 }
 
 .testemunhos-carousel .carousel-slide {
@@ -1309,7 +1333,7 @@ body.menu-open .menu-overlay {
   border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6),
-              0 0 25px rgba(255, 217, 0, 0.12);
+    0 0 25px rgba(255, 217, 0, 0.12);
   z-index: 1;
 
   border: 3px solid transparent;
@@ -1324,8 +1348,7 @@ body.menu-open .menu-overlay {
       transparent 190deg,
       var(--yellow) 200deg,
       var(--yellow) 215deg,
-      transparent 225deg
-    );
+      transparent 225deg);
 
   background-origin: border-box;
   background-clip: padding-box, border-box;
@@ -1344,13 +1367,11 @@ body.menu-open .menu-overlay {
 /* Rodapé Externo Moderno (Abaixo da Imagem) */
 .lightbox-footer {
   padding: 1.1rem 1.5rem;
-  
-  background: radial-gradient(
-    ellipse at center, 
-    rgba(145, 0, 0, 0.95) 0%, 
-    rgba(72, 5, 5, 0.98) 100%
-  );
-  
+
+  background: radial-gradient(ellipse at center,
+      rgba(145, 0, 0, 0.95) 0%,
+      rgba(72, 5, 5, 0.98) 100%);
+
   border-top: 1px solid rgba(255, 217, 0, 0.25);
   display: flex;
   align-items: center;
@@ -1367,7 +1388,7 @@ body.menu-open .menu-overlay {
   letter-spacing: 0.03em;
   text-transform: uppercase;
   text-align: center;
-  
+
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
@@ -1424,6 +1445,7 @@ body.menu-open .menu-overlay {
   0% {
     --angulo: 0deg;
   }
+
   100% {
     --angulo: 360deg;
   }
@@ -1503,6 +1525,7 @@ body.menu-open .menu-overlay {
 
 /* VERSÃO OTIMIZADA: Substitua sua regra antiga por esta */
 @keyframes pulsarImagem {
+
   0%,
   100% {
     transform: scale(1);
@@ -1526,15 +1549,19 @@ body.menu-open .menu-overlay {
 
   /* Animação com sombras reduzidas para telas menores */
   @keyframes pulsarImagemMobile {
-    0%,
-    100% {
+    0% {
       transform: scale(1);
-      box-shadow: 0 0 12px 0px rgba(105, 0, 0, .60);
+      opacity: 1;
     }
 
     50% {
-      transform: scale(1.02);
-      box-shadow: 0 0 20px 4px rgba(157, 58, 58, 0.75);
+      transform: scale(1.05);
+      opacity: 0.9;
+    }
+
+    100% {
+      transform: scale(1);
+      opacity: 1;
     }
   }
 }
@@ -1802,22 +1829,20 @@ blockquote {
   bottom: 0;
   left: 0;
   margin: 0;
-  
+
   /* Padding ajustado para o texto não encostar nas bordas douradas */
-  padding: 3.5rem 1.5rem 1.5rem 1.75rem; 
-  
+  padding: 3.5rem 1.5rem 1.5rem 1.75rem;
+
   border-bottom-left-radius: 2rem;
   border-bottom-right-radius: 2rem;
-  
+
   color: #ffffff;
-  
-  background: linear-gradient(
-    to top, 
-    rgba(15, 1, 1, 0.98) 0%, 
-    rgba(30, 2, 2, 0.75) 60%, 
-    transparent 100%
-  );
-  
+
+  background: linear-gradient(to top,
+      rgba(15, 1, 1, 0.98) 0%,
+      rgba(30, 2, 2, 0.75) 60%,
+      transparent 100%);
+
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -1833,17 +1858,17 @@ blockquote {
   left: 0;
   bottom: 0;
   right: 0;
-  
+
   /* Define onde a borda lateral começa no topo (alinhada com a .caption-tag) */
-  top: calc(100% - 5rem); 
-  
+  top: calc(100% - 5rem);
+
   /* Cria as bordas na esquerda e no fundo */
   border-left: 4px solid var(--gold, #ffd900);
   /* border-bottom: 4px solid var(--gold, #ffd900); */
-  
+
   /* Faz a curva acompanhar exatamente o canto inferior esquerdo do card */
   border-bottom-left-radius: 2rem;
-  
+
   /* Impede cliques e garante renderização limpa */
   pointer-events: none;
 }
@@ -2006,98 +2031,165 @@ blockquote {
 
 
 /* =============================================
-   SEÇÃO DE FEEDBACKS/DEPOIMENTOS (TESTIMONIALS)
+   SEÇÃO DE FEEDBACKS / DEPOIMENTOS (FUNDO CLARO)
    ============================================= */
 .testimonials {
-  background: #fff;
+  background: #ffffff;
+  /* Fundo totalmente branco */
+  padding: 100px 0;
+  position: relative;
 }
 
-/* Container principal (Configuração padrão para CELULARES) */
+/* Container do Slider com efeito de transição transparente nas pontas */
 .testimonial-grid.slider-container {
   display: block;
   overflow: hidden;
   width: 100%;
   position: relative;
-  padding: 24px 0;
+  padding: 20px 0 35px 0;
+
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
 }
 
-/* A esteira que segura os cards e se move infinitamente */
 .testimonial-track {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   width: max-content;
-  will-change: transform;
-  
-  /* RITMO EQUILIBRADO PARA MOBILE */
-  animation: scrollInfinito 50s linear infinite; 
+  will-change: transform; /* Informa ao navegador para criar uma camada de GPU */
+  transform: translateZ(0); /* Força aceleração via hardware */
+  animation: scrollInfinito 100s linear infinite;
 }
 
-/* Pausa o movimento ao passar o mouse ou tocar (ajuda no mobile) */
+/* Pausa o movimento ao passar o mouse ou tocar */
 .testimonial-grid.slider-container:hover .testimonial-track,
 .testimonial-grid.slider-container:active .testimonial-track {
   animation-play-state: paused;
 }
 
-/* Configuração base dos cards (Celulares Pequenos / Padrão) */
+/* Card Claro com sombra suave e borda limpa */
 .testimonial-card {
-  /* Usa viewport width (vw) combinado com um teto máximo. 
-     Isso garante que em telas de 320px o card ocupe ~240px, deixando espaço nas pontas! */
-  flex: 0 0 clamp(230px, 75vw, 280px);
+  position: relative;
+  flex: 0 0 clamp(260px, 80vw, 320px);
   box-sizing: border-box;
-  padding: 1.2rem;
-  border: 1px solid var(--border, #ccc);
-  border-radius: var(--radius-md, 30px);
-  box-shadow: var(--shadow-sm, 0 2px 4px rgba(0, 0, 0, 0.1));
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background: #fff;
+  padding: 1.8rem;
+  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid #eee;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
 }
 
-/* Efeito de destaque ao passar o mouse ou focar no card */
-.testimonial-card:hover,
-.testimonial-card:focus-within {
-  transform: translateY(-5px);
-  box-shadow: 0 3px 15px 5px rgba(255, 0, 0, 0.09);
+/* Linha sutil de destaque no topo do card ao passar o mouse */
+.testimonial-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #d32f2f, #ffb300);
+  opacity: 0;
+  transition: opacity 0.35s ease;
 }
 
-/* 1. CELULARES GRANDES / TELAS INTERMEDIÁRIAS (A partir de 480px) */
-@media (min-width: 30rem) {
-  .testimonial-track {
-    gap: 1.2rem;
-  }
-
-  .testimonial-card {
-    flex: 0 0 280px;
-    padding: 1.4rem;
-  }
+/* Efeito Hover */
+.testimonial-card:hover {
+  transform: translateY(-8px);
+  /* border-color: rgba(211, 47, 47, 0.3); */
+  box-shadow: 0 14px 30px rgba(211, 47, 47, 0.12);
 }
 
-/* 2. TABLETS E IPADS PORTRAIT (A partir de 768px) */
+.testimonial-card:hover::before {
+  opacity: 1;
+}
+
+/* Aspas decorativas em tom bem claro ao fundo */
+/* 1. Atualize a regra base da aspa para incluir transição suave de cor */
+.quote-icon {
+  position: absolute;
+  top: 10px;
+  right: 18px;
+  font-size: 4.8rem;
+  font-family: Georgia, serif;
+  color: rgba(0, 0, 0, 0.05);
+  /* Cor original discreta */
+  line-height: 1;
+  pointer-events: none;
+  transition: color 0.35s ease;
+  /* Transição suave da cor ao passar o mouse */
+}
+
+/* 2. Adicione esta nova regra para preencher o ícone ao passar o mouse */
+.testimonial-card:hover .quote-icon {
+  color: #d32f2f;
+  /* Mesma cor da borda do hover */
+  /* Caso prefira com uma leve transparência para um tom mais suave:
+     color: rgba(211, 47, 47, 0.4); 
+  */
+}
+
+/* Cabeçalho do card */
+.review-head {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 0.6rem;
+}
+
+.review-head h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #222222;
+}
+
+.stars {
+  color: #e6a100;
+  letter-spacing: 0.12em;
+  font-size: 0.95rem;
+  display: block;
+  margin-top: 2px;
+}
+
+/* Avatar Vermelho com gradiente moderno */
+.avatar {
+  width: 2.8rem;
+  height: 2.8rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #ffffff;
+  background: linear-gradient(135deg, #d32f2f, #9a0007);
+  font-weight: 800;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 10px rgba(211, 47, 47, 0.25);
+  flex-shrink: 0;
+}
+
+.testimonial-card small {
+  font-size: 0.8rem;
+  color: #757575;
+  display: block;
+  margin-bottom: 0.8rem;
+}
+
+.testimonial-card p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #757575;
+  margin: 0;
+  font-style: normal;
+}
+
+/* Breakpoints para responsividade */
 @media (min-width: 48rem) {
-  .testimonial-grid.slider-container {
-    overflow: hidden;
-  }
-
-  /* AJUSTADO: Tempo calibrado para 55s para telas médias */
   .testimonial-track {
-    animation-duration: 55s;
-  }
-
-  .testimonial-card {
-    flex: 0 0 320px;
-  }
-}
-
-/* 3. IPADS PRO, TABLETS EM PAISAGEM E SMART DISPLAYS (De 1024px até 1299px)
-   ---> ESTA REGRA SALVA O NEST HUB MAX (1280px) E NOTEBOOKS PEQUENOS <--- */
-@media (min-width: 64rem) and (max-width: 81.18rem) {
-  .testimonial-grid.slider-container {
-    overflow: hidden !important;
-    /* Trava o layout para não gerar barra de rolagem horizontal */
-  }
-
-  /* AJUSTADO: Tempo calibrado para 65s para notebooks */
-  .testimonial-track {
-    animation-duration: 65s;
+    animation-duration: 100s;
   }
 
   .testimonial-card {
@@ -2105,16 +2197,9 @@ blockquote {
   }
 }
 
-/* 4. TELAS GRANDES E MONITORES DE DESKTOP (A partir de 1300px / 81.25rem)
-   Libera a mágica do efeito infinito vazando nas bordas apenas quando há margem de sobra */
 @media (min-width: 81.25rem) {
-  .testimonial-grid.slider-container {
-    overflow: visible;
-  }
-
-  /* AJUSTADO: Tempo calibrado para 75s para telas muito amplas */
   .testimonial-track {
-    animation-duration: 75s;
+    animation-duration: 100s;
   }
 
   .testimonial-card {
@@ -2122,58 +2207,13 @@ blockquote {
   }
 }
 
-/* Estilos internos dos textos, cabeçalhos e avatares */
-.testimonial-card small {
-  font-size: 14px;
-  color: #7a7070;
-}
-
-.testimonial-card p {
-  font-size: 17px;
-}
-
-.testimonial-card>p {
-  margin: 1.2rem 0;
-  color: var(--muted);
-}
-
-.review-head {
-  display: flex;
-  align-items: center;
-  gap: .8rem;
-  margin-bottom: 5px;
-}
-
-.review-head h3 {
-  margin: 0;
-}
-
-.review-head div span {
-  color: #e6ad00;
-  letter-spacing: .12em;
-  font-size: 20px;
-}
-
-.avatar {
-  width: 3rem;
-  height: 3rem;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  color: #fff;
-  background: var(--red-800, #333);
-  font-weight: 900;
-}
-
-/* A mágica do looping matemático: move exatamente metade do container (os itens originais). 
-   O navegador detecta o reset de forma invisível dando o efeito eterno */
+/* Animação sem cortes */
 @keyframes scrollInfinito {
   0% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
-
   100% {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
@@ -2547,8 +2587,8 @@ blockquote {
   filter: blur(10px);
   transform: translateY(80px);
   transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-              filter 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    filter 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, filter, transform;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -2560,8 +2600,8 @@ blockquote {
 .reveal-left {
   opacity: 0;
   transform: translateX(-125px);
-  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
-              transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
@@ -2571,8 +2611,8 @@ blockquote {
 .reveal-right {
   opacity: 0;
   transform: translateX(125px);
-  transition: opacity 1.3s cubic-bezier(0.16, 1, 0.3, 1), 
-              transform 1.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 1.3s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1.3s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
@@ -2594,16 +2634,28 @@ blockquote {
 /* -------------------------------------------------------------------------- */
 /* DELAYS INDIVIDUAIS PARA OS TEXTOS DA HERO                                  */
 /* -------------------------------------------------------------------------- */
-h1.reveal-left { transition-delay: 0.15s; }
-p.reveal-left  { transition-delay: 0.35s; }
-.hero-actions.reveal-left { transition-delay: 0.55s; }
-.hero .reveal-right { transition-delay: 0.4s; }
+h1.reveal-left {
+  transition-delay: 0.15s;
+}
+
+p.reveal-left {
+  transition-delay: 0.35s;
+}
+
+.hero-actions.reveal-left {
+  transition-delay: 0.55s;
+}
+
+.hero .reveal-right {
+  transition-delay: 0.4s;
+}
 
 /* 📱 AJUSTES EXCLUSIVOS PARA MOBILE E TABLETS (Evita vazamento e reduz deslocamento) */
 @media (max-width: 1191px) {
   .reveal-left {
     transform: translateX(-80px);
   }
+
   .reveal-right {
     transform: translateX(80px);
   }
@@ -2611,6 +2663,7 @@ p.reveal-left  { transition-delay: 0.35s; }
 
 /* Fallback de acessibilidade (Redução de Movimento) */
 @media (prefers-reduced-motion: reduce) {
+
   .reveal-on-scroll,
   .reveal-left,
   .reveal-right {
@@ -2770,6 +2823,7 @@ section .flex *,
 }
 
 @media (forced-colors: active) {
+
   .button,
   .filter-button,
   .product-card {
@@ -2791,6 +2845,7 @@ section .flex *,
 }
 
 @media (min-width: 48rem) {
+
   /* No desktop, o mapa já fica ao lado dos cards via .contact-grid */
   .map-container {
     margin-top: 0;
