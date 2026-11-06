@@ -155,18 +155,55 @@ input {
   text-transform: uppercase;
 }
 
-.interaction-hint {  
-  display: flex;               
+.interaction-hint { 
+  display: flex;        
   justify-content: center;     
-  align-items: center;         
-  text-align: center;          
+  align-items: center;        
+  gap: 0.55rem;
   
-  margin: 0 auto 2rem;         /* Código limpo e unificado */
-  color: var(--yellow); 
-  font-size: 0.9rem;           /* Aumentado levemente para compensar o peso 800 */
-  font-weight: 800;            /* Mantido o peso marcante que você escolheu */
-  letter-spacing: .15em;       /* Um pouquinho mais de espaço entre letras para respirar no uppercase */
+  /* Centralização e controle de largura */
+  width: fit-content;
+  max-width: 90%; /* Evita colar nas bordas do celular caso a tela seja muito pequena */
+  margin: 0 auto 2rem;
+  
+  /* Preenchimento interno */
+  padding: 0.45rem 1.1rem;
+  border-radius: 50px;
+  
+  /* Fundo e borda sutis em tom dourado */
+  background: var(--red-800);
+  /* background: rgba(255, 217, 0, 0.08); */
+  border: 1px solid rgba(255, 217, 0, 0.35);
+  
+  color: var(--gold, #ffd900); 
+  font-size: 0.8rem;          
+  font-weight: 800;            
+  letter-spacing: .12em;       
   text-transform: uppercase; 
+  
+  /* Comportamento visual estático (não botão) */
+  cursor: default;
+  user-select: none;
+}
+
+/* Tamanho e alinhamento do ícone de lupa */
+.interaction-hint .hint-icon {
+  width: 0.95em;
+  height: 0.95em;
+  fill: currentColor;
+  flex-shrink: 0;
+  opacity: 0.95;
+}
+
+/* 📱 AJUSTE EXCLUSIVO PARA MOBILE (Previne quebra de linha da frase) */
+@media (max-width: 480px) {
+  .interaction-hint {
+    font-size: 0.7rem;          /* Fonte um pouco menor para caber na linha */
+    letter-spacing: 0.06em;     /* Espaçamento entre letras reduzido */
+    padding: 0.4rem 0.85rem;    /* Padding mais compacto no celular */
+    gap: 0.4rem;
+    white-space: nowrap;        /* Força a frase a permanecer sempre em 1 linha */
+  }
 }
 
 
@@ -1815,7 +1852,7 @@ blockquote {
   right: 0;
   
   /* Define onde a borda lateral começa no topo (alinhada com a .caption-tag) */
-  top: calc(100% - 5.5rem); 
+  top: calc(100% - 5rem); 
   
   /* Cria as bordas na esquerda e no fundo */
   border-left: 4px solid var(--gold, #ffd900);

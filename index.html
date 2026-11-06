@@ -235,7 +235,12 @@
           <button class="filter-button" type="button" data-filter="sodas" aria-pressed="false">Sodas Italianas</button>
           <button class="filter-button" type="button" data-filter="outros" aria-pressed="false">Outros</button>
         </div>
-        <p class="interaction-hint reveal-on-scroll">Clique na imagem para ampliar</p>
+        <p class="interaction-hint reveal-on-scroll">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true" class="hint-icon">
+            <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0s208 93.1 208 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288zM208 112c-8.8 0-16 7.2-16 16v64h-64c-8.8 0-16 7.2-16 16s7.2 16 16 16h64v64c0 8.8 7.2 16 16 16s16-7.2 16-16v-64h64c8.8 0 16-7.2 16-16s-7.2-16-16-16h-64v-64c0-8.8-7.2-16-16-16z"/>
+          </svg>
+          <span>Clique na imagem para ampliar</span>
+        </p>
         <div class="product-grid menu-grid" aria-live="polite">
           <!-- Combos -->
           <article class="product-card menu-item reveal-on-scroll" data-category="combos">
@@ -1225,7 +1230,7 @@
     </section>
     
     <section class="final-cta" aria-labelledby="pedido-title">
-      <div class="container">
+      <div class="container reveal-on-scroll">
         <!-- <p class="eyebrow">Seu próximo pedido começa aqui</p> -->
         <h2 class="reveal-on-scroll" id="pedido-title">Faça seu pedido pelo WhatsApp</h2>
         <p class="reveal-on-scroll" id="sections-subtitles">Estamos prontos para responder às suas dúvidas e ajudar você
