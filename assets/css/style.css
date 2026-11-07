@@ -1766,49 +1766,88 @@ blockquote {
   margin-bottom: 10px;
 }
 
+/* =============================================
+   CHAMADA PARA ORÇAMENTO / EVENTOS (EVENT CTA)
+   ============================================= */
 .event-cta {
   position: relative;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
   margin-top: 2rem;
-  padding: 1.5rem;
-  border-radius: 30px;
-  color: #fff;
-  background: linear-gradient(to right, rgba(80, 0, 0, 0.9) 0%, var(--red-800) 30%, var(--red-800) 70%, rgba(80, 0, 0, 0.9) 100%);
-  width: min(100% - 2rem, 600px);
-  border-left: 4px solid var(--yellow);
-  box-shadow: 5px 5px 25px 5px rgba(105, 0, 0, .30);
+  padding: 1.8rem 2rem;
+  border-radius: 24px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #a80000 0%, #610000 100%);
+  border-left: 5px solid var(--yellow, #ffc107);
+  box-shadow: 0 14px 35px rgba(105, 0, 0, 0.45);
+  width: min(100% - 2rem, 640px);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Ajuste para Celular (Telas até 768px) */
-@media (max-width: 768px) {
+/* Ícone de Destaque */
+.event-icon {
+  width: 3.2rem;
+  height: 3.2rem;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  color: #700000;
+  background: var(--yellow, #ffc107);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+}
+
+.event-icon svg {
+  fill: currentColor;
+}
+
+/* Conteúdo Textual */
+.event-cta-content h3 {
+  margin: 0 0 0.4rem 0;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.event-cta-content p {
+  margin: 0 0 1.2rem 0;
+  color: #ffe6e6;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Botão de Ação (Fundo Amarelo + Texto/Ícone Pretos) */
+.whatsapp-cta-btn svg {
+  width: 1.15em;
+  height: 1.15em;
+  fill: currentColor; /* Herda a cor preta do texto */
+}
+
+/* Adaptação Responsiva para Dispositivos Móveis */
+@media (max-width: 576px) {
   .event-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.4rem;
+    width: 100%;
+  }
+
+  .event-cta-content h3 {
+    font-size: 1.2rem;
+  }
+
+  .whatsapp-cta-btn {
     width: 100%;
   }
 }
 
-/* Configuração para Desktops (telas a partir de 990px) */
 @media (min-width: 990px) {
   .event-cta {
-    margin: 60px 0 0;
-    box-shadow: 5px 5px 25px 5px rgba(105, 0, 0, .40);
+    margin-top: 3.5rem;
   }
-}
-
-.event-cta p {
-  color: #fff0f0;
-}
-
-.event-icon {
-  width: 2.3rem;
-  height: 2.3rem;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  color: var(--red-900);
-  background: var(--yellow);
-  font-weight: 900;
 }
 
 .event-photo {
