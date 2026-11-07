@@ -78,7 +78,7 @@ Acesse a versão publicada do projeto:
 1. Clone o repositório:
 
    ```bash
-   git clone https://github.com/seu-usuario/herosfoodmcz.git
+   git clone https://github.com/JoaoVictor5626/herosfoodmcz
    ```
 
 2. Abra a pasta do projeto no seu editor de código (ex.: VS Code).
